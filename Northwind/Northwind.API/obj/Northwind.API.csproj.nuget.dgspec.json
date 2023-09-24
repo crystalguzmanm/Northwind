@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\ProyectoFinal-Grupo5\\Northwind\\Northwind.API\\Northwind.API.csproj": {}
+    "C:\\PJRFinal\\Northwind\\Northwind.API\\Northwind.API.csproj": {}
   },
   "projects": {
-    "C:\\ProyectoFinal-Grupo5\\Northwind\\Northwind.API\\Northwind.API.csproj": {
+    "C:\\PJRFinal\\Northwind\\Northwind.API\\Northwind.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\ProyectoFinal-Grupo5\\Northwind\\Northwind.API\\Northwind.API.csproj",
+        "projectUniqueName": "C:\\PJRFinal\\Northwind\\Northwind.API\\Northwind.API.csproj",
         "projectName": "Northwind.API",
-        "projectPath": "C:\\ProyectoFinal-Grupo5\\Northwind\\Northwind.API\\Northwind.API.csproj",
-        "packagesPath": "C:\\Users\\cryst\\.nuget\\packages\\",
-        "outputPath": "C:\\ProyectoFinal-Grupo5\\Northwind\\Northwind.API\\obj\\",
+        "projectPath": "C:\\PJRFinal\\Northwind\\Northwind.API\\Northwind.API.csproj",
+        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+        "outputPath": "C:\\PJRFinal\\Northwind\\Northwind.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\cryst\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -64,7 +64,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
