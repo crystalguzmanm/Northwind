@@ -6,6 +6,7 @@ namespace Northwind.Domain.Entities
 {
     public  class Suppliers : Person
     {
+       public int  SupplierID {  get; set; }    
 
     }
 }
