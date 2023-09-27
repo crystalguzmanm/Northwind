@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\costa\\OneDrive\\Desktop\\Northwind\\Northwind\\Northwind.Domain\\Northwind.Domain.csproj": {}
+    "C:\\PJRFinal\\Northwind\\Northwind.Domain\\Northwind.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\costa\\OneDrive\\Desktop\\Northwind\\Northwind\\Northwind.Domain\\Northwind.Domain.csproj": {
+    "C:\\PJRFinal\\Northwind\\Northwind.Domain\\Northwind.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\costa\\OneDrive\\Desktop\\Northwind\\Northwind\\Northwind.Domain\\Northwind.Domain.csproj",
+        "projectUniqueName": "C:\\PJRFinal\\Northwind\\Northwind.Domain\\Northwind.Domain.csproj",
         "projectName": "Northwind.Domain",
-        "projectPath": "C:\\Users\\costa\\OneDrive\\Desktop\\Northwind\\Northwind\\Northwind.Domain\\Northwind.Domain.csproj",
-        "packagesPath": "C:\\Users\\costa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\costa\\OneDrive\\Desktop\\Northwind\\Northwind\\Northwind.Domain\\obj\\",
+        "projectPath": "C:\\PJRFinal\\Northwind\\Northwind.Domain\\Northwind.Domain.csproj",
+        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+        "outputPath": "C:\\PJRFinal\\Northwind\\Northwind.Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\costa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
