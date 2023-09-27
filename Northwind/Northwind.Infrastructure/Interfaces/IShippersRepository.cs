@@ -4,9 +4,31 @@ using System.Collections.Generic;
 
 namespace Northwind.Infrastructure.Interfaces
 {
-    public interface IShippersRepository : IBaseRepository<Shippers>
+    public class IShippersRepository : IBaseRepository<Shippers>
     {
-        List<Shippers> GetShippersByShippersID(int ShippersID);
+        public void Delete(Shippers entity)
+        {
+            throw new System.NotImplementedException();
+        }
 
+        public List<Shippers> GetEntities()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Shippers GetEntity(int id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Save(Shippers entity)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Update(Shippers entity)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
