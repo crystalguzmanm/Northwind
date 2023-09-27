@@ -11,5 +11,5 @@
 
         public string? Fax { get; set; }
 
-    }
+    } 
 }
