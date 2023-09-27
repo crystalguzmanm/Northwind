@@ -437,23 +437,22 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\costa\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\cryst\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\costa\\OneDrive\\Desktop\\Northwind\\Northwind\\Northwind.API\\Northwind.API.csproj",
+      "projectUniqueName": "C:\\ProyectoFinal-Grupo5\\Northwind\\Northwind.API\\Northwind.API.csproj",
       "projectName": "Northwind.API",
-      "projectPath": "C:\\Users\\costa\\OneDrive\\Desktop\\Northwind\\Northwind\\Northwind.API\\Northwind.API.csproj",
-      "packagesPath": "C:\\Users\\costa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\costa\\OneDrive\\Desktop\\Northwind\\Northwind\\Northwind.API\\obj\\",
+      "projectPath": "C:\\ProyectoFinal-Grupo5\\Northwind\\Northwind.API\\Northwind.API.csproj",
+      "packagesPath": "C:\\Users\\cryst\\.nuget\\packages\\",
+      "outputPath": "C:\\ProyectoFinal-Grupo5\\Northwind\\Northwind.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\costa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\cryst\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
