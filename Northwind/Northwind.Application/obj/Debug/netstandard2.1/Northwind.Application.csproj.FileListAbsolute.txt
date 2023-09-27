@@ -1,0 +1,9 @@
+C:\PJRFinal\Northwind\Northwind.Application\bin\Debug\netstandard2.1\Northwind.Application.deps.json
+C:\PJRFinal\Northwind\Northwind.Application\bin\Debug\netstandard2.1\Northwind.Application.dll
+C:\PJRFinal\Northwind\Northwind.Application\bin\Debug\netstandard2.1\Northwind.Application.pdb
+C:\PJRFinal\Northwind\Northwind.Application\obj\Debug\netstandard2.1\Northwind.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\PJRFinal\Northwind\Northwind.Application\obj\Debug\netstandard2.1\Northwind.Application.AssemblyInfoInputs.cache
+C:\PJRFinal\Northwind\Northwind.Application\obj\Debug\netstandard2.1\Northwind.Application.AssemblyInfo.cs
+C:\PJRFinal\Northwind\Northwind.Application\obj\Debug\netstandard2.1\Northwind.Application.csproj.CoreCompileInputs.cache
+C:\PJRFinal\Northwind\Northwind.Application\obj\Debug\netstandard2.1\Northwind.Application.dll
+C:\PJRFinal\Northwind\Northwind.Application\obj\Debug\netstandard2.1\Northwind.Application.pdb
