@@ -5,32 +5,10 @@ using System.Collections.Generic;
 
 namespace Northwind.Infrastructure.Interfaces
 {
-    public class ISuppliersRepository : IBaseRepository<Shippers>
+    public interface ISuppliersRepository : IBaseRepository<Suppliers>
     {
-        public void Delete(Shippers entity)
-        {
-            throw new System.NotImplementedException();
-        }
+        List<Suppliers> GetSuppliersBySuppliersID(int SuppliersID);
 
-        public List<Shippers> GetEntities()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Shippers GetEntity(int id)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void Save(Shippers entity)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void Update(Shippers entity)
-        {
-            throw new System.NotImplementedException();
-        }
     }
 
 }
