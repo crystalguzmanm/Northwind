@@ -6,9 +6,9 @@ using System.Text;
 
 namespace Northwind.Infrastructure.Context
 {
-    public  class CategoriesContext : DbContext
+    public  class NorthwindContext : DbContext
     {
-        public CategoriesContext(DbContextOptions<CategoriesContext> options) : base(options)
+        public NorthwindContext(DbContextOptions<NorthwindContext> options) : base(options)
         {
 
         }
