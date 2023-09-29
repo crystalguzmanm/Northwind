@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4Pep/V4hhOIW649xDgA32UTQqsokMgFQx5R+hmKAsfON8vCZyoUOlE11rgBqdbYDcz5ax3OpOlu4Uun7Rla42A==",
+  "dgSpecHash": "23yYVYIQ6o0Z7ikqpIM7JY4yQQt+7gpL889DUFI3jpAFHO8wIewkA2P/GZvoP0yUqIRem3qy0BGzd61RnuwhAg==",
   "success": true,
-  "projectFilePath": "C:\\ProyectoFinal\\Northwind\\Northwind.Infrastructure\\Northwind.Infrastructure.csproj",
+  "projectFilePath": "C:\\ProyectoFinalA\\Northwind\\Northwind.Infrastructure\\Northwind.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\18092\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\18092\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.1\\microsoft.bcl.hashcode.1.1.1.nupkg.sha512",
