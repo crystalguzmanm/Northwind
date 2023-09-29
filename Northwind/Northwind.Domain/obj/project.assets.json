@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\ProyectoFinal-Grupo5\\Northwind\\Northwind.Domain\\Northwind.Domain.csproj",
+      "projectUniqueName": "C:\\ProyectoFinal-Grupo5\\Northwind\\Northwind\\Northwind.Domain\\Northwind.Domain.csproj",
       "projectName": "Northwind.Domain",
-      "projectPath": "C:\\ProyectoFinal-Grupo5\\Northwind\\Northwind.Domain\\Northwind.Domain.csproj",
+      "projectPath": "C:\\ProyectoFinal-Grupo5\\Northwind\\Northwind\\Northwind.Domain\\Northwind.Domain.csproj",
       "packagesPath": "C:\\Users\\cryst\\.nuget\\packages\\",
-      "outputPath": "C:\\ProyectoFinal-Grupo5\\Northwind\\Northwind.Domain\\obj\\",
+      "outputPath": "C:\\ProyectoFinal-Grupo5\\Northwind\\Northwind\\Northwind.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\cryst\\AppData\\Roaming\\NuGet\\NuGet.Config",

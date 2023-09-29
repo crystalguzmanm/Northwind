@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\ProyectoFinal-Grupo5\\Northwind\\Northwind.API\\Northwind.API.csproj": {}
+    "C:\\ProyectoFinal-Grupo5\\Northwind\\Northwind\\Northwind.API\\Northwind.API.csproj": {}
   },
   "projects": {
-    "C:\\ProyectoFinal-Grupo5\\Northwind\\Northwind.API\\Northwind.API.csproj": {
+    "C:\\ProyectoFinal-Grupo5\\Northwind\\Northwind\\Northwind.API\\Northwind.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\ProyectoFinal-Grupo5\\Northwind\\Northwind.API\\Northwind.API.csproj",
+        "projectUniqueName": "C:\\ProyectoFinal-Grupo5\\Northwind\\Northwind\\Northwind.API\\Northwind.API.csproj",
         "projectName": "Northwind.API",
-        "projectPath": "C:\\ProyectoFinal-Grupo5\\Northwind\\Northwind.API\\Northwind.API.csproj",
+        "projectPath": "C:\\ProyectoFinal-Grupo5\\Northwind\\Northwind\\Northwind.API\\Northwind.API.csproj",
         "packagesPath": "C:\\Users\\cryst\\.nuget\\packages\\",
-        "outputPath": "C:\\ProyectoFinal-Grupo5\\Northwind\\Northwind.API\\obj\\",
+        "outputPath": "C:\\ProyectoFinal-Grupo5\\Northwind\\Northwind\\Northwind.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\cryst\\AppData\\Roaming\\NuGet\\NuGet.Config",

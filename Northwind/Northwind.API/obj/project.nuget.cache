@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YQsd5Bw07CMpg0sWNV7GPx5rfmQGBRYsqxF1CFPV7AmwnqXxdSXOvJyCHZU/Dik2WUEJ9FpM54PVDZcxqwG56g==",
+  "dgSpecHash": "8VyVH++9pGZ8N42gAEJOUVqm2hgEhYcfhJzcjiInlWFFkLQps0uG53TScdz8h/2zwlqErI8C/RqQgFqL5OlRrQ==",
   "success": true,
-  "projectFilePath": "C:\\ProyectoFinal-Grupo5\\Northwind\\Northwind.API\\Northwind.API.csproj",
+  "projectFilePath": "C:\\ProyectoFinal-Grupo5\\Northwind\\Northwind\\Northwind.API\\Northwind.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\cryst\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "C:\\Users\\cryst\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
