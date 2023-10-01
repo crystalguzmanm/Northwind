@@ -1,39 +1,61 @@
 ﻿using Northwind.Domain.Entities;
+using Northwind.Domain.Repository;
+using Northwind.Infrastructure.Context;
 using Northwind.Infrastructure.Interfaces;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using IShippersRepository = Northwind.Domain.Repository.IShippersRepository;
 
 namespace Northwind.Infrastructure.Repositories
 {
     public class ShippersRepository : IShippersRepository
     {
-        public void Delete(Shippers entity)
+        private readonly NorthwindContext context;
+
+        public ShippersRepository(NorthwindContext context)
         {
-            throw new System.NotImplementedException();
+            this.context = context;
         }
 
-        public List<Shippers> GetEntities()
+        public bool Exists(Expression<Func<Shippers, bool>> filter)
         {
-            throw new System.NotImplementedException();
+
+            return this.context.Shippers.Any(filter);
+
         }
 
-        public Shippers GetEntity(int id)
+        public Shippers GetShippers(int Id)
         {
-            throw new System.NotImplementedException();
+
+            return this.context.Shippers.Find(Id);
         }
 
-        public List<Shippers> GetShippersByShippersID(int ShippersID)
+        public List<Shippers> GetShippers()
         {
-            throw new System.NotImplementedException();
+
+            return this.context.Shippers.Where(ca => !ca.Deleted).ToList();
         }
 
-        public void Save(Shippers entity)
+        public void Remove(Shippers shippers)
         {
-            throw new System.NotImplementedException();
+            this.context.Remove(shippers);
         }
 
-        public void Update(Shippers entity)
+        public void Save(Shippers shippers)
         {
-            throw new System.NotImplementedException();
+            this.context.Shippers.Add(shippers);
         }
+
+        public void Update(Shippers shippers)
+        {
+            this.context.Update(shippers);
+        }
+
+
+
+
+
     }
 }

@@ -7,3 +7,16 @@ C:\PJRFinal\Northwind\Northwind.Infrastructure\obj\Debug\netstandard2.1\Northwin
 C:\PJRFinal\Northwind\Northwind.Infrastructure\obj\Debug\netstandard2.1\Northwind.Infrastructure.csproj.CoreCompileInputs.cache
 C:\PJRFinal\Northwind\Northwind.Infrastructure\obj\Debug\netstandard2.1\Northwind.Infrastructure.dll
 C:\PJRFinal\Northwind\Northwind.Infrastructure\obj\Debug\netstandard2.1\Northwind.Infrastructure.pdb
+C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.Infrastructure\bin\Debug\netstandard2.1\Northwind.Infrastructure.deps.json
+C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.Infrastructure\bin\Debug\netstandard2.1\Northwind.Infrastructure.dll
+C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.Infrastructure\bin\Debug\netstandard2.1\Northwind.Infrastructure.pdb
+C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.Infrastructure\bin\Debug\netstandard2.1\Northwind.Domain.dll
+C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.Infrastructure\bin\Debug\netstandard2.1\Northwind.Domain.pdb
+C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.Infrastructure\obj\Debug\netstandard2.1\Northwind.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.Infrastructure\obj\Debug\netstandard2.1\Northwind.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.Infrastructure\obj\Debug\netstandard2.1\Northwind.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.Infrastructure\obj\Debug\netstandard2.1\Northwind.Infrastructure.AssemblyInfo.cs
+C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.Infrastructure\obj\Debug\netstandard2.1\Northwind.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.Infrastructure\obj\Debug\netstandard2.1\Northwind.Infrastructure.csproj.CopyComplete
+C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.Infrastructure\obj\Debug\netstandard2.1\Northwind.Infrastructure.dll
+C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.Infrastructure\obj\Debug\netstandard2.1\Northwind.Infrastructure.pdb
