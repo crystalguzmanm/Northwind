@@ -6,6 +6,7 @@ namespace Northwind.Infrastructure.Interfaces
 {
     public interface  IOrdersRepository:IBaseRepository<Orders>
     {
-        List<Orders> GetOrderByOrdersID(int OrderID);
+        IEnumerable<Orders> GetOrders();
+        List<Orders> GetOrdersByOrdersID(int OrdersID);
     }
 }

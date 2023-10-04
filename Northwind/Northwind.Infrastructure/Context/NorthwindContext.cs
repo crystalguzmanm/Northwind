@@ -1,9 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
 using Northwind.Domain.Entities;
 
 namespace Northwind.Infrastructure.Context
 {
-    internal class NorthwindContext : DbContext
+    public class NorthwindContext : DbContext
     {
         
             public NorthwindContext(DbContextOptions<NorthwindContext> options) : base(options)

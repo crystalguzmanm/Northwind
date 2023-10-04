@@ -1,40 +1,63 @@
 ﻿using Northwind.Domain.Entities;
+using Northwind.Infrastructure.Context;
 using Northwind.Infrastructure.Interfaces;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using Northwind.Domain.Repository;
+using IOrdersRepository = Northwind.Domain.Repository.IOrdersRepository;
 
 namespace Northwind.Infrastructure.Repositories
 {
     public class OrdersRepository : IOrdersRepository
     {
-        
-        public void Delete(Orders entity)
+
+        private readonly NorthwindContext context;
+
+        public OrdersRepository(NorthwindContext context)
         {
-            throw new System.NotImplementedException();
+            this.context = context;
         }
 
-        public List<Orders> GetEntities()
+        public bool Exists(Expression<Func<Orders, bool>> filter)
         {
-            throw new System.NotImplementedException();
+
+            return this.context.Orders.Any(filter);
+
         }
 
-        public Orders GetEntity(int id)
+
+        public Orders GetOrdes(int Id)
         {
-            throw new System.NotImplementedException();
+
+            return this.context.Orders.Find(Id);
         }
 
-        public List<Orders> GetOrderByOrdersID(int OrderID)
+        public List<Orders> GetOrders()
         {
-            throw new System.NotImplementedException();
+
+            return this.context.Orders.Where(ca => !ca.Deleted).ToList();
         }
 
-        public void Save(Orders entity)
+        public void Remove(Orders orders)
         {
-            throw new System.NotImplementedException();
+            this.context.Remove(orders);
         }
 
-        public void Update(Orders entity)
+        public void Save(Orders orders)
         {
-            throw new System.NotImplementedException();
+            this.context.Orders.Add(orders);
+        }
+
+        public void Update(Orders orders)
+        {
+            this.context.Update(orders);
+        }
+
+        Orders IOrdersRepository.GetOrders(int Id)
+        {
+            throw new NotImplementedException();
         }
     }
 }
