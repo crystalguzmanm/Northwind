@@ -16,3 +16,4 @@ C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.Domain\obj\Debug\n
 C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.Domain\obj\Debug\netstandard2.1\Northwind.Domain.csproj.CoreCompileInputs.cache
 C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.Domain\obj\Debug\netstandard2.1\Northwind.Domain.dll
 C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.Domain\obj\Debug\netstandard2.1\Northwind.Domain.pdb
+C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.Domain\obj\Debug\netstandard2.1\Northwind.Domain.csproj.AssemblyReference.cache

@@ -32,9 +32,9 @@ namespace Northwind.API.Controllers
 
         // GET api/<SuppliersController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Suppliers Get(int id)
         {
-            return "value";
+            return this.suppliersRepository.GetSuppliers(id);
         }
 
         // POST api/<SuppliersController>

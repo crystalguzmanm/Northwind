@@ -30,9 +30,9 @@ namespace Northwind.API.Controllers
 
         // GET api/<ShippersController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Shippers Get(int id)
         {
-            return "value";
+            return this.shippersRepository.GetShippers(id);
         }
 
         // POST api/<ShippersController>
