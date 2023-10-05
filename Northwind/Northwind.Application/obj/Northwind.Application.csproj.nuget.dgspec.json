@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\PJRFinal\\Northwind\\Northwind.Application\\Northwind.Application.csproj": {}
+    "C:\\ProyectoFinal-Grupo5\\Northwind\\Northwind.Application\\Northwind.Application.csproj": {}
   },
   "projects": {
-    "C:\\PJRFinal\\Northwind\\Northwind.Application\\Northwind.Application.csproj": {
+    "C:\\ProyectoFinal-Grupo5\\Northwind\\Northwind.Application\\Northwind.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\PJRFinal\\Northwind\\Northwind.Application\\Northwind.Application.csproj",
+        "projectUniqueName": "C:\\ProyectoFinal-Grupo5\\Northwind\\Northwind.Application\\Northwind.Application.csproj",
         "projectName": "Northwind.Application",
-        "projectPath": "C:\\PJRFinal\\Northwind\\Northwind.Application\\Northwind.Application.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\PJRFinal\\Northwind\\Northwind.Application\\obj\\",
+        "projectPath": "C:\\ProyectoFinal-Grupo5\\Northwind\\Northwind.Application\\Northwind.Application.csproj",
+        "packagesPath": "C:\\Users\\cryst\\.nuget\\packages\\",
+        "outputPath": "C:\\ProyectoFinal-Grupo5\\Northwind\\Northwind.Application\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\cryst\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
