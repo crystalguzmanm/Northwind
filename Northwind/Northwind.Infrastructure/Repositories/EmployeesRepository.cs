@@ -1,39 +1,45 @@
 ﻿using Northwind.Domain.Entities;
+using Northwind.Domain.Repository;
+using Northwind.Infrastructure.Context;
 using Northwind.Infrastructure.Interfaces;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using IEmployeesRepository = Northwind.Domain.Repository.IEmployeesRepository;
 
 namespace Northwind.Infrastructure.Repositories
 {
     public class EmployeesRepository : IEmployeesRepository
     {
-        public void Delete(Employees entity)
+        private readonly NorthwindContext context;
+
+        public bool Exists(Expression<Func<Employees, bool>> filter)
         {
-            throw new System.NotImplementedException();
+            return this.context.Employees.Any(filter);
         }
 
-        public List<Employees> GetEmployeesByEmployeeID(int EmployeeID)
+        public List<Employees> GetEmployees()
         {
-            throw new System.NotImplementedException();
+            return this.context.Employees.Where(ca => !ca.Deleted).ToList();
         }
 
-        public List<Employees> GetEntities()
+
+        public Employees GetEmployess(int Id)
         {
-            throw new System.NotImplementedException();
+            return this.context.Employees.Find(Id);
         }
 
-        public Employees GetEntity(int id)
+
+        public void save(Employees employees)
         {
-            throw new System.NotImplementedException();
+            this.context.Employees.Add(employees);
         }
 
-        public void Save(Employees entity)
-        {
-            throw new System.NotImplementedException();
-        }
 
-        public void Update(Employees entity)
+        public void Update(Employees employees)
         {
-            throw new System.NotImplementedException();
+            this.context.Update(employees);
         }
     }
 }

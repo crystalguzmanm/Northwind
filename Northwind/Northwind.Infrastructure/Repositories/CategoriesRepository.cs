@@ -1,39 +1,43 @@
 ﻿using Northwind.Domain.Entities;
+using Northwind.Domain.Repository;
+using Northwind.Infrastructure.Context;
 using Northwind.Infrastructure.Interfaces;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
+using ICategoriesRepository = Northwind.Domain.Repository.ICategoriesRepository;
 
 namespace Northwind.Infrastructure.Repositories
 {
     public class CategoriesRepository : ICategoriesRepository
     {
-        public void Delete(Categories entity)
+        private readonly NorthwindContext context;
+
+        public bool Exists(Expression<Func<Categories, bool>> filter)
         {
-            throw new System.NotImplementedException();
+            return this.context.Categories.Any(filter);
         }
 
-        public List<Categories> GetCategoriesByCategoriesID(int categoryID)
+        public List<Categories> GetCategories()
         {
-            throw new System.NotImplementedException();
+            return this.context.Categories.Where(ca => !ca.Deleted).ToList();
         }
 
-        public List<Categories> GetEntities()
+        public Categories GetCategories(int Id)
         {
-            throw new System.NotImplementedException();
+            return this.context.Categories.Find(Id);
+
         }
 
-        public Categories GetEntity(int id)
+        public void save(Categories categories)
         {
-            throw new System.NotImplementedException();
+            this.context.Categories.Add(categories);
         }
 
-        public void Save(Categories entity)
+        public void Update(Categories categories)
         {
-            throw new System.NotImplementedException();
-        }
-
-        public void Update(Categories entity)
-        {
-            throw new System.NotImplementedException();
+            this.context.Update(categories);
         }
     }
 }
