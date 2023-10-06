@@ -10,58 +10,42 @@ using System.Text;
 
 
 
+
 namespace Northwind.Infrastructure.Repositories
 {
     public class OrdersDetailsRepository : IOrdersDetailsRepository
     {
-        private readonly NorthwindContext context;
-
-        public OrdersDetailsRepository(NorthwindContext context)
-        {
-            this.context = context;
-        }
-
-        public bool Exists(Expression<Func<OrdersDetails, bool>> filter)
-        {
-
-            return this.context.OrdersDetails.Any(filter);
-
-        }
-
-
-        public OrdersDetails GetOrdesDetails(int Id)
-        {
-
-            return this.context.OrdersDetails.Find(Id);
-        }
-
-        public List<OrdersDetails> GetOrdersDetails()
-        {
-
-            return this.context.OrdersDetails.Where(ca => !ca.Deleted).ToList();
-        }
-
-        public void Remove(OrdersDetails ordersDetails)
-        {
-            this.context.Remove(ordersDetails);
-        }
-
-        public void Save(OrdersDetails ordersDetails)
-        {
-            this.context.OrdersDetails.Add(ordersDetails);
-        }
-
-        public void Update(OrdersDetails ordersDetails)
-        {
-            this.context.Update(ordersDetails);
-        }
-
-        IEnumerable<OrdersDetails> IOrdersDetailsRepository.GetOrdersDetails()
+        public void Delete(OrdersDetails ordersDetails)
         {
             throw new NotImplementedException();
         }
 
-        List<OrdersDetails> IOrdersDetailsRepository.GetOrdersDetailsByOrdersID(int OrdersDetailsID)
+        public List<OrdersDetails> GetEntities()
+        {
+            throw new NotImplementedException();
+        }
+
+        public OrdersDetails GetEntity(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<OrdersDetails> GetOrdersDetails()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<OrdersDetails> GetOrdersDetailsByOrdersID(int OrdersDetailsID)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Save(OrdersDetails entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(OrdersDetails entity)
         {
             throw new NotImplementedException();
         }

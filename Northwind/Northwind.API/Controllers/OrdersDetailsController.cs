@@ -2,6 +2,7 @@
 using Northwind.Domain.Entities;
 using Northwind.Infrastructure.Interfaces;
 using Northwind.Infrastructure.Repositories;
+using IOrdersDetailsRepository = Northwind.Domain.Repository.IOrdersDetailsRepository;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -11,20 +12,18 @@ namespace Northwind.API.Controllers
     [ApiController]
     public class OrdersDetailsController : ControllerBase
     {
-        private readonly IOrdersDetailsRepository ordersdetailsRepository;
+        private readonly IOrdersDetailsRepository ordersDetailsRepository;
 
-        public OrdersDetailsController(IOrdersDetailsRepository ordersdetailsRepository)
+        public OrdersDetailsController(IOrdersDetailsRepository ordersDetailsRepository)
         {
-            this.ordersdetailsRepository = ordersdetailsRepository;
+            this.ordersDetailsRepository = ordersDetailsRepository;
         }
-
-
 
         // GET: api/<SuppliersController>
         [HttpGet]
         public IEnumerable<OrdersDetails> Get()
         {
-            var OrdersDetails = this.ordersdetailsRepository.GetOrdersDetails();
+            var OrdersDetails = this.ordersDetailsRepository.GetOrdersDetails();
             return OrdersDetails;
 
 

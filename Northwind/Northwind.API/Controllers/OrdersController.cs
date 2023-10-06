@@ -15,10 +15,12 @@ namespace Northwind.API.Controllers
     {
         private readonly IOrdersRepository ordersRepository;
 
-        public OrdersController(IOrdersRepository ordersRepository)
+        //private readonly IOrdersRepository ordersRepository;
+        public OrdersController(IOrdersRepository ordersRepository) 
         {
             this.ordersRepository = ordersRepository;
         }
+
         // GET: api/<ShippersController>
         [HttpGet]
         public IEnumerable<Orders> Get()

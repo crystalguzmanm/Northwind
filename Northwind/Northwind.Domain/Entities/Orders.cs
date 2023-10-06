@@ -1,13 +1,15 @@
-﻿using Northwind.Domain.Core;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Northwind.Domain.Core;
 using System;
-
+using System.ComponentModel.DataAnnotations;
 
 namespace Northwind.Domain.Entities
 {
     public class Orders : BaseEntity
     {
+        [Key]
         public int OrderID {  get; set; }
-        public int? CustomerID { get; set; }
+        public string? CustomerID { get; set; }
         public int? EmployeeID { get; set; }
         public DateTime? OrderDate { get; set;}
         public DateTime? RequiredDate { get; set;}

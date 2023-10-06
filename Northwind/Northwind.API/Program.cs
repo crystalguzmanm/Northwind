@@ -9,12 +9,20 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+
+builder.Services.AddControllers();
+
+
+
 //Agregar dependencias del context //
 builder.Services.AddDbContext<NorthwindContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("NorthwindContext")));
 
-//Dependecia de los repositorio//
 
-builder.Services.AddControllers();
+//Dependecia de los repositorio//
+builder.Services.AddTransient<IOrdersRepository, OrdersRepository>();
+
+//builder.Services.AddTransient<IOrdersDetailsRepository, OrdersDetailsRepository>();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

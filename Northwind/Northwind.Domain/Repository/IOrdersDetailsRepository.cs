@@ -9,7 +9,6 @@ namespace Northwind.Domain.Repository
     public interface IOrdersDetailsRepository
     {
         void Save(OrdersDetails ordersDetails);
-
         void Update(OrdersDetails ordersDetails);
         void Remove(OrdersDetails ordersDetails);
         List<OrdersDetails> GetOrdersDetails();
