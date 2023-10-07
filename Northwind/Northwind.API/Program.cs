@@ -21,7 +21,7 @@ builder.Services.AddDbContext<NorthwindContext>(options => options.UseSqlServer(
 //Dependecia de los repositorio//
 builder.Services.AddTransient<IOrdersRepository, OrdersRepository>();
 
-//builder.Services.AddTransient<IOrdersDetailsRepository, OrdersDetailsRepository>();
+builder.Services.AddTransient<IOrdersDetailsRepository, OrdersDetailsRepository>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

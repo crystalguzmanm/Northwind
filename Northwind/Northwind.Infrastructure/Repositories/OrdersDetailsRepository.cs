@@ -1,11 +1,12 @@
 ﻿using Northwind.Domain.Entities;
 using Northwind.Infrastructure.Context;
-using Northwind.Infrastructure.Interfaces;
+//using Northwind.Infrastructure.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
+using Northwind.Domain.Repository;
+using IOrdersDetailsRepository = Northwind.Domain.Repository.IOrdersDetailsRepository;
 
 
 
@@ -15,37 +16,48 @@ namespace Northwind.Infrastructure.Repositories
 {
     public class OrdersDetailsRepository : IOrdersDetailsRepository
     {
-        public void Delete(OrdersDetails ordersDetails)
+        private readonly NorthwindContext context;
+        public OrdersDetailsRepository(NorthwindContext context)
         {
-            throw new NotImplementedException();
+            this.context = context;
         }
 
-        public List<OrdersDetails> GetEntities()
+        public bool Exists(Expression<Func<OrdersDetails, bool>> filter)
         {
-            throw new NotImplementedException();
+
+            return this.context.OrdersDetails.Any(filter);
+
         }
 
-        public OrdersDetails GetEntity(int id)
+        public List<OrdersDetails> GetOrdersDetails()
         {
-            throw new NotImplementedException();
+            return this.context.OrdersDetails.Where(ca => !ca.Deleted).ToList();
         }
 
-        public IEnumerable<OrdersDetails> GetOrdersDetails()
+        public OrdersDetails GetOrdesDetails(int Id)
         {
-            throw new NotImplementedException();
+
+            return this.context.OrdersDetails.Find(Id);
         }
 
-        public List<OrdersDetails> GetOrdersDetailsByOrdersID(int OrdersDetailsID)
+        
+
+        public void Remove(OrdersDetails ordersDetails)
         {
-            throw new NotImplementedException();
+            this.context.Remove(ordersDetails);
         }
 
-        public void Save(OrdersDetails entity)
+        public void Save(OrdersDetails ordersDetails)
         {
-            throw new NotImplementedException();
+            this.context.OrdersDetails.Add(ordersDetails);
         }
 
-        public void Update(OrdersDetails entity)
+        public void Update(OrdersDetails ordersDetails)
+        {
+            this.context.Update(ordersDetails);
+        }
+
+        OrdersDetails IOrdersDetailsRepository.GetOrdersDetails(int Id)
         {
             throw new NotImplementedException();
         }
