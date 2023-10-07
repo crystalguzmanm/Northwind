@@ -7,3 +7,13 @@ C:\PJRFinal\Northwind\Northwind.Domain\obj\Debug\netstandard2.1\Northwind.Domain
 C:\PJRFinal\Northwind\Northwind.Domain\obj\Debug\netstandard2.1\Northwind.Domain.csproj.CoreCompileInputs.cache
 C:\PJRFinal\Northwind\Northwind.Domain\obj\Debug\netstandard2.1\Northwind.Domain.dll
 C:\PJRFinal\Northwind\Northwind.Domain\obj\Debug\netstandard2.1\Northwind.Domain.pdb
+C:\ProyectoFinalB\Northwind\Northwind.Domain\bin\Debug\netstandard2.1\Northwind.Domain.deps.json
+C:\ProyectoFinalB\Northwind\Northwind.Domain\bin\Debug\netstandard2.1\Northwind.Domain.dll
+C:\ProyectoFinalB\Northwind\Northwind.Domain\bin\Debug\netstandard2.1\Northwind.Domain.pdb
+C:\ProyectoFinalB\Northwind\Northwind.Domain\obj\Debug\netstandard2.1\Northwind.Domain.csproj.AssemblyReference.cache
+C:\ProyectoFinalB\Northwind\Northwind.Domain\obj\Debug\netstandard2.1\Northwind.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\ProyectoFinalB\Northwind\Northwind.Domain\obj\Debug\netstandard2.1\Northwind.Domain.AssemblyInfoInputs.cache
+C:\ProyectoFinalB\Northwind\Northwind.Domain\obj\Debug\netstandard2.1\Northwind.Domain.AssemblyInfo.cs
+C:\ProyectoFinalB\Northwind\Northwind.Domain\obj\Debug\netstandard2.1\Northwind.Domain.csproj.CoreCompileInputs.cache
+C:\ProyectoFinalB\Northwind\Northwind.Domain\obj\Debug\netstandard2.1\Northwind.Domain.dll
+C:\ProyectoFinalB\Northwind\Northwind.Domain\obj\Debug\netstandard2.1\Northwind.Domain.pdb

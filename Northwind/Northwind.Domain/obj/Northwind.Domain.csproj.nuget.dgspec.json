@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\ProyectoFinalA\\Northwind\\Northwind.Domain\\Northwind.Domain.csproj": {}
+    "C:\\ProyectoFinalB\\Northwind\\Northwind.Domain\\Northwind.Domain.csproj": {}
   },
   "projects": {
-    "C:\\ProyectoFinalA\\Northwind\\Northwind.Domain\\Northwind.Domain.csproj": {
+    "C:\\ProyectoFinalB\\Northwind\\Northwind.Domain\\Northwind.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\ProyectoFinalA\\Northwind\\Northwind.Domain\\Northwind.Domain.csproj",
+        "projectUniqueName": "C:\\ProyectoFinalB\\Northwind\\Northwind.Domain\\Northwind.Domain.csproj",
         "projectName": "Northwind.Domain",
-        "projectPath": "C:\\ProyectoFinalA\\Northwind\\Northwind.Domain\\Northwind.Domain.csproj",
+        "projectPath": "C:\\ProyectoFinalB\\Northwind\\Northwind.Domain\\Northwind.Domain.csproj",
         "packagesPath": "C:\\Users\\18092\\.nuget\\packages\\",
-        "outputPath": "C:\\ProyectoFinalA\\Northwind\\Northwind.Domain\\obj\\",
+        "outputPath": "C:\\ProyectoFinalB\\Northwind\\Northwind.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

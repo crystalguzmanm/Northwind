@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "eZaDfJZgmMdTJgnc300/UAuvDJMY7Ezn6muOKG15JHkHY+fFJ2QQsWyGETefH2XEHqFkhvSA0a68Qs+pjRtrqw==",
+  "dgSpecHash": "90JxQtjrHj9YdpsIZUwb7HNJDfgWIkfA1tH3Xw/4Ef3m6NsWnDLZYlo1CPWwBSeihl9Cul27gXt9WMSbKElJjg==",
   "success": true,
-  "projectFilePath": "C:\\ProyectoFinalA\\Northwind\\Northwind.Domain\\Northwind.Domain.csproj",
+  "projectFilePath": "C:\\ProyectoFinalB\\Northwind\\Northwind.Domain\\Northwind.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
