@@ -1,39 +1,53 @@
-﻿using Northwind.Domain.Entities;
+﻿﻿using Northwind.Domain.Entities;
+using Northwind.Domain.Repository;
+using Northwind.Infrastructure.Context;
 using Northwind.Infrastructure.Interfaces;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 
+//TODO
 namespace Northwind.Infrastructure.Repositories
 {
-    public class CustomersRepository : ICustomersRepository
+    public class CustomersRepository : Domain.Repository.ICustomersRepository
     {
-        public void Delete(Customers entity)
+
+        private readonly NorthwindContext context;
+
+        public CustomersRepository(NorthwindContext context)
         {
-            throw new System.NotImplementedException();
+            this.context = context;
         }
 
-        public List<Customers> GetCustomersByCustomerID(int CustomerID)
+        public bool Exists(Expression<Func<Customers, bool>> filter) 
         {
-            throw new System.NotImplementedException();
+            return this.context.Customers.Any(filter);
         }
 
-        public List<Customers> GetEntities()
+        public Customers GetCustomers(int id)
         {
-            throw new System.NotImplementedException();
+            return this.context.Customers.Find(id);
         }
 
-        public Customers GetEntity(int id)
+        public List<Customers> GetCustomers()
         {
-            throw new System.NotImplementedException();
+            return this.context.Customers.Where(ca => !ca.Deleted).ToList();
+        }
+        public void Save(Customers customers)
+        {
+            this.context.Customers.Add(customers);
         }
 
-        public void Save(Customers entity)
+        public void Update(Customers customers)
         {
-            throw new System.NotImplementedException();
+            this.context.Update(customers);
         }
 
-        public void Update(Customers entity)
+        public void Remove(Customers customers)
         {
-            throw new System.NotImplementedException();
+            this.context.Customers.Remove(customers);
         }
     }
 }
+

@@ -6,6 +6,8 @@ namespace Northwind.Infrastructure.Interfaces
 {
     public interface ICustomersRepository : IBaseRepository<Customers>
     {
-       List<Customers> GetCustomersByCustomerID(int CustomerID);
+        IEnumerable<Customers> GetCustomers();
+        List<Customers> GetCustomersByCustomerID(int CustomerID);
     }
 }
+

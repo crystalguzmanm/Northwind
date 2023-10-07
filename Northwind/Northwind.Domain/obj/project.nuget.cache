@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "l85+3un8Lat2UUCitIWXrbWnZxyz8SUWFnEQaQU6d/IIGMwmmzOkPCwb3fScWIu29GTdgJeeN7vfPCJ0lI7WkQ==",
+  "dgSpecHash": "+eMC8eKSxEcEAd9FeGO4icxTO7dZdGzLjhpQky6qRrO7iyFuesCTJPPfVbbQI8Kavf4YBPXrI/xfudjDMJhLTA==",
   "success": true,
   "projectFilePath": "C:\\PJRFinal\\Northwind\\Northwind.Domain\\Northwind.Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\ASUS\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }

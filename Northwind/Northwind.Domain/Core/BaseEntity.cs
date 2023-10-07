@@ -8,7 +8,7 @@ namespace Northwind.Domain.Core
 
         public int CreationUser { get; set; }
 
-        public DateTime ModifyDate  {  get; set; }
+        public DateTime? ModifyDate  {  get; set; }
 
         public int? UserMod {  get; set; }
 

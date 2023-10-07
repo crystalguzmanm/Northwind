@@ -1,9 +1,11 @@
 ﻿using Northwind.Domain.Core;
+using System.ComponentModel.DataAnnotations;
 
 namespace Northwind.Domain.Entities
 {
     public class Customers : Person
     {
-        public int CustomerID { get; set; }
+        [Key]
+        public string CustomerID { get; set; }
     }
 }
