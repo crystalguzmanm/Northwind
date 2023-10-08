@@ -1,12 +1,13 @@
 ﻿using Northwind.Domain.Core;
 using System;
-using System.Collections.Generic;
-using System.Text;
+using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Northwind.Domain.Entities
 {
     public class Employees : PersonLocation
     {
+        [Key]
         public int EmployeeID { get; set; }
 
         public int LastName { get; set; }
@@ -23,7 +24,7 @@ namespace Northwind.Domain.Entities
 
         public string? HomePhone { get; set; }
 
-        public string? Extencion { get; set; }
+        public string? Extention { get; set; }
 
         public byte? Photo { get; set; }
 

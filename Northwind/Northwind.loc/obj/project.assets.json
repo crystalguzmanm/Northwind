@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\ProyectoFinalA\\Northwind\\Northwind.loc\\Northwind.loc.csproj",
+      "projectUniqueName": "C:\\ProyectoFinalB\\Northwind\\Northwind.loc\\Northwind.loc.csproj",
       "projectName": "Northwind.loc",
-      "projectPath": "C:\\ProyectoFinalA\\Northwind\\Northwind.loc\\Northwind.loc.csproj",
+      "projectPath": "C:\\ProyectoFinalB\\Northwind\\Northwind.loc\\Northwind.loc.csproj",
       "packagesPath": "C:\\Users\\18092\\.nuget\\packages\\",
-      "outputPath": "C:\\ProyectoFinalA\\Northwind\\Northwind.loc\\obj\\",
+      "outputPath": "C:\\ProyectoFinalB\\Northwind\\Northwind.loc\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

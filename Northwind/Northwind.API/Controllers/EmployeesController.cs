@@ -29,9 +29,9 @@ namespace Northwind.API.Controllers
 
         // GET api/<CategoriesController>/5
         [HttpGet("{id}")]
-        public Employees Get(int id) 
+        public string Get(int id) 
         {
-            return this.employeesRepository.GetEmployess(id);
+            return "value";
         }
 
         // POST api/<CategoriesController>
