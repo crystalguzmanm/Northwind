@@ -11,8 +11,8 @@ namespace Northwind.API.Controllers
     [ApiController]
     public class EmployeesController : ControllerBase
     {
-        private readonly EmployeesRepository employeesRepository;
-        public EmployeesController(EmployeesRepository employeesRepository)
+        private readonly IEmployeesRepository employeesRepository;
+        public EmployeesController(IEmployeesRepository employeesRepository)
         {
             this.employeesRepository = employeesRepository;
         }

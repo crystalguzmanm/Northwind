@@ -5,6 +5,8 @@ using Northwind.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+
 // Add services to the container.
 
 builder.Services.AddDbContext<NorthwindContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("EmployeesContext")));
