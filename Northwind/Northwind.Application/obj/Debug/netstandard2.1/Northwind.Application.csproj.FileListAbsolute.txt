@@ -1,0 +1,9 @@
+C:\ProyectoFinal-Grupo5\Northwind\Northwind\Northwind.Application\bin\Debug\netstandard2.1\Northwind.Application.deps.json
+C:\ProyectoFinal-Grupo5\Northwind\Northwind\Northwind.Application\bin\Debug\netstandard2.1\Northwind.Application.dll
+C:\ProyectoFinal-Grupo5\Northwind\Northwind\Northwind.Application\bin\Debug\netstandard2.1\Northwind.Application.pdb
+C:\ProyectoFinal-Grupo5\Northwind\Northwind\Northwind.Application\obj\Debug\netstandard2.1\Northwind.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\ProyectoFinal-Grupo5\Northwind\Northwind\Northwind.Application\obj\Debug\netstandard2.1\Northwind.Application.AssemblyInfoInputs.cache
+C:\ProyectoFinal-Grupo5\Northwind\Northwind\Northwind.Application\obj\Debug\netstandard2.1\Northwind.Application.AssemblyInfo.cs
+C:\ProyectoFinal-Grupo5\Northwind\Northwind\Northwind.Application\obj\Debug\netstandard2.1\Northwind.Application.csproj.CoreCompileInputs.cache
+C:\ProyectoFinal-Grupo5\Northwind\Northwind\Northwind.Application\obj\Debug\netstandard2.1\Northwind.Application.dll
+C:\ProyectoFinal-Grupo5\Northwind\Northwind\Northwind.Application\obj\Debug\netstandard2.1\Northwind.Application.pdb

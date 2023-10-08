@@ -1,41 +1,62 @@
 ﻿using Northwind.Domain.Entities;
-using Northwind.Infrastructure.Interfaces;
+using Northwind.Infrastructure.Context;
+// using Northwind.Infrastructure.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Linq.Expressions;
+using Northwind.Domain.Repository;
+using IProductsRepository = Northwind.Domain.Repository.IProductsRepository;
 
 namespace Northwind.Infrastructure.Repositories
 {
     public class ProductsRepository : IProductsRepository
     {
-        public void Delete(Products entity)
+        private readonly NorthwindContext context;
+
+        public ProductsRepository(NorthwindContext context)
         {
-            throw new System.NotImplementedException();
+            this.context = context;
         }
 
-        public List<Products> GetEntities()
+        public bool Exists(Expression<Func<Products, bool>> filter)
         {
-            throw new System.NotImplementedException();
+
+            return this.context.Products.Any(filter);
+
         }
 
-        public Products GetEntity(int id)
+
+        public Products GetProducts(int Id)
         {
-            throw new System.NotImplementedException();
+
+            return this.context.Products.Find(Id);
         }
 
-        public List<Products> GetProductsByProductID(int ProductID)
+        public List<Products> GetProducts()
         {
-            throw new System.NotImplementedException();
+
+            return this.context.Products.Where(ca => !ca.Deleted).ToList();
         }
 
-        public void Save(Products entity)
+        public void Remove(Products products)
         {
-            throw new System.NotImplementedException();
+            this.context.Remove(products);
         }
 
-        public void Update(Products entity)
+        public void Save(Products products)
         {
-            throw new System.NotImplementedException();
+            this.context.Products.Add(products);
         }
-}
+
+        public void Update(Products products)
+        {
+            this.context.Update(products);
+        }
+
+        Products IProductsRepository.GetProducts(int Id)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

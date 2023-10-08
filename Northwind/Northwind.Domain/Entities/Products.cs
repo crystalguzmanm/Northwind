@@ -1,13 +1,13 @@
-﻿using Northwind.Domain.Core;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Northwind.Domain.Core;
 using System;
-using System.Collections.Generic;
-using System.Data.SqlTypes;
-using System.Text;
+using System.ComponentModel.DataAnnotations;
 
 namespace Northwind.Domain.Entities
 {
     public class Products : BaseEntity
     {
+        [Key]
         public int ProductID { get; set; }
         public string ProductName { get; set; }
         public int? SupplierID { get; set; }

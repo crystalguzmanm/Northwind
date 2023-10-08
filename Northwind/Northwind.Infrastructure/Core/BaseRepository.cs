@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Northwind.Infrastructure.Core
 {
-    internal class BaseRepository
+    public class BaseRepository
     {
     }
 }

@@ -1,0 +1,9 @@
+C:\ProyectoFinal-Grupo5\Northwind\Northwind\Northwind.loc\bin\Debug\netstandard2.1\Northwind.loc.deps.json
+C:\ProyectoFinal-Grupo5\Northwind\Northwind\Northwind.loc\bin\Debug\netstandard2.1\Northwind.loc.dll
+C:\ProyectoFinal-Grupo5\Northwind\Northwind\Northwind.loc\bin\Debug\netstandard2.1\Northwind.loc.pdb
+C:\ProyectoFinal-Grupo5\Northwind\Northwind\Northwind.loc\obj\Debug\netstandard2.1\Northwind.loc.GeneratedMSBuildEditorConfig.editorconfig
+C:\ProyectoFinal-Grupo5\Northwind\Northwind\Northwind.loc\obj\Debug\netstandard2.1\Northwind.loc.AssemblyInfoInputs.cache
+C:\ProyectoFinal-Grupo5\Northwind\Northwind\Northwind.loc\obj\Debug\netstandard2.1\Northwind.loc.AssemblyInfo.cs
+C:\ProyectoFinal-Grupo5\Northwind\Northwind\Northwind.loc\obj\Debug\netstandard2.1\Northwind.loc.csproj.CoreCompileInputs.cache
+C:\ProyectoFinal-Grupo5\Northwind\Northwind\Northwind.loc\obj\Debug\netstandard2.1\Northwind.loc.dll
+C:\ProyectoFinal-Grupo5\Northwind\Northwind\Northwind.loc\obj\Debug\netstandard2.1\Northwind.loc.pdb

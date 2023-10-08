@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Northwind.Infrastructure.Models
 {
-    internal class ProductsModel
+    public class ProductsModel
     {
     }
 }
