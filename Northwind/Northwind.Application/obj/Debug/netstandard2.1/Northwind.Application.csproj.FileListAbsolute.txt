@@ -17,3 +17,13 @@ C:\ProyectoFinalB\Northwind\Northwind.Application\obj\Debug\netstandard2.1\North
 C:\ProyectoFinalB\Northwind\Northwind.Application\obj\Debug\netstandard2.1\Northwind.Application.csproj.CoreCompileInputs.cache
 C:\ProyectoFinalB\Northwind\Northwind.Application\obj\Debug\netstandard2.1\Northwind.Application.dll
 C:\ProyectoFinalB\Northwind\Northwind.Application\obj\Debug\netstandard2.1\Northwind.Application.pdb
+C:\ProyectoFinalA\Northwind\Northwind.Application\bin\Debug\netstandard2.1\Northwind.Application.deps.json
+C:\ProyectoFinalA\Northwind\Northwind.Application\bin\Debug\netstandard2.1\Northwind.Application.dll
+C:\ProyectoFinalA\Northwind\Northwind.Application\bin\Debug\netstandard2.1\Northwind.Application.pdb
+C:\ProyectoFinalA\Northwind\Northwind.Application\obj\Debug\netstandard2.1\Northwind.Application.csproj.AssemblyReference.cache
+C:\ProyectoFinalA\Northwind\Northwind.Application\obj\Debug\netstandard2.1\Northwind.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\ProyectoFinalA\Northwind\Northwind.Application\obj\Debug\netstandard2.1\Northwind.Application.AssemblyInfoInputs.cache
+C:\ProyectoFinalA\Northwind\Northwind.Application\obj\Debug\netstandard2.1\Northwind.Application.AssemblyInfo.cs
+C:\ProyectoFinalA\Northwind\Northwind.Application\obj\Debug\netstandard2.1\Northwind.Application.csproj.CoreCompileInputs.cache
+C:\ProyectoFinalA\Northwind\Northwind.Application\obj\Debug\netstandard2.1\Northwind.Application.dll
+C:\ProyectoFinalA\Northwind\Northwind.Application\obj\Debug\netstandard2.1\Northwind.Application.pdb

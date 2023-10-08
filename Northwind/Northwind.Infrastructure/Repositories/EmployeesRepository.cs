@@ -14,32 +14,44 @@ namespace Northwind.Infrastructure.Repositories
     {
         private readonly NorthwindContext context;
 
+        public EmployeesRepository(NorthwindContext context)
+        {
+            this.context = context;
+        }
+
         public bool Exists(Expression<Func<Employees, bool>> filter)
         {
+
             return this.context.Employees.Any(filter);
-        }
 
-        public List<Employees> GetEmployees()
-        {
-            return this.context.Employees.Where(ca => !ca.Deleted).ToList();
         }
-
 
         public Employees GetEmployess(int Id)
         {
             return this.context.Employees.Find(Id);
         }
 
+        public List<Employees> GetEmployees()
+        {
+
+            return this.context.Employees.Where(ca => !ca.Deleted).ToList();
+        }
+
+        public void Remove(Employees employees)
+        {
+            this.context.Remove(employees);
+        }
 
         public void save(Employees employees)
         {
             this.context.Employees.Add(employees);
         }
 
-
         public void Update(Employees employees)
         {
             this.context.Update(employees);
         }
+
+
     }
 }

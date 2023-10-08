@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Northwind.Domain.Entities;
+using Northwind.Domain.Repository;
 using Northwind.Infrastructure.Repositories;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -13,7 +14,7 @@ namespace Northwind.API.Controllers
         private readonly EmployeesRepository employeesRepository;
         public EmployeesController(EmployeesRepository employeesRepository)
         {
-            this.employeesRepository.GetEmployees();
+            this.employeesRepository = employeesRepository;
         }
 
         // GET: api/<CategoriesController>
@@ -23,6 +24,8 @@ namespace Northwind.API.Controllers
             var employees =  this.employeesRepository.GetEmployees();
             return employees;
         }
+
+
 
         // GET api/<CategoriesController>/5
         [HttpGet("{id}")]
