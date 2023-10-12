@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Northwind.API.Models.Modules.Shippers;
+using Northwind.API.Models.Modules.Suppliers;
 using Northwind.Domain.Entities;
 using Northwind.Domain.Repository;
 using Northwind.Infrastructure.Interfaces;
@@ -22,10 +24,18 @@ namespace Northwind.API.Controllers
 
         // GET: api/<SuppliersController>
         [HttpGet]
-        public IEnumerable<Suppliers> Get()
+        public IActionResult Get()
         {
-            var Suppliers = this.suppliersRepository.GetEntities();
-            return Suppliers;
+            var suppliers = this.suppliersRepository.GetEntities().Select(suppliers => new GetSuppliersModel()
+            {
+                CreationDate = suppliers.CreationDate,
+                ModifyDate = suppliers.ModifyDate,
+                ContactName = suppliers.ContactName,
+                CompanyName = suppliers.CompanyName
+
+            });
+
+            return Ok(suppliers);
 
 
         }
@@ -33,15 +43,27 @@ namespace Northwind.API.Controllers
 
         // GET api/<SuppliersController>/5
         [HttpGet("{id}")]
-        public Suppliers Get(int id)
+        public IActionResult Get(int id)
         {
-            return this.suppliersRepository.GetEntity(id);
-        }
+            var suppliers = this.suppliersRepository.GetEntity(id);
 
-        // POST api/<SuppliersController>
-        [HttpPost]
+            GetSuppliersModel model = new GetSuppliersModel()
+            {
+                CreationDate = suppliers.CreationDate,
+                ModifyDate = suppliers.ModifyDate,
+                ContactName = suppliers.ContactName,
+                CompanyName = suppliers.CompanyName
+
+            };
+
+            return Ok(suppliers);
+
+        }
+            // POST api/<SuppliersController>
+            [HttpPost]
         public void Post([FromBody] string value)
         {
+
         }
 
         // PUT api/<SuppliersController>/5

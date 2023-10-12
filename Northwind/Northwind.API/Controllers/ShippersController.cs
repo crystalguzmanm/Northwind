@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Northwind.API.Models.Modules.Shippers;
 using Northwind.Domain.Entities;
 using Northwind.Domain.Repository;
 using Northwind.Infrastructure.Interfaces;
+using System.Numerics;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -21,20 +23,39 @@ namespace Northwind.API.Controllers
 
         // GET: api/<ShippersController>
         [HttpGet]
-        public IEnumerable<Shippers> Get()
+        public IActionResult Get()
         {
-           var shippers = this.shippersRepository.GetEntities();
+            var shippers = this.shippersRepository.GetEntities().Select(shippers => new GetShippersModel()
+            {
+                CreationDate = shippers.CreationDate,
+                ModifyDate = shippers.ModifyDate,
+                Phone = shippers.Phone,
+                CompanyName = shippers.CompanyName
 
-            return shippers;
+            });
+
+            return Ok (shippers);
 
 
         }
 
         // GET api/<ShippersController>/5
         [HttpGet("{id}")]
-        public Shippers Get(int id)
+        public IActionResult Get(int id)
         {
-            return this.shippersRepository.GetEntity(id);
+            var shippers = this.shippersRepository.GetEntity(id);
+
+            GetShippersModel model = new GetShippersModel()
+            {
+                CreationDate = shippers.CreationDate,
+                CompanyName = shippers.CompanyName,
+                ModifyDate = shippers.ModifyDate
+
+
+            };
+
+            return Ok(shippers);
+
         }
 
         // POST api/<ShippersController>
