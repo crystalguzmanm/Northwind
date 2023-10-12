@@ -4,6 +4,7 @@ using Northwind.Domain.Repository;
 using Northwind.Infrastructure.Repositories;
 using Northwind.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
+using Northwind.Infrastructure.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,7 @@ builder.Services.AddDbContext<NorthwindContext>(options => options.UseSqlServer(
 //Dependecia de los repositorio//
 builder.Services.AddTransient<IShippersRepository,ShippersRepository>();
 builder.Services.AddTransient<ISuppliersRepository, SuppliersRepository>();
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

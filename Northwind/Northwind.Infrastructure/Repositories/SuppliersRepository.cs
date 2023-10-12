@@ -1,59 +1,37 @@
 ﻿using Northwind.Domain.Entities;
 using Northwind.Domain.Repository;
 using Northwind.Infrastructure.Context;
+using Northwind.Infrastructure.Core;
 using Northwind.Infrastructure.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using ISuppliersRepository = Northwind.Domain.Repository.ISuppliersRepository;
+
 
 namespace Northwind.Infrastructure.Repositories
 {
-    public class SuppliersRepository : ISuppliersRepository
+    public class SuppliersRepository : BaseRepository<Suppliers>,ISuppliersRepository
     {
         private readonly NorthwindContext context;
 
-        public SuppliersRepository(NorthwindContext context)
+        public SuppliersRepository(NorthwindContext context) : base(context)
         {
             this.context = context;
         }
-
-        public bool Exists(Expression<Func<Suppliers, bool>> filter)
+        public List<Suppliers> GetSuppliersBySuppliersId(int suppliersId)
         {
-
-            return this.context.Suppliers.Any(filter);
-
+            return this.context.Suppliers.Where(cd => cd.SupplierID == suppliersId && !cd.Deleted).ToList();
         }
 
-        public Suppliers GetSuppliers(int Id)
+        public override List<Suppliers> GetEntities()
         {
-
-            return this.context.Suppliers.Find(Id);
+            return base.GetEntities().Where(co => !co.Deleted).ToList();
         }
 
-        public List<Suppliers> GetSuppliers()
+        List<Suppliers> ISuppliersRepository.GetSuppliersBySuppliersID(int SuppliersID)
         {
-
-            return this.context.Suppliers.Where(ca => !ca.Deleted).ToList();
+            throw new NotImplementedException();
         }
-
-        public void Remove(Suppliers suppliers)
-        {
-            this.context.Remove(suppliers);
-        }
-
-        public void Save(Suppliers suppliers)
-        {
-            this.context.Suppliers.Add(suppliers);
-        }
-
-        public void Update(Suppliers suppliers)
-        {
-            this.context.Update(suppliers);
-        }
-
-
-
     }
 }

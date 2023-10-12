@@ -7,6 +7,8 @@ namespace Northwind.Infrastructure.Context
 {
     public  class NorthwindContext: DbContext
     {
+        private readonly object entities;
+
         public NorthwindContext(DbContextOptions<NorthwindContext> options) : base(options)
         {
 

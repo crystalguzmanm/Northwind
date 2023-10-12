@@ -1,61 +1,38 @@
-﻿using Northwind.Domain.Entities;
+﻿using Microsoft.Azure.Amqp.Framing;
+using Northwind.Domain.Entities;
 using Northwind.Domain.Repository;
 using Northwind.Infrastructure.Context;
+using Northwind.Infrastructure.Core;
 using Northwind.Infrastructure.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using IShippersRepository = Northwind.Domain.Repository.IShippersRepository;
+
 
 namespace Northwind.Infrastructure.Repositories
 {
-    public class ShippersRepository : IShippersRepository
+    public class ShippersRepository : BaseRepository<Shippers>,IShippersRepository
     {
         private readonly NorthwindContext context;
 
-        public ShippersRepository(NorthwindContext context)
+        public ShippersRepository(NorthwindContext context) : base(context)
         {
             this.context = context;
         }
-
-        public bool Exists(Expression<Func<Shippers, bool>> filter)
+        public List<Shippers> GetShippersByShipperId(int shippersId)
         {
-
-            return this.context.Shippers.Any(filter);
-
+            return this.context.Shippers.Where(cd => cd.ShipperID == shippersId && !cd.Deleted).ToList();
         }
 
-        public Shippers GetShippers(int Id)
+        public override List<Shippers> GetEntities()
         {
-
-            return this.context.Shippers.Find(Id);
+            return base.GetEntities().Where(co => !co.Deleted).ToList();
         }
 
-        public List<Shippers> GetShippers()
+        List<Shippers> IShippersRepository.GetShippersByShippersID(int ShippersID)
         {
-
-            return this.context.Shippers.Where(ca => !ca.Deleted).ToList();
+            throw new NotImplementedException();
         }
-
-        public void Remove(Shippers shippers)
-        {
-            this.context.Remove(shippers);
-        }
-
-        public void Save(Shippers shippers)
-        {
-            this.context.Shippers.Add(shippers);
-        }
-
-        public void Update(Shippers shippers)
-        {
-            this.context.Update(shippers);
-        }
-
-
-
-
-
     }
 }

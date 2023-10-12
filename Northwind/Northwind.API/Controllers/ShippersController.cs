@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Northwind.Domain.Entities;
 using Northwind.Domain.Repository;
+using Northwind.Infrastructure.Interfaces;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -22,8 +23,9 @@ namespace Northwind.API.Controllers
         [HttpGet]
         public IEnumerable<Shippers> Get()
         {
-           var Shippers = this.shippersRepository.GetShippers();
-            return Shippers;
+           var shippers = this.shippersRepository.GetEntities();
+
+            return shippers;
 
 
         }
@@ -32,7 +34,7 @@ namespace Northwind.API.Controllers
         [HttpGet("{id}")]
         public Shippers Get(int id)
         {
-            return this.shippersRepository.GetShippers(id);
+            return this.shippersRepository.GetEntity(id);
         }
 
         // POST api/<ShippersController>

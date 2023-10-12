@@ -5,15 +5,15 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Domain", "Northwind.Domain\Northwind.Domain.csproj", "{AC20BEFB-76F1-4383-99A4-9B81043B1CAA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Infrastructure", "Northwind.Infrastructure\Northwind.Infrastructure.csproj", "{77C03E30-C4EC-4AE8-8974-898E14E20A5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Infrastructure", "Northwind.Infrastructure\Northwind.Infrastructure.csproj", "{77C03E30-C4EC-4AE8-8974-898E14E20A5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Application", "Northwind.Application\Northwind.Application.csproj", "{3B7A1555-5C59-41CB-9230-E041C8BCE7C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Application", "Northwind.Application\Northwind.Application.csproj", "{3B7A1555-5C59-41CB-9230-E041C8BCE7C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.Web", "Northwind.Web\Northwind.Web.csproj", "{AF7F7FC2-67C1-4776-A8C9-1CF20A5F2B26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.Web", "Northwind.Web\Northwind.Web.csproj", "{AF7F7FC2-67C1-4776-A8C9-1CF20A5F2B26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.API", "Northwind.API\Northwind.API.csproj", "{C550DBEA-B84F-40CB-9C52-D14D7E98E28D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.API", "Northwind.API\Northwind.API.csproj", "{C550DBEA-B84F-40CB-9C52-D14D7E98E28D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Northwind.loc", "Northwind.loc\Northwind.loc.csproj", "{0C022A35-39CC-441F-84C3-8C83A3FDC441}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Northwind.loc", "Northwind.loc\Northwind.loc.csproj", "{0C022A35-39CC-441F-84C3-8C83A3FDC441}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{DB7EE20C-358F-49BF-8B9D-CB830EB4A5BF}"
 EndProject
@@ -26,6 +26,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "loc", "loc", "{0BD2FF1F-EF9A-411D-A3A8-55E0B6080395}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{C724EDFA-AC7C-44B2-A0B5-7855B8E3232B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C6BB0371-89E0-49D6-91B3-B5D338616329}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
