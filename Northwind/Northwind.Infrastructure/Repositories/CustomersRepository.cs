@@ -1,53 +1,46 @@
-﻿﻿using Northwind.Domain.Entities;
-using Northwind.Domain.Repository;
+﻿using Northwind.Domain.Entities;
 using Northwind.Infrastructure.Context;
-using Northwind.Infrastructure.Interfaces;
+using Northwind.Infrastructure.Core;
+using  Northwind.Infrastructure.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
+
 //TODO
 namespace Northwind.Infrastructure.Repositories
 {
-    public class CustomersRepository : Domain.Repository.ICustomersRepository
+    public class CustomersRepository : BaseRepository<Customers>, ICustomersRepository
     {
 
         private readonly NorthwindContext context;
 
-        public CustomersRepository(NorthwindContext context)
+        public CustomersRepository(NorthwindContext context) : base(context)
         {
             this.context = context;
         }
 
-        public bool Exists(Expression<Func<Customers, bool>> filter) 
+        public List<Customers> GetCustomersByCustomerID(string CustomerID)
         {
-            return this.context.Customers.Any(filter);
+            return this.context.Customers.Where(cd => cd.CustomerID == CustomerID && cd.Deleted).ToList();
         }
 
-        public Customers GetCustomers(int id)
+        public override List<Customers> GetEntities()
         {
-            return this.context.Customers.Find(id);
+            return base.GetEntities().Where(ca => !ca.Deleted).ToList();
         }
 
-        public List<Customers> GetCustomers()
+        public IEnumerable<Customers> GetCustomers()
         {
-            return this.context.Customers.Where(ca => !ca.Deleted).ToList();
-        }
-        public void Save(Customers customers)
-        {
-            this.context.Customers.Add(customers);
+            throw new NotImplementedException();
         }
 
-        public void Update(Customers customers)
+        public List<Customers> GetCustomersByCustomerID(int CustomerID)
         {
-            this.context.Update(customers);
-        }
-
-        public void Remove(Customers customers)
-        {
-            this.context.Customers.Remove(customers);
+            throw new NotImplementedException();
         }
     }
+    
 }
 

@@ -1,10 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Northwind.Domain.Repository;
 using Northwind.Infrastructure.Context;
 using Northwind.Infrastructure.Interfaces;
 using Northwind.Infrastructure.Repositories;
-using ICustomersRepository = Northwind.Domain.Repository.ICustomersRepository;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,7 +21,8 @@ builder.Services.AddDbContext<NorthwindContext>(options => options.UseSqlServer(
     ));
 
 // Repository dependencies.
-builder.Services.AddTransient<ICustomersRepository, CustomersRepository>();
+builder.Services.AddTransient<ICustomersRepository,CustomersRepository>();
+
 
 // App services dependencies.
 
