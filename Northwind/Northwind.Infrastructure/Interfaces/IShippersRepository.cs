@@ -6,7 +6,8 @@ namespace Northwind.Infrastructure.Interfaces
 {
 	public interface IShippersRepository :IBaseRepository<Shippers>
 	{
-		List<Shippers> GetShippersByShippersID(int ShippersID);	
-
-	}
+		List<Shippers> GetShippersByShippersID(int ShippersID);
+     
+       
+    }
 }

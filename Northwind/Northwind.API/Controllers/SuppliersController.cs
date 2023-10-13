@@ -1,6 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Northwind.API.Models.Modules.Shippers;
-using Northwind.API.Models.Modules.Suppliers;
+using Microsoft.Azure.Amqp.Framing;
+using Northwind.API.Models.Modules.ShippersAddModel;
+using Northwind.API.Models.Modules.ShippersGetAllModel;
+using Northwind.API.Models.Modules.ShippersUpdateModel;
+using Northwind.API.Models.Modules.SuppliersAddModel;
+using Northwind.API.Models.Modules.SuppliersGetAllModel;
 using Northwind.Domain.Entities;
 using Northwind.Domain.Repository;
 using Northwind.Infrastructure.Interfaces;
@@ -24,52 +28,74 @@ namespace Northwind.API.Controllers
 
         // GET: api/<SuppliersController>
         [HttpGet]
-        public IActionResult Get()
+
+        [HttpGet("GetSuppliersBysuppliersId")]
+        public IActionResult GetSuppliersBySuppliersId(int suppliersId)
         {
-            var suppliers = this.suppliersRepository.GetEntities().Select(suppliers => new GetSuppliersModel()
-            {
-                CreationDate = suppliers.CreationDate,
-                ModifyDate = suppliers.ModifyDate,
-                ContactName = suppliers.ContactName,
-                CompanyName = suppliers.CompanyName
-
-            });
-
+            var suppliers = this.GetSuppliersBySuppliersId(suppliersId);
             return Ok(suppliers);
-
-
         }
 
 
         // GET api/<SuppliersController>/5
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public IActionResult Get()
         {
-            var suppliers = this.suppliersRepository.GetEntity(id);
-
-            GetSuppliersModel model = new GetSuppliersModel()
+            var suppliers = this.suppliersRepository.GetEntities().Select(suppliers => new SuppliersGetAllModelcs()
             {
                 CreationDate = suppliers.CreationDate,
                 ModifyDate = suppliers.ModifyDate,
                 ContactName = suppliers.ContactName,
                 CompanyName = suppliers.CompanyName
 
-            };
+            }).ToList();
 
             return Ok(suppliers);
 
-        }
-            // POST api/<SuppliersController>
-            [HttpPost]
-        public void Post([FromBody] string value)
-        {
 
         }
 
-        // PUT api/<SuppliersController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+
+        [HttpGet("Getsuppliers")]
+        public IActionResult Getsuppliers(int id)
         {
+            var suppliers = this.suppliersRepository.GetEntity(id);
+            return Ok(suppliers);
+        }
+
+
+        [HttpPost("SaveSuppliers")]
+        public IActionResult Post([FromBody] SuppliersAddModel suppliersAdd)
+        {
+            Suppliers suppliers = new Suppliers()
+            {
+                CreationDate = suppliersAdd.ChanageDate,
+                CreationUser = suppliersAdd.ChangeUser,
+                ModifyDate = suppliersAdd.ChangeModifyDate
+
+
+            };
+
+            this.suppliersRepository.Save(suppliers);
+
+            return Ok();
+        }
+
+        [HttpPost("UpdateCourse")]
+        public IActionResult Put([FromBody] ShippersUpdateModel suppliersUpdate)
+        {
+            Suppliers suppliers = new Suppliers()
+            {
+                CreationDate = suppliersUpdate.CreationDate,
+                CompanyName = suppliersUpdate.CompanyName,
+                ModifyDate = suppliersUpdate.ModifyDate
+
+
+            };
+
+            this.suppliersRepository.Update(suppliers);
+
+            return Ok();
         }
 
         // DELETE api/<SuppliersController>/5

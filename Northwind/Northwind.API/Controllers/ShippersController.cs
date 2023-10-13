@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Northwind.API.Models.Modules.Shippers;
+using Microsoft.Azure.Amqp.Framing;
+using Northwind.API.Models.Modules.ShippersAddModel;
+using Northwind.API.Models.Modules.ShippersGetAllModel;
+using Northwind.API.Models.Modules.ShippersUpdateModel;
 using Northwind.Domain.Entities;
 using Northwind.Domain.Repository;
 using Northwind.Infrastructure.Interfaces;
@@ -21,53 +24,78 @@ namespace Northwind.API.Controllers
         }
 
 
+        [HttpGet("GetShippersByshippersId")]
+        public IActionResult GetShippersByshippersId(int shippersId)
+        {
+            var shippers = this.shippersRepository.GetShippersByShippersID(shippersId);
+            return Ok(shippers);
+        }
+
         // GET: api/<ShippersController>
         [HttpGet]
         public IActionResult Get()
         {
-            var shippers = this.shippersRepository.GetEntities().Select(shippers => new GetShippersModel()
+            var shippers = this.shippersRepository.GetEntities().Select(shippers => new ShippersGetAllModel()
             {
                 CreationDate = shippers.CreationDate,
                 ModifyDate = shippers.ModifyDate,
                 Phone = shippers.Phone,
                 CompanyName = shippers.CompanyName
 
-            });
+            }).ToList();
 
             return Ok (shippers);
 
 
         }
 
-        // GET api/<ShippersController>/5
-        [HttpGet("{id}")]
-        public IActionResult Get(int id)
+
+
+        // GET api/<CourseController>/5
+        [HttpGet("Getshippers")]
+        public IActionResult GetShippers(int id)
         {
             var shippers = this.shippersRepository.GetEntity(id);
+            return Ok(shippers);
+        }
 
-            GetShippersModel model = new GetShippersModel()
+
+
+        [HttpPost("SaveShippers")]
+        public IActionResult Post([FromBody] ShippersAddModelcs shippersAdd)
+        {
+            Shippers shippers = new Shippers()
             {
-                CreationDate = shippers.CreationDate,
-                CompanyName = shippers.CompanyName,
-                ModifyDate = shippers.ModifyDate
+                CreationDate = shippersAdd.ChanageDate,
+                CreationUser = shippersAdd.ChangeUser,
+                ModifyDate = shippersAdd.ChangeModifyDate
 
 
             };
 
-            return Ok(shippers);
+            this.shippersRepository.Save(shippers);
 
+            return Ok();
         }
 
-        // POST api/<ShippersController>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
 
         // PUT api/<ShippersController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+
+        [HttpPost("UpdateCourse")]
+        public IActionResult Put([FromBody] ShippersUpdateModel shippersUpdate)
         {
+            Shippers shippers = new Shippers()
+            {
+                CreationDate = shippersUpdate.CreationDate,
+                CompanyName = shippersUpdate.CompanyName,
+                ModifyDate = shippersUpdate.ModifyDate
+
+
+            };
+
+            this.shippersRepository.Update(shippers);
+
+            return Ok();
         }
 
         // DELETE api/<ShippersController>/5
