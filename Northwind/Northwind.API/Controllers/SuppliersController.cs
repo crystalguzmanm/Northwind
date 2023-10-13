@@ -26,8 +26,6 @@ namespace Northwind.API.Controllers
 
        
 
-        // GET: api/<SuppliersController>
-        [HttpGet]
 
         [HttpGet("GetSuppliersBysuppliersId")]
         public IActionResult GetSuppliersBySuppliersId(int suppliersId)
@@ -38,7 +36,9 @@ namespace Northwind.API.Controllers
 
 
         // GET api/<SuppliersController>/5
-        [HttpGet("{id}")]
+        
+
+        [HttpGet("Getsuppliers")]
         public IActionResult Get()
         {
             var suppliers = this.suppliersRepository.GetEntities().Select(suppliers => new SuppliersGetAllModelcs()
@@ -56,7 +56,7 @@ namespace Northwind.API.Controllers
         }
 
 
-        [HttpGet("Getsuppliers")]
+        [HttpGet("{id}")]
         public IActionResult Getsuppliers(int id)
         {
             var suppliers = this.suppliersRepository.GetEntity(id);
