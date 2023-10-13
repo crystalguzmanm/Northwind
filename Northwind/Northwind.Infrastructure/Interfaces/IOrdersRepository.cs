@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 namespace Northwind.Infrastructure.Interfaces
 {
-    public interface  IOrdersRepository:IBaseRepository<Orders>
+    public interface IOrdersRepository : IBaseRepository<Orders>
     {
         IEnumerable<Orders> GetOrders();
-        List<Orders> GetOrdersByOrdersID(int OrdersID);
+        List<Orders> GetOrdersByOrderID(int OrderID);//Metood exlcusivo
     }
 }

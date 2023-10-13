@@ -1,63 +1,37 @@
 ﻿using Northwind.Domain.Entities;
 using Northwind.Infrastructure.Context;
-//using Northwind.Infrastructure.Interfaces;
-using System;
+using Northwind.Infrastructure.Core;
+using Northwind.Infrastructure.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
-using Northwind.Domain.Repository;
-using IOrdersRepository = Northwind.Domain.Repository.IOrdersRepository;
 
 namespace Northwind.Infrastructure.Repositories
 {
-    public class OrdersRepository : IOrdersRepository
+    public class OrdersRepository : BaseRepository<Orders>, IOrdersRepository
     {
-
         private readonly NorthwindContext context;
-
-        public OrdersRepository(NorthwindContext context)
+        public OrdersRepository(NorthwindContext context) : base(context)
         {
             this.context = context;
         }
-
-        public bool Exists(Expression<Func<Orders, bool>> filter)
+        public List<Orders> GetOrdersByDeparment(int orderID)
         {
-
-            return this.context.Orders.Any(filter);
+            return this.context.Orders.Where(cd => cd.OrderID == orderID && !cd.Deleted).ToList();
 
         }
-
-
-        public Orders GetOrdes(int Id)
+        public override List<Orders> GetEntities()
         {
-
-            return this.context.Orders.Find(Id);
+            return base.GetEntities().Where(co => !co.Deleted).ToList();
+        }
+        //De aqui pa abajo con bombillito
+        public IEnumerable<Orders> GetOrders()
+        {
+            throw new System.NotImplementedException();
         }
 
-        public List<Orders> GetOrders()
+        public List<Orders> GetOrdersByOrderID(int OrderID)
         {
-
-            return this.context.Orders.Where(ca => !ca.Deleted).ToList();
-        }
-
-        public void Remove(Orders orders)
-        {
-            this.context.Remove(orders);
-        }
-
-        public void Save(Orders orders)
-        {
-            this.context.Orders.Add(orders);
-        }
-
-        public void Update(Orders orders)
-        {
-            this.context.Update(orders);
-        }
-
-        Orders IOrdersRepository.GetOrders(int Id)
-        {
-            throw new NotImplementedException();
+            throw new System.NotImplementedException();
         }
     }
 }

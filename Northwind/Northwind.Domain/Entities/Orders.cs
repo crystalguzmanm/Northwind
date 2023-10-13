@@ -7,6 +7,8 @@ namespace Northwind.Domain.Entities
 {
     public class Orders : BaseEntity
     {
+        
+
         [Key]
         public int OrderID {  get; set; }
         public string? CustomerID { get; set; }
@@ -23,6 +25,5 @@ namespace Northwind.Domain.Entities
         public string? ShipPostalCode { get; set;}
         public string? ShipCountry { get; set;}
         
-
     }
 }

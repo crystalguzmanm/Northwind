@@ -1,8 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+//using Microsoft.Azure.Amqp.Framing;
+using Northwind.API.Models.Modules.OrdersDetailsAddModel;
+using Northwind.API.Models.Modules.OrdersDetailsGetAllModel;
+using Northwind.API.Models.Modules.OrdersDetailsUpdateModel;
 using Northwind.Domain.Entities;
+using Northwind.Domain.Repository;
 using Northwind.Infrastructure.Interfaces;
-using Northwind.Infrastructure.Repositories;
-using IOrdersDetailsRepository = Northwind.Domain.Repository.IOrdersDetailsRepository;
+using System.Numerics;
+
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -19,37 +24,87 @@ namespace Northwind.API.Controllers
             this.ordersDetailsRepository = ordersDetailsRepository;
         }
 
-        // GET: api/<SuppliersController>
+        [HttpGet("GetOrdersDetailsByOrderDetailID")]
+        public IActionResult GetOrdersDetailsByOrderDetailID(int ordersDetailsID)
+        {
+            var ordersDetails = this.ordersDetailsRepository.GetOrdersDetailsByOrderDetailID(ordersDetailsID);
+            return Ok(ordersDetails);
+        }
+
+        // GET: api/<ShippersController>
         [HttpGet]
-        public IEnumerable<OrdersDetails> Get()
+        public IActionResult Get()
         {
-            var OrdersDetails = this.ordersDetailsRepository.GetOrdersDetails();
-            return OrdersDetails;
+            var ordersDetails = this.ordersDetailsRepository.GetEntities().Select(ordersDetails => new OrdersDetailsGetAllModel()
+            {
+                CreationDate = ordersDetails.CreationDate,
+                ModifyDate = ordersDetails.ModifyDate,
+                ProductID = ordersDetails.ProductID,
+                UnitPrice = ordersDetails.UnitPrice,
+                Quantity = ordersDetails.Quantity,
+                Discount = ordersDetails.Discount,
+                CreationUser = ordersDetails.CreationUser,
+
+            }).ToList();
+
+            return Ok(ordersDetails);
 
 
         }
 
-
-        // GET api/<SuppliersController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        // GET api/<CourseController>/5
+        [HttpGet("GetordersDetails")]
+        public IActionResult GetOrdersDetails(int id)
         {
-            return "value";
+            var ordersDetails = this.ordersDetailsRepository.GetEntity(id);
+            return Ok(ordersDetails);
         }
 
-        // POST api/<SuppliersController>
-        [HttpPost]
-        public void Post([FromBody] string value)
+
+        [HttpPost("SaveOrdersDetails")]
+        public IActionResult Post([FromBody] OrdersDetailsAddModel ordersDetailsAdd)
         {
+            OrdersDetails ordersDetails = new OrdersDetails()
+            {
+                CreationDate = ordersDetailsAdd.ChanageDate,
+                CreationUser = ordersDetailsAdd.ChangeUser,
+                ModifyDate = ordersDetailsAdd.ChangeModifyDate
+
+
+            };
+
+            this.ordersDetailsRepository.Save(ordersDetails);
+
+            return Ok();
         }
 
-        // PUT api/<SuppliersController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+
+        // PUT api/<ShippersController>/5
+
+        [HttpPost("UpdateCourse")]
+        public IActionResult Put([FromBody] OrdersDetailsUpdateModel ordersDetailsUpdate)
         {
+            OrdersDetails ordersDetails = new OrdersDetails()
+            {
+                CreationDate = ordersDetailsUpdate.CreationDate,
+                ModifyDate = ordersDetailsUpdate.ModifyDate,
+                ProductID = ordersDetailsUpdate.ProductID,
+                UnitPrice = ordersDetailsUpdate.UnitPrice,
+                Quantity = ordersDetailsUpdate.Quantity,
+                Discount = ordersDetailsUpdate.Discount,
+                CreationUser = ordersDetailsUpdate.CreationUser,
+
+
+            };
+
+            this.ordersDetailsRepository.Update(ordersDetails);
+
+            return Ok();
         }
 
-        // DELETE api/<SuppliersController>/5
+        
+
+        // DELETE api/<OrdersDetailsController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

@@ -7,6 +7,6 @@ namespace Northwind.Infrastructure.Interfaces
     public interface IOrdersDetailsRepository : IBaseRepository<OrdersDetails>
     {
         IEnumerable<OrdersDetails> GetOrdersDetails();
-        List<OrdersDetails> GetOrdersDetailsByOrdersID(int OrdersDetailsID);
+        List<OrdersDetails> GetOrdersDetailsByOrderDetailID(int OrderDetailID);//Metood exlcusivo
     }
 }

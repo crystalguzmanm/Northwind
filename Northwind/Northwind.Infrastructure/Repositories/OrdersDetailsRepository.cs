@@ -1,65 +1,39 @@
 ﻿using Northwind.Domain.Entities;
 using Northwind.Infrastructure.Context;
-//using Northwind.Infrastructure.Interfaces;
-using System;
+using Northwind.Infrastructure.Core;
+using Northwind.Infrastructure.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
-using Northwind.Domain.Repository;
-using IOrdersDetailsRepository = Northwind.Domain.Repository.IOrdersDetailsRepository;
-
-
 
 
 
 namespace Northwind.Infrastructure.Repositories
 {
-    public class OrdersDetailsRepository : IOrdersDetailsRepository
+    public class OrdersDetailsRepository : BaseRepository<OrdersDetails>, IOrdersDetailsRepository
     {
         private readonly NorthwindContext context;
-        public OrdersDetailsRepository(NorthwindContext context)
+        public OrdersDetailsRepository(NorthwindContext context) : base(context)
         {
             this.context = context;
         }
-
-        public bool Exists(Expression<Func<OrdersDetails, bool>> filter)
+        public List<OrdersDetails> GetOrdersDetailsByOrderDetailsID(int orderDetailsID)
         {
-
-            return this.context.OrdersDetails.Any(filter);
+            return this.context.OrdersDetails.Where(cd => cd.OrderDetailsID == orderDetailsID && !cd.Deleted).ToList();
 
         }
-
-        public List<OrdersDetails> GetOrdersDetails()
+        public override List<OrdersDetails> GetEntities()
         {
-            return this.context.OrdersDetails.Where(ca => !ca.Deleted).ToList();
+            return base.GetEntities().Where(co => !co.Deleted).ToList();
         }
 
-        public OrdersDetails GetOrdesDetails(int Id)
+        public IEnumerable<OrdersDetails> GetOrdersDetails()
         {
-
-            return this.context.OrdersDetails.Find(Id);
+            throw new System.NotImplementedException();
         }
 
-        
-
-        public void Remove(OrdersDetails ordersDetails)
+        public List<OrdersDetails> GetOrdersDetailsByOrderDetailID(int OrderDetailID)
         {
-            this.context.Remove(ordersDetails);
-        }
-
-        public void Save(OrdersDetails ordersDetails)
-        {
-            this.context.OrdersDetails.Add(ordersDetails);
-        }
-
-        public void Update(OrdersDetails ordersDetails)
-        {
-            this.context.Update(ordersDetails);
-        }
-
-        OrdersDetails IOrdersDetailsRepository.GetOrdersDetails(int Id)
-        {
-            throw new NotImplementedException();
+            throw new System.NotImplementedException();
         }
     }
 }
