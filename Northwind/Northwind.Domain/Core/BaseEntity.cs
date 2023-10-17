@@ -4,7 +4,7 @@ namespace Northwind.Domain.Core
 {
     public abstract class BaseEntity
     {
-        public DateTime CreationDate { get; set; }
+        //public DateTime CreationDate { get; set; }
 
         public int CreationUser { get; set; }
 

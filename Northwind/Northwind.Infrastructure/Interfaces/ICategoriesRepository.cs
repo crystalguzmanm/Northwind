@@ -6,6 +6,7 @@ namespace Northwind.Infrastructure.Interfaces
 {
     public interface ICategoriesRepository : IBaseRepository<Categories>
     {
+        object GetCategories();
         List<Categories> GetCategoriesByCategoriesID(int categoryID);
     }
 }

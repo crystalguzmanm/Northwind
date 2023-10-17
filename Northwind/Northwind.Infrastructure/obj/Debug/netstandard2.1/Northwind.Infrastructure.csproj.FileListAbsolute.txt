@@ -46,3 +46,16 @@ C:\ProyectoFinalA\Northwind\Northwind.Infrastructure\obj\Debug\netstandard2.1\No
 C:\ProyectoFinalA\Northwind\Northwind.Infrastructure\obj\Debug\netstandard2.1\Northwind.Infrastructure.csproj.CopyComplete
 C:\ProyectoFinalA\Northwind\Northwind.Infrastructure\obj\Debug\netstandard2.1\Northwind.Infrastructure.dll
 C:\ProyectoFinalA\Northwind\Northwind.Infrastructure\obj\Debug\netstandard2.1\Northwind.Infrastructure.pdb
+C:\ProyectoFinal\Northwind\Northwind.Infrastructure\bin\Debug\netstandard2.1\Northwind.Infrastructure.deps.json
+C:\ProyectoFinal\Northwind\Northwind.Infrastructure\bin\Debug\netstandard2.1\Northwind.Infrastructure.dll
+C:\ProyectoFinal\Northwind\Northwind.Infrastructure\bin\Debug\netstandard2.1\Northwind.Infrastructure.pdb
+C:\ProyectoFinal\Northwind\Northwind.Infrastructure\bin\Debug\netstandard2.1\Northwind.Domain.dll
+C:\ProyectoFinal\Northwind\Northwind.Infrastructure\bin\Debug\netstandard2.1\Northwind.Domain.pdb
+C:\ProyectoFinal\Northwind\Northwind.Infrastructure\obj\Debug\netstandard2.1\Northwind.Infrastructure.csproj.AssemblyReference.cache
+C:\ProyectoFinal\Northwind\Northwind.Infrastructure\obj\Debug\netstandard2.1\Northwind.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\ProyectoFinal\Northwind\Northwind.Infrastructure\obj\Debug\netstandard2.1\Northwind.Infrastructure.AssemblyInfoInputs.cache
+C:\ProyectoFinal\Northwind\Northwind.Infrastructure\obj\Debug\netstandard2.1\Northwind.Infrastructure.AssemblyInfo.cs
+C:\ProyectoFinal\Northwind\Northwind.Infrastructure\obj\Debug\netstandard2.1\Northwind.Infrastructure.csproj.CoreCompileInputs.cache
+C:\ProyectoFinal\Northwind\Northwind.Infrastructure\obj\Debug\netstandard2.1\Northwind.Infrastructure.csproj.CopyComplete
+C:\ProyectoFinal\Northwind\Northwind.Infrastructure\obj\Debug\netstandard2.1\Northwind.Infrastructure.dll
+C:\ProyectoFinal\Northwind\Northwind.Infrastructure\obj\Debug\netstandard2.1\Northwind.Infrastructure.pdb
