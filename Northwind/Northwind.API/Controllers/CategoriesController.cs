@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Northwind.Domain.Entities;
-using Northwind.Infrastructure.Interfaces;
 using Northwind.Infrastructure.Repositories;
-using Northwind.Domain.Repository;
-using ICategoriesRepository = Northwind.Infrastructure.Interfaces.ICategoriesRepository;
+using Northwind.Infrastructure.Repositories;
 
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -14,8 +12,8 @@ namespace Northwind.API.Controllers
     [ApiController]
     public class CategoriesController : ControllerBase
     {
-        private readonly ICategoriesRepository categoriesRepository;
-        public CategoriesController(ICategoriesRepository categoriesRepository)
+        private readonly CategoriesRepository categoriesRepository;
+        public CategoriesController(CategoriesRepository categoriesRepository)
         {
             this.categoriesRepository = categoriesRepository;
         }
@@ -25,7 +23,7 @@ namespace Northwind.API.Controllers
         public IEnumerable<Categories> Get()
         {
             var categories = this.categoriesRepository.GetCategories();
-            return (IEnumerable<Categories>)categories;
+            return categories;
         }
 
         // GET api/<CategoriesController>/5
