@@ -70,8 +70,8 @@ namespace Northwind.API.Controllers
             return Ok();
         }
 
-
-        [HttpPost("UpdateCustomers")]
+        // PUT api/<CustomersController>/5
+        [HttpPut("UpdateCustomers")]
         public IActionResult Put([FromBody] UpdateCustomersModelcs updateCustomers)
         {
             Customers customers = new Customers()
@@ -79,25 +79,12 @@ namespace Northwind.API.Controllers
                 CompanyName = updateCustomers.CompanyName,
                 City = updateCustomers.City,
                 Phone = updateCustomers.Phone,
-                Address = updateCustomers.Address   
+                Address = updateCustomers.Address
             };
 
             this.CustomersRepository.Update(customers);
 
             return Ok();
-        }
-
-
-        // PUT api/<CustomersController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<CustomersController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }
