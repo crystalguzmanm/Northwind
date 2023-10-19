@@ -9,9 +9,11 @@ namespace Northwind.Domain.Repository
     public interface ICategoriesRepository
     {
 
-        void save(Categories categories);
+        void Save(Categories categories);
 
         void Update(Categories categories);
+
+        void Remove(Categories categories);
 
         List<Categories> GetCategories();
 

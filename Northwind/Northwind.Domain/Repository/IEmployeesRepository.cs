@@ -12,6 +12,8 @@ namespace Northwind.Domain.Repository
 
         void Update(Employees employees);
 
+        void Remove(Employees employees);
+
         List<Employees> GetEmployees();
 
         Employees GetEmployess(int Id);

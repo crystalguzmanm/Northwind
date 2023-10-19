@@ -14,14 +14,15 @@ namespace Northwind.Infrastructure.Repositories
     {
         private readonly NorthwindContext context;
 
+        public CategoriesRepository(NorthwindContext context)
+        {
+            this.context = context;
+        }
+
+
         public bool Exists(Expression<Func<Categories, bool>> filter)
         {
             return this.context.Categories.Any(filter);
-        }
-
-        public List<Categories> GetCategories()
-        {
-            return this.context.Categories.Where(ca => !ca.Deleted).ToList();
         }
 
         public Categories GetCategories(int Id)
@@ -30,7 +31,17 @@ namespace Northwind.Infrastructure.Repositories
 
         }
 
-        public void save(Categories categories)
+        public List<Categories> GetCategories()
+        {
+            return this.context.Categories.Where(ca => !ca.Deleted).ToList();
+        }
+
+        public void Remove(Categories categories)
+        {
+            this.context.Categories.Remove(categories);
+        }
+
+        public void Save(Categories categories)
         {
             this.context.Categories.Add(categories);
         }

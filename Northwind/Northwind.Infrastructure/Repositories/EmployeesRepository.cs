@@ -39,7 +39,7 @@ namespace Northwind.Infrastructure.Repositories
 
         public void Remove(Employees employees)
         {
-            this.context.Remove(employees);
+            this.context.Employees.Remove(employees);
         }
 
         public void save(Employees employees)
