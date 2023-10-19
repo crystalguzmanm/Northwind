@@ -11,7 +11,7 @@ using System.Linq.Expressions;
 
 namespace Northwind.Infrastructure.Repositories
 {
-    public class SuppliersRepository : BaseRepository<Suppliers>,ISuppliersRepository
+    public class SuppliersRepository : BaseRepository<Suppliers>, ISuppliersRepository
     {
         private readonly NorthwindContext context;
 
@@ -19,10 +19,7 @@ namespace Northwind.Infrastructure.Repositories
         {
             this.context = context;
         }
-        public List<Suppliers> GetSuppliersBySuppliersId(int suppliersId)
-        {
-            return this.context.Suppliers.Where(cd => cd.SupplierID == suppliersId && !cd.Deleted).ToList();
-        }
+       
 
         public override List<Suppliers> GetEntities()
         {
@@ -31,7 +28,29 @@ namespace Northwind.Infrastructure.Repositories
 
         List<Suppliers> ISuppliersRepository.GetSuppliersBySuppliersID(int SuppliersID)
         {
-            throw new NotImplementedException();
+            return this.context.Suppliers.Where(cd => cd.SupplierID == SuppliersID && !cd.Deleted).ToList();
         }
+
+        public override void Save(Suppliers entity)
+        {
+            context.Suppliers.Add(entity);
+            context.SaveChanges();
+
+        }
+
+        public override void Update(Suppliers entity)
+        {
+            var suppliersUpdate = base.GetEntity(entity.SupplierID);
+            suppliersUpdate.CompanyName = entity.CompanyName;
+            suppliersUpdate.Phone = entity.Phone;
+            suppliersUpdate.CreationDate = entity.CreationDate;
+            suppliersUpdate.CreationUser = entity.CreationUser;
+            suppliersUpdate.UserMod = entity.UserMod;
+
+            context.Suppliers.Update(suppliersUpdate);
+            context.SaveChanges();
+        }
+
+
     }
 }

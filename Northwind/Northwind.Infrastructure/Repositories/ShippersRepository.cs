@@ -20,10 +20,6 @@ namespace Northwind.Infrastructure.Repositories
         {
             this.context = context;
         }
-        public List<Shippers> GetShippersByShipperId(int shippersId)
-        {
-            return this.context.Shippers.Where(cd => cd.ShipperID == shippersId && !cd.Deleted).ToList();
-        }
 
         public override List<Shippers> GetEntities()
         {
@@ -32,7 +28,26 @@ namespace Northwind.Infrastructure.Repositories
 
         List<Shippers> IShippersRepository.GetShippersByShippersID(int ShippersID)
         {
-            throw new NotImplementedException();
+            return this.context.Shippers.Where(cd => cd.ShipperID == ShippersID && !cd.Deleted).ToList();
+        }
+        public override void Save(Shippers entity)
+        {
+            context.Shippers.Add(entity);
+            context.SaveChanges();  
+            
+        }
+
+        public override void Update(Shippers entity)
+        {
+            var shippersUpdate = base.GetEntity(entity.ShipperID);
+            shippersUpdate.CompanyName = entity.CompanyName;
+            shippersUpdate.Phone=entity.Phone;
+            shippersUpdate.CreationDate = entity.CreationDate;
+            shippersUpdate.CreationUser = entity.CreationUser;
+            shippersUpdate.UserMod = entity.UserMod;  
+
+            context.Shippers.Update(shippersUpdate);  
+            context.SaveChanges();
         }
     }
 }

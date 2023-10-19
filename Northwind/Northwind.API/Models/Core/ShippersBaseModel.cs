@@ -10,5 +10,7 @@
         public DateTime CreationDate { get; set; }
 
         public DateTime? ModifyDate { get; set; }
+
+      public string? ContactName { get; set; }
     }
 }

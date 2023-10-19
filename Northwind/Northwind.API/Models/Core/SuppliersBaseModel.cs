@@ -10,6 +10,5 @@
 
         public DateTime? ModifyDate { get; set; }
 
-
     }
 }

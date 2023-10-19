@@ -4,7 +4,7 @@ namespace Northwind.API.Models.Modules.ShippersUpdateModel
 {
     public class ShippersUpdateModel : ShippersBaseModel
     {
-        public int ShippersId { get; set; }
+        public int ShipperID { get; set; }
 
     }
 }

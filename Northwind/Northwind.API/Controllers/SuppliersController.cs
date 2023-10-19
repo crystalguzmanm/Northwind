@@ -8,6 +8,7 @@ using Northwind.API.Models.Modules.SuppliersGetAllModel;
 using Northwind.Domain.Entities;
 using Northwind.Domain.Repository;
 using Northwind.Infrastructure.Interfaces;
+using System.Diagnostics.Metrics;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -71,8 +72,10 @@ namespace Northwind.API.Controllers
             {
                 CreationDate = suppliersAdd.ChanageDate,
                 CreationUser = suppliersAdd.ChangeUser,
-                ModifyDate = suppliersAdd.ChangeModifyDate
-
+                ModifyDate = suppliersAdd.ChangeModifyDate,
+                ContactName = suppliersAdd.ContactName,
+                CompanyName = suppliersAdd.CompanyName
+             
 
             };
 
@@ -81,14 +84,17 @@ namespace Northwind.API.Controllers
             return Ok();
         }
 
-        [HttpPost("UpdateCourse")]
+        [HttpPut("Updatesuppliers")]
         public IActionResult Put([FromBody] ShippersUpdateModel suppliersUpdate)
         {
             Suppliers suppliers = new Suppliers()
             {
                 CreationDate = suppliersUpdate.CreationDate,
                 CompanyName = suppliersUpdate.CompanyName,
-                ModifyDate = suppliersUpdate.ModifyDate
+                ModifyDate = suppliersUpdate.ModifyDate,
+                ContactName = suppliersUpdate.ContactName,
+                CreationUser = suppliersUpdate.ChangeUser,
+                SupplierID = suppliersUpdate.Id
 
 
             };

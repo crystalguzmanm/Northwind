@@ -7,7 +7,7 @@ namespace Northwind.Domain.Entities
     public class Shippers : Company
     {
         [Key]
-        public int ShipperID {  get; set; } 
-        
+        public int ShipperID {  get; set; }
+      
     }
 }

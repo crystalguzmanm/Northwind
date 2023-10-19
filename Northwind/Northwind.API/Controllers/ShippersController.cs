@@ -66,9 +66,11 @@ namespace Northwind.API.Controllers
         {
             Shippers shippers = new Shippers()
             {
-                CreationDate = shippersAdd.ChanageDate,
-                CreationUser = shippersAdd.ChangeUser,
-                ModifyDate = shippersAdd.ChangeModifyDate
+                CreationDate = shippersAdd.CreationDate,
+                ModifyDate = shippersAdd.ModifyDate,
+                Phone = shippersAdd.Phone,  
+                CompanyName = shippersAdd.CompanyName 
+                
 
 
             };
@@ -81,19 +83,26 @@ namespace Northwind.API.Controllers
 
         // PUT api/<ShippersController>/5
 
-        [HttpPost("UpdateCourse")]
+        [HttpPut("Updateshippers")]
         public IActionResult Put([FromBody] ShippersUpdateModel shippersUpdate)
         {
-            Shippers shippers = new Shippers()
-            {
-                CreationDate = shippersUpdate.CreationDate,
-                CompanyName = shippersUpdate.CompanyName,
-                ModifyDate = shippersUpdate.ModifyDate
+            this.shippersRepository.Update(new Shippers()
+            { ModifyDate = shippersUpdate.ChangeModifyDate,
+              UserMod = shippersUpdate.ChangeUser,
+              Phone = shippersUpdate.Phone, 
+              CompanyName = shippersUpdate.CompanyName,
+               CreationDate = shippersUpdate.CreationDate,
+               CreationUser = shippersUpdate.ChangeUser,
+                ShipperID = shippersUpdate.ShipperID
 
 
-            };
 
-            this.shippersRepository.Update(shippers);
+
+
+
+            });
+
+          
 
             return Ok();
         }

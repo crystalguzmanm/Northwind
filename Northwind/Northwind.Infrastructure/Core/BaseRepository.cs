@@ -37,9 +37,9 @@ namespace Northwind.Infrastructure.Core
             return this.entities.ToList();
         }
 
-        public virtual TEntity GetEntity(int Id)
+        public virtual TEntity GetEntity(int ShipperID)
         {
-            return this.entities.Find(Id);
+            return this.entities.Find(ShipperID);
         }
 
         public virtual void Remove(TEntity entity)
@@ -56,5 +56,7 @@ namespace Northwind.Infrastructure.Core
         {
             this.entities.Update(entity);
         }
+
+        
     }
 }

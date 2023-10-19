@@ -6,5 +6,6 @@
         public DateTime ChanageDate { get; set; }
 
         public DateTime ChangeModifyDate { get; set; }
+
     }
 }
