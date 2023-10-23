@@ -3,6 +3,8 @@ using Microsoft.Azure.Amqp.Framing;
 using Northwind.API.Models.Modules.ShippersAddModel;
 using Northwind.API.Models.Modules.ShippersGetAllModel;
 using Northwind.API.Models.Modules.ShippersUpdateModel;
+using Northwind.Application.Contracts;
+using Northwind.Application.Dtos.Shippers;
 using Northwind.Domain.Entities;
 using Northwind.Domain.Repository;
 using Northwind.Infrastructure.Interfaces;
@@ -16,18 +18,18 @@ namespace Northwind.API.Controllers
     [ApiController]
     public class ShippersController : ControllerBase
     {
-        private readonly IShippersRepository shippersRepository;
+        private readonly IShippersService shippersService;
 
-        public ShippersController(IShippersRepository shippersRepository)
+        public ShippersController(IShippersService shippersService)
         { 
-          this.shippersRepository = shippersRepository;
+          this.shippersService = shippersService;
         }
 
 
         [HttpGet("GetShippersByshippersId")]
         public IActionResult GetShippersByshippersId(int shippersId)
         {
-            var shippers = this.shippersRepository.GetShippersByShippersID(shippersId);
+            var shippers = this.shippersService.GetShippersByShippersID(shippersId);
             return Ok(shippers);
         }
 
@@ -35,16 +37,15 @@ namespace Northwind.API.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var shippers = this.shippersRepository.GetEntities().Select(shippers => new ShippersGetAllModel()
+            var result = this.shippersService.GetAll();
+
+            if (!result.Success)
             {
-                CreationDate = shippers.CreationDate,
-                ModifyDate = shippers.ModifyDate,
-                Phone = shippers.Phone,
-                CompanyName = shippers.CompanyName
+                return BadRequest();
+            }
 
-            }).ToList();
 
-            return Ok (shippers);
+            return Ok (result);
 
 
         }
@@ -53,58 +54,51 @@ namespace Northwind.API.Controllers
 
         // GET api/<CourseController>/5
         [HttpGet("Getshippers")]
-        public IActionResult GetShippers(int id)
+        public IActionResult GetShippers(int Id)
         {
-            var shippers = this.shippersRepository.GetEntity(id);
-            return Ok(shippers);
+            var result = this.shippersService.GetById(Id);
+
+            if (!result.Success)
+            {
+                return BadRequest();
+            }
+
+
+            return Ok(result);
+
         }
 
 
 
         [HttpPost("SaveShippers")]
-        public IActionResult Post([FromBody] ShippersAddModelcs shippersAdd)
+        public IActionResult Post([FromBody] ShippersDtoAdd shippersAdd)
         {
-            Shippers shippers = new Shippers()
+            var result = this.shippersService.Save(shippersAdd);
+            
+
+            if (!result.Success)
             {
-                CreationDate = shippersAdd.CreationDate,
-                ModifyDate = shippersAdd.ModifyDate,
-                Phone = shippersAdd.Phone,  
-                CompanyName = shippersAdd.CompanyName 
-                
-
-
-            };
-
-            this.shippersRepository.Save(shippers);
+                return BadRequest();
+            }
 
             return Ok();
         }
 
 
         // PUT api/<ShippersController>/5
+        
 
         [HttpPut("Updateshippers")]
-        public IActionResult Put([FromBody] ShippersUpdateModel shippersUpdate)
+        public IActionResult Put([FromBody] ShippersDtoUpdate shippersDtoUpdate)
         {
-            this.shippersRepository.Update(new Shippers()
-            { ModifyDate = shippersUpdate.ChangeModifyDate,
-              UserMod = shippersUpdate.ChangeUser,
-              Phone = shippersUpdate.Phone, 
-              CompanyName = shippersUpdate.CompanyName,
-               CreationDate = shippersUpdate.CreationDate,
-               CreationUser = shippersUpdate.ChangeUser,
-                ShipperID = shippersUpdate.ShipperID
+            var result = this.shippersService.Update(shippersDtoUpdate);
 
+            if (!result.Success)
+            {
+                return BadRequest();
+            }
 
-
-
-
-
-            });
-
-          
-
-            return Ok();
+            return Ok(result);
         }
 
         // DELETE api/<ShippersController>/5

@@ -16,3 +16,11 @@ C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.loc\obj\Debug\nets
 C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.loc\obj\Debug\netstandard2.1\Northwind.loc.csproj.CoreCompileInputs.cache
 C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.loc\obj\Debug\netstandard2.1\Northwind.loc.dll
 C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.loc\obj\Debug\netstandard2.1\Northwind.loc.pdb
+C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.loc\bin\Debug\netstandard2.1\Northwind.Application.dll
+C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.loc\bin\Debug\netstandard2.1\Northwind.Domain.dll
+C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.loc\bin\Debug\netstandard2.1\Northwind.Infrastructure.dll
+C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.loc\bin\Debug\netstandard2.1\Northwind.Application.pdb
+C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.loc\bin\Debug\netstandard2.1\Northwind.Infrastructure.pdb
+C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.loc\bin\Debug\netstandard2.1\Northwind.Domain.pdb
+C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.loc\obj\Debug\netstandard2.1\Northwind.loc.csproj.AssemblyReference.cache
+C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.loc\obj\Debug\netstandard2.1\Northwind.loc.csproj.CopyComplete

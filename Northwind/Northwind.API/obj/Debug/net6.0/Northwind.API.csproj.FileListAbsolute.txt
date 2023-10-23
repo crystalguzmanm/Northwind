@@ -98,3 +98,7 @@ C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.API\bin\Debug\net6
 C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.API\bin\Debug\net6.0\Microsoft.Azure.Services.AppAuthentication.dll
 C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.API\bin\Debug\net6.0\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll
 C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.API\bin\Debug\net6.0\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
+C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.API\bin\Debug\net6.0\Northwind.Application.dll
+C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.API\bin\Debug\net6.0\Northwind.loc.dll
+C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.API\bin\Debug\net6.0\Northwind.Application.pdb
+C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.API\bin\Debug\net6.0\Northwind.loc.pdb

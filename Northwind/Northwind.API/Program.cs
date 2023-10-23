@@ -5,6 +5,7 @@ using Northwind.Infrastructure.Repositories;
 using Northwind.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 using Northwind.Infrastructure.Interfaces;
+using Northwind.loc.Dependecies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,8 +14,8 @@ var builder = WebApplication.CreateBuilder(args);
 //Agregar dependencias del context //
 builder.Services.AddDbContext<NorthwindContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("NorthwindContext")));
 
-//Dependecia de los repositorio//
-builder.Services.AddTransient<IShippersRepository,ShippersRepository>();
+//builder.Services.AddTransient<IShippersRepository,ShippersRepository>();
+builder.Services.AddShippersDepency();
 builder.Services.AddTransient<ISuppliersRepository, SuppliersRepository>();
 
 
