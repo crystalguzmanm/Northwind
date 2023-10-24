@@ -2,6 +2,7 @@
 using Northwind.Domain.Repository;
 using Northwind.Infrastructure.Context;
 using Northwind.Infrastructure.Interfaces;
+using School.Infrastructure.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,45 +11,48 @@ using ICategoriesRepository = Northwind.Domain.Repository.ICategoriesRepository;
 
 namespace Northwind.Infrastructure.Repositories
 {
-    public class CategoriesRepository : ICategoriesRepository
+    public class CategoriesRepository : BaseRepository<Categories>, ICategoriesRepository
     {
         private readonly NorthwindContext context;
 
-        public CategoriesRepository(NorthwindContext context)
+        public CategoriesRepository(NorthwindContext context) : base(context)
         {
             this.context = context;
         }
 
-
-        public bool Exists(Expression<Func<Categories, bool>> filter)
+        public override List<Categories> GetEntities()
         {
-            return this.context.Categories.Any(filter);
+            return base.GetEntities().Where(co => !co.Deleted).ToList();
         }
 
-        public Categories GetCategories(int Id)
+        List<Categories> ICategoriesRepository.GetCategoriesByCategoriesID(int CategoriesID)
         {
-            return this.context.Categories.Find(Id);
+            return this.context.Categories.Where(cd => cd.CategoryId == CategoriesID && !cd.Deleted).ToList();
+        }
+        public override void Save(Categories entity)
+        {
+            context.Categories.Add(entity);
+            context.SaveChanges();
 
+        }
+
+        public override void Update(Categories entity)
+        {
+            var CategoriesUpdate = base.GetEntity(entity.CategoryId);
+            CategoriesUpdate.CategoryName = entity.CategoryName;
+            CategoriesUpdate.Description = entity.Description;
+            CategoriesUpdate.Picture = entity.Picture;
+            context.SaveChanges();
         }
 
         public List<Categories> GetCategories()
         {
-            return this.context.Categories.Where(ca => !ca.Deleted).ToList();
+            return base.GetEntities().Where(co => !co.Deleted).ToList();
         }
 
-        public void Remove(Categories categories)
+        public Categories GetCategories(int Id)
         {
-            this.context.Categories.Remove(categories);
-        }
-
-        public void Save(Categories categories)
-        {
-            this.context.Categories.Add(categories);
-        }
-
-        public void Update(Categories categories)
-        {
-            this.context.Update(categories);
+            throw new NotImplementedException();
         }
     }
 }

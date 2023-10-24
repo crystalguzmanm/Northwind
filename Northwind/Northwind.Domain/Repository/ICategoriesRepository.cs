@@ -20,6 +20,6 @@ namespace Northwind.Domain.Repository
         Categories GetCategories(int Id);
 
         bool Exists(Expression<Func<Categories, bool>> filter);
-
+        List<Categories> GetCategoriesByCategoriesID(int CategoriesID);
     }
 }
