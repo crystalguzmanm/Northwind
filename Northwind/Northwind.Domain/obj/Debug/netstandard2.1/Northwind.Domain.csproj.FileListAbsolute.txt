@@ -8,3 +8,13 @@ C:\ProyectoFinal-Grupo5\Northwind\Northwind\Northwind.Domain\obj\Debug\netstanda
 C:\ProyectoFinal-Grupo5\Northwind\Northwind\Northwind.Domain\obj\Debug\netstandard2.1\Northwind.Domain.dll
 C:\ProyectoFinal-Grupo5\Northwind\Northwind\Northwind.Domain\obj\Debug\netstandard2.1\Northwind.Domain.pdb
 C:\ProyectoFinal-Grupo5\Northwind\Northwind\Northwind.Domain\obj\Debug\netstandard2.1\Northwind.Domain.csproj.AssemblyReference.cache
+C:\Users\LeonelHolguin\source\repos\Northwind\Northwind.Domain\bin\Debug\netstandard2.1\Northwind.Domain.deps.json
+C:\Users\LeonelHolguin\source\repos\Northwind\Northwind.Domain\bin\Debug\netstandard2.1\Northwind.Domain.dll
+C:\Users\LeonelHolguin\source\repos\Northwind\Northwind.Domain\bin\Debug\netstandard2.1\Northwind.Domain.pdb
+C:\Users\LeonelHolguin\source\repos\Northwind\Northwind.Domain\obj\Debug\netstandard2.1\Northwind.Domain.csproj.AssemblyReference.cache
+C:\Users\LeonelHolguin\source\repos\Northwind\Northwind.Domain\obj\Debug\netstandard2.1\Northwind.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LeonelHolguin\source\repos\Northwind\Northwind.Domain\obj\Debug\netstandard2.1\Northwind.Domain.AssemblyInfoInputs.cache
+C:\Users\LeonelHolguin\source\repos\Northwind\Northwind.Domain\obj\Debug\netstandard2.1\Northwind.Domain.AssemblyInfo.cs
+C:\Users\LeonelHolguin\source\repos\Northwind\Northwind.Domain\obj\Debug\netstandard2.1\Northwind.Domain.csproj.CoreCompileInputs.cache
+C:\Users\LeonelHolguin\source\repos\Northwind\Northwind.Domain\obj\Debug\netstandard2.1\Northwind.Domain.dll
+C:\Users\LeonelHolguin\source\repos\Northwind\Northwind.Domain\obj\Debug\netstandard2.1\Northwind.Domain.pdb

@@ -11,3 +11,16 @@ C:\ProyectoFinal-Grupo5\Northwind\Northwind\Northwind.Infrastructure\obj\Debug\n
 C:\ProyectoFinal-Grupo5\Northwind\Northwind\Northwind.Infrastructure\obj\Debug\netstandard2.1\Northwind.Infrastructure.csproj.CopyComplete
 C:\ProyectoFinal-Grupo5\Northwind\Northwind\Northwind.Infrastructure\obj\Debug\netstandard2.1\Northwind.Infrastructure.dll
 C:\ProyectoFinal-Grupo5\Northwind\Northwind\Northwind.Infrastructure\obj\Debug\netstandard2.1\Northwind.Infrastructure.pdb
+C:\Users\LeonelHolguin\source\repos\Northwind\Northwind.Infrastructure\bin\Debug\netstandard2.1\Northwind.Infrastructure.deps.json
+C:\Users\LeonelHolguin\source\repos\Northwind\Northwind.Infrastructure\bin\Debug\netstandard2.1\Northwind.Infrastructure.dll
+C:\Users\LeonelHolguin\source\repos\Northwind\Northwind.Infrastructure\bin\Debug\netstandard2.1\Northwind.Infrastructure.pdb
+C:\Users\LeonelHolguin\source\repos\Northwind\Northwind.Infrastructure\bin\Debug\netstandard2.1\Northwind.Domain.dll
+C:\Users\LeonelHolguin\source\repos\Northwind\Northwind.Infrastructure\bin\Debug\netstandard2.1\Northwind.Domain.pdb
+C:\Users\LeonelHolguin\source\repos\Northwind\Northwind.Infrastructure\obj\Debug\netstandard2.1\Northwind.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\LeonelHolguin\source\repos\Northwind\Northwind.Infrastructure\obj\Debug\netstandard2.1\Northwind.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LeonelHolguin\source\repos\Northwind\Northwind.Infrastructure\obj\Debug\netstandard2.1\Northwind.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\LeonelHolguin\source\repos\Northwind\Northwind.Infrastructure\obj\Debug\netstandard2.1\Northwind.Infrastructure.AssemblyInfo.cs
+C:\Users\LeonelHolguin\source\repos\Northwind\Northwind.Infrastructure\obj\Debug\netstandard2.1\Northwind.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\LeonelHolguin\source\repos\Northwind\Northwind.Infrastructure\obj\Debug\netstandard2.1\Northwind.Infrastructure.csproj.CopyComplete
+C:\Users\LeonelHolguin\source\repos\Northwind\Northwind.Infrastructure\obj\Debug\netstandard2.1\Northwind.Infrastructure.dll
+C:\Users\LeonelHolguin\source\repos\Northwind\Northwind.Infrastructure\obj\Debug\netstandard2.1\Northwind.Infrastructure.pdb

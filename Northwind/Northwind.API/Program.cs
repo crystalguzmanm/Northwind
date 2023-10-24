@@ -1,4 +1,4 @@
-using Northwind.Domain.Entities;
+    using Northwind.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Northwind.Domain.Repository;
 using Northwind.Infrastructure.Repositories;
@@ -7,10 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 
-
-builder.Services.AddControllers();
 
 
 
@@ -21,7 +18,11 @@ builder.Services.AddDbContext<NorthwindContext>(options => options.UseSqlServer(
 //Dependecia de los repositorios//
 builder.Services.AddTransient<IProductsRepository, ProductsRepository>();
 
+// Add services to the container.
+
+builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
