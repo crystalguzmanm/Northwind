@@ -1,9 +1,10 @@
-    using Northwind.Domain.Entities;
+using Northwind.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Northwind.Domain.Repository;
 using Northwind.Infrastructure.Repositories;
 using Northwind.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
+using Northwind.Infrastructure.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 

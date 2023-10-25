@@ -6,8 +6,10 @@ namespace Northwind.Infrastructure.Interfaces
 {
     public interface IProductsRepository : IBaseRepository<Products>
     {
-        IEnumerable<Products> GetProducts();
+        //IEnumerable<Products> GetProducts();
         List<Products> GetProductsByProductID(int ProductID);
+        List<Products> GetProductsBySupplierID(int SupplierID);
+        List<Products> GetProductsByCategoryID(int CategoryID);
 
     }
 }

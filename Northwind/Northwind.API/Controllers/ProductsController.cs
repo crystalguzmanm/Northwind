@@ -1,84 +1,107 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Northwind.API.DTOs;
+using Northwind.API.Models.Modules.ProductsAddModel;
+using Northwind.API.Models.Modules.ProductsGetAllModel;
+using Northwind.API.Models.Modules.ProductsUpdateModel;
 using Northwind.Domain.Entities;
 using Northwind.Domain.Repository;
 using Northwind.Infrastructure.Interfaces;
-using IProductsRepository = Northwind.Domain.Repository.IProductsRepository;
 
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Northwind.API.Controllers
 {
-    [Route("api/[controller]/[action]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly IProductsRepository _productsRepository;
+        private readonly IProductsRepository productsRepository;
 
         //private readonly IProductsRepository productsRepository;
         public ProductsController(IProductsRepository productsRepository)
         {
-            _productsRepository = productsRepository;
+            this.productsRepository = productsRepository;
+        }
+
+        [HttpGet("GetProductsByProductID")]
+        public IActionResult GetProductsByProductID(int ProductID)
+        {
+            var products = this.productsRepository.GetProductsByProductID(ProductID);
+            return Ok(products);
         }
 
         // GET: api/<ProductsController>
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public IActionResult Get()
         {
-            var products = new List<ProductsDTO>();
+            var products = this.productsRepository.GetEntities().Select(products => new ProductsGetAllModel()
+            {
+                ProductName = products.ProductName,
+                QuantityPerUnit = products.QuantityPerUnit,
+                UnitPrice = products.UnitPrice,
+                UnitsInStock = products.UnitsInStock,
+                UnitsOnOrder = products.UnitsOnOrder,
+                ReorderLevel = products.ReorderLevel,
+                SupplierID = products.SupplierID,
+                CategoryID = products.CategoryID,
 
-            try
-            {
-                foreach(var product in await _productsRepository.GetAll()) 
-                {
-                    products.Add(new ProductsDTO
-                    {
-                        ProductID = product.ProductID,
-                        ProductName = product.ProductName,
-                        SupplierID = product.SupplierID,
-                        CategoryID = product.CategoryID,
-                        QuantityPerUnit = product.QuantityPerUnit,
-                        UnitPrice = product.UnitPrice,
-                        UnitsInStock = product.UnitsInStock,
-                        UnitsOnOrder = product.UnitsOnOrder,
-                        ReorderLevel = product.ReorderLevel,
-                        Discontinued = product.Discontinued,
-                    });
-                }
-            }
-            catch (Exception ex)
-            {
-                return NotFound(ex.Message);
-            }
+            }).ToList();
 
             return Ok(products);
 
 
         }
         // GET: api/<ProductsController>
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("Getproducts")]
+        public IActionResult GetProducts(int id)
         {
-            return "value";
+            var products = this.productsRepository.GetEntity(id);
+            return Ok(products);
         }
 
         // POST api/<ProductsController>
-        [HttpPost]
-        public void Post([FromBody] string value)
+        [HttpPost("SaveProducts")]
+        public IActionResult Post([FromBody] ProductsAddModel productsAdd)
         {
+            Products products = new Products()
+            {
+                CreationDate = productsAdd.ChangeDate,
+                CreationUser = productsAdd.ChangeUser,
+                ModifyDate = productsAdd.ChangeModifyDate,
+                
+
+            };
+
+            this.productsRepository.Save(products);
+
+            return Ok();
         }
 
         // PUT api/<ProductsController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut("UpdateProducts")]
+        public IActionResult Put([FromBody] ProductsUpdateModel productsUpdate)
         {
+            Products products = new Products()
+            {
+                SupplierID = productsUpdate.SupplierID,
+                CategoryID = productsUpdate.CategoryID,
+                ModifyDate = productsUpdate.ModifyDate,
+                CreationUser = productsUpdate.CreationUser,
+                
+
+            };
+
+            this.productsRepository.Update(products);
+
+            return Ok();
         }
+
 
         // DELETE api/<ProductsController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            this.productsRepository.Remove(this.productsRepository.GetEntity(id));
         }
     }
 }
