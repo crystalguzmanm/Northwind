@@ -748,7 +748,7 @@
           "lib/netstandard1.3/System.ComponentModel.dll": {}
         }
       },
-      "System.ComponentModel.Annotations/4.7.0": {
+      "System.ComponentModel.Annotations/5.0.0": {
         "type": "package",
         "compile": {
           "ref/netstandard2.1/System.ComponentModel.Annotations.dll": {
@@ -1777,6 +1777,21 @@
         },
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
+        }
+      },
+      "Northwind.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "Northwind.Domain": "1.0.0",
+          "Northwind.Infrastructure": "1.0.0",
+          "System.ComponentModel.Annotations": "5.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Northwind.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Northwind.Application.dll": {}
         }
       },
       "Northwind.Domain/1.0.0": {
@@ -3185,13 +3200,14 @@
         "system.componentmodel.nuspec"
       ]
     },
-    "System.ComponentModel.Annotations/4.7.0": {
-      "sha512": "0YFqjhp/mYkDGpU0Ye1GjE53HMp9UVfGN7seGpAMttAC0C40v5gw598jCgpbBLMmCo0E5YRLBv5Z2doypO49ZQ==",
+    "System.ComponentModel.Annotations/5.0.0": {
+      "sha512": "dMkqfy2el8A8/I76n2Hi1oBFEbG1SfxD2l5nhwXV3XjlnOmwxJlQbYpJH4W51odnU9sARCSAgv7S3CyAFMkpYg==",
       "type": "package",
-      "path": "system.componentmodel.annotations/4.7.0",
+      "path": "system.componentmodel.annotations/5.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/MonoAndroid10/_._",
@@ -3268,7 +3284,7 @@
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._",
-        "system.componentmodel.annotations.4.7.0.nupkg.sha512",
+        "system.componentmodel.annotations.5.0.0.nupkg.sha512",
         "system.componentmodel.annotations.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -6321,6 +6337,11 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "Northwind.Application/1.0.0": {
+      "type": "project",
+      "path": "../Northwind.Application/Northwind.Application.csproj",
+      "msbuildProject": "../Northwind.Application/Northwind.Application.csproj"
+    },
     "Northwind.Domain/1.0.0": {
       "type": "project",
       "path": "../Northwind.Domain/Northwind.Domain.csproj",
@@ -6334,6 +6355,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Northwind.Application >= 1.0.0",
       "Northwind.Infrastructure >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.5.0"
     ]
@@ -6345,11 +6367,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\ProyectoFinalC\\Northwind\\Northwind.API\\Northwind.API.csproj",
+      "projectUniqueName": "C:\\ProyectoFinalA\\Northwind\\Northwind.API\\Northwind.API.csproj",
       "projectName": "Northwind.API",
-      "projectPath": "C:\\ProyectoFinalC\\Northwind\\Northwind.API\\Northwind.API.csproj",
+      "projectPath": "C:\\ProyectoFinalA\\Northwind\\Northwind.API\\Northwind.API.csproj",
       "packagesPath": "C:\\Users\\18092\\.nuget\\packages\\",
-      "outputPath": "C:\\ProyectoFinalC\\Northwind\\Northwind.API\\obj\\",
+      "outputPath": "C:\\ProyectoFinalA\\Northwind\\Northwind.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -6370,8 +6392,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\ProyectoFinalC\\Northwind\\Northwind.Infrastructure\\Northwind.Infrastructure.csproj": {
-              "projectPath": "C:\\ProyectoFinalC\\Northwind\\Northwind.Infrastructure\\Northwind.Infrastructure.csproj"
+            "C:\\ProyectoFinalA\\Northwind\\Northwind.Application\\Northwind.Application.csproj": {
+              "projectPath": "C:\\ProyectoFinalA\\Northwind\\Northwind.Application\\Northwind.Application.csproj"
+            },
+            "C:\\ProyectoFinalA\\Northwind\\Northwind.Infrastructure\\Northwind.Infrastructure.csproj": {
+              "projectPath": "C:\\ProyectoFinalA\\Northwind\\Northwind.Infrastructure\\Northwind.Infrastructure.csproj"
             }
           }
         }
