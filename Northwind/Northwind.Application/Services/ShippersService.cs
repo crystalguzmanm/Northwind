@@ -41,6 +41,7 @@ namespace Northwind.Application.Services
                     Phone = shippers.Phone,
                     CompanyName = shippers.CompanyName,
                     Id = shippers.ShipperID
+                    
 
                 });
 
@@ -64,15 +65,15 @@ namespace Northwind.Application.Services
             try
             {
                 var shippers = this.shippersRepository.GetEntity(id);
-                {
-        
+                ShippersDtoGetAll shipperModel = new ShippersDtoGetAll()
+                { CompanyName = shippers.CompanyName, 
+                   Phone =  shippers.Phone,
+                   ModifyDate= shippers.ModifyDate, 
+                   Id = shippers.ShipperID
 
-                    //EN PROCESO//
 
-
-
-                }
-
+                };
+                result.Data = shippers;
             }
             catch (Exception ex)
             {
@@ -106,6 +107,7 @@ namespace Northwind.Application.Services
                 this.shippersRepository.Remove(shippers);
 
                 result.Message = "El Shippers fue removido exitosamente";
+                result.Data = shippers;
 
             }
             catch (Exception ex)

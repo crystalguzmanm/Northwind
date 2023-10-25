@@ -21,10 +21,10 @@ namespace Northwind.Infrastructure.Repositories
             this.context = context;
         }
 
-        public override List<Shippers> GetEntities()
-        {
-            return base.GetEntities().Where(co => !co.Deleted).ToList();
-        }
+       // public override List<Shippers> GetEntities()
+      ///  {
+           /// return base.GetEntities().Where(co => !co.Deleted).ToList();
+        //}
 
         List<Shippers> IShippersRepository.GetShippersByShippersID(int ShippersID)
         {
@@ -49,5 +49,29 @@ namespace Northwind.Infrastructure.Repositories
             context.Shippers.Update(shippersUpdate);  
             context.SaveChanges();
         }
+
+        public override void Remove(Shippers entity)
+        {
+            var shippersToRemove =  base.GetEntity(entity.ShipperID);
+
+            shippersToRemove.ShipperID = entity.ShipperID;
+            shippersToRemove.Deleted= entity.Deleted;
+            shippersToRemove.UserDeleted= entity.UserDeleted;
+            shippersToRemove.DeletedDate = entity.DeletedDate;
+            
+            this.context.Shippers.Update(shippersToRemove);
+            this.context.SaveChanges();
+
+        }
+
+        public override List <Shippers> GetEntities()
+        {
+           return this.context.Shippers.Where(sh => !sh.Deleted).OrderByDescending(sh => sh.CreationDate).ToList();
+  
+        }
+  
+    
     }
+
+
 }

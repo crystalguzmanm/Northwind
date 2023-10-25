@@ -41,7 +41,7 @@ namespace Northwind.API.Controllers
 
             if (!result.Success)
             {
-                return BadRequest();
+                return BadRequest(result);
             }
 
 
@@ -60,7 +60,7 @@ namespace Northwind.API.Controllers
 
             if (!result.Success)
             {
-                return BadRequest();
+                return BadRequest(result);
             }
 
 
@@ -78,10 +78,10 @@ namespace Northwind.API.Controllers
 
             if (!result.Success)
             {
-                return BadRequest();
+                return BadRequest(result);
             }
 
-            return Ok();
+            return Ok(result);
         }
 
 
@@ -95,16 +95,25 @@ namespace Northwind.API.Controllers
 
             if (!result.Success)
             {
-                return BadRequest();
+                return BadRequest(result);
             }
 
             return Ok(result);
         }
 
         // DELETE api/<ShippersController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+
+        [HttpPut("Removeshippers")]
+        public IActionResult Remove([FromBody] ShippersDtoRemove shippersDtoRemove)
         {
+            var result = this.shippersService.Remove(shippersDtoRemove);
+
+            if (!result.Success)
+            {
+                return BadRequest(result);
+            }
+
+            return Ok(result);
         }
     }
 }
