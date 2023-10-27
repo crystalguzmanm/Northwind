@@ -16,3 +16,9 @@ C:\ProyectoFinalGit\Northwind\Northwind.Application\obj\Debug\netstandard2.1\Nor
 C:\ProyectoFinalGit\Northwind\Northwind.Application\obj\Debug\netstandard2.1\Northwind.Application.csproj.CoreCompileInputs.cache
 C:\ProyectoFinalGit\Northwind\Northwind.Application\obj\Debug\netstandard2.1\Northwind.Application.dll
 C:\ProyectoFinalGit\Northwind\Northwind.Application\obj\Debug\netstandard2.1\Northwind.Application.pdb
+C:\ProyectoFinalGit\Northwind\Northwind.Application\bin\Debug\netstandard2.1\Northwind.Domain.dll
+C:\ProyectoFinalGit\Northwind\Northwind.Application\bin\Debug\netstandard2.1\Northwind.Infrastructure.dll
+C:\ProyectoFinalGit\Northwind\Northwind.Application\bin\Debug\netstandard2.1\Northwind.Infrastructure.pdb
+C:\ProyectoFinalGit\Northwind\Northwind.Application\bin\Debug\netstandard2.1\Northwind.Domain.pdb
+C:\ProyectoFinalGit\Northwind\Northwind.Application\obj\Debug\netstandard2.1\Northwind.Application.csproj.AssemblyReference.cache
+C:\ProyectoFinalGit\Northwind\Northwind.Application\obj\Debug\netstandard2.1\Northwind.Application.csproj.CopyComplete

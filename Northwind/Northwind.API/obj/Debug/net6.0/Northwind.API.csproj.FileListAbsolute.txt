@@ -93,3 +93,7 @@ C:\ProyectoFinalGit\Northwind\Northwind.API\obj\Debug\net6.0\scopedcss\bundle\No
 C:\ProyectoFinalGit\Northwind\Northwind.API\obj\Debug\net6.0\Northwind.API.csproj.CopyComplete
 C:\ProyectoFinalGit\Northwind\Northwind.API\obj\Debug\net6.0\Northwind.API.genruntimeconfig.cache
 C:\ProyectoFinalGit\Northwind\Northwind.API\obj\Debug\net6.0\ref\Northwind.API.dll
+C:\ProyectoFinalGit\Northwind\Northwind.API\bin\Debug\net6.0\Northwind.Application.dll
+C:\ProyectoFinalGit\Northwind\Northwind.API\bin\Debug\net6.0\Northwind.loc.dll
+C:\ProyectoFinalGit\Northwind\Northwind.API\bin\Debug\net6.0\Northwind.Application.pdb
+C:\ProyectoFinalGit\Northwind\Northwind.API\bin\Debug\net6.0\Northwind.loc.pdb

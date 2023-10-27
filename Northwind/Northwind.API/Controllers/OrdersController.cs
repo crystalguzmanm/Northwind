@@ -1,13 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+
 using Northwind.API.Models.Modules.OrdersAddModel;
-using Northwind.API.Models.Modules.OrdersDetailsAddModel;
-using Northwind.API.Models.Modules.OrdersDetailsGetAllModel;
-using Northwind.API.Models.Modules.OrdersDetailsUpdateModel;
 using Northwind.API.Models.Modules.OrdersGetAllModel;
 using Northwind.API.Models.Modules.OrdersUpdateModel;
+using Northwind.Application.Contracts;
+using Northwind.Application.Dtos.Orders;
 using Northwind.Domain.Entities;
 using Northwind.Domain.Repository;
 using Northwind.Infrastructure.Interfaces;
+using System.Numerics;
 
 
 
@@ -19,18 +20,18 @@ namespace Northwind.API.Controllers
     [ApiController]
     public class OrdersController : ControllerBase
     {
-        private readonly IOrdersRepository ordersRepository;
+        private readonly IOrdersServices ordersServices;
 
         
-        public OrdersController(IOrdersRepository ordersRepository) 
+        public OrdersController(IOrdersServices ordersServices) 
         {
-            this.ordersRepository = ordersRepository;
+            this.ordersServices = ordersServices;
         }
-
+        //TODO
         [HttpGet("GetOrdersByOrderID")]
         public IActionResult GetOrdersByOrderID(int ordersID)
         {
-            var orders = this.ordersRepository.GetOrdersByOrderID(ordersID);
+            var orders = this.ordersServices.GetOrdersByOrderID(ordersID);
             return Ok(orders);
         }
 
@@ -38,16 +39,14 @@ namespace Northwind.API.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var orders = this.ordersRepository.GetEntities().Select(orders => new OrdersGetAllModel()
+            var result = this.ordersServices.GetAll();
+
+            if(!result.Success)
             {
-                CustomerID = orders.CustomerID,
-                ModifyDate = orders.ModifyDate,
-                CreationUser = orders.CreationUser,
-                EmployeeID = orders.EmployeeID,
+                return BadRequest(result);
+            }
 
-            }).ToList();
-
-            return Ok(orders);
+            return Ok(result);
 
 
         }
@@ -56,46 +55,57 @@ namespace Northwind.API.Controllers
         [HttpGet("Getorders")]
         public IActionResult GetOrders(int id)
         {
-            var orders = this.ordersRepository.GetEntity(id);
-            return Ok(orders);
+            var result = this.ordersServices.GetById(id);
+
+            if (!result.Success)
+            {
+                return BadRequest(result);
+            }
+
+            return Ok(result);
         }
 
         [HttpPost("SaveOrders")]
-        public IActionResult Post([FromBody] OrdersAddModel ordersAdd)
+        public IActionResult Post([FromBody] OrdersDtoAdd ordersApp)
         {
-            Orders orders = new Orders()
+            var result = this.ordersServices.Save(ordersApp);
+
+            if (!result.Success)
             {
-                CreationDate = ordersAdd.ChanageDate,
-                CreationUser = ordersAdd.ChangeUser,
-                ModifyDate = ordersAdd.ChangeModifyDate
+                return BadRequest(result);
+            }
 
-
-            };
-
-            this.ordersRepository.Save(orders);
-
-            return Ok();
+            return Ok(result);
         }
 
         // PUT api/<ShippersController>/5
 
-        [HttpPost("UpdateCourse")]
-        public IActionResult Put([FromBody] OrdersUpdateModel ordersUpdate)
+        [HttpPost("RemoveCourse")]
+        public IActionResult Remove([FromBody] OrdersDtoRemove ordersDtoRemove)
         {
-            Orders orders = new Orders()
+            var result = this.ordersServices.Remove(ordersDtoRemove);
+
+            if (!result.Success)
             {
-                EmployeeID = ordersUpdate.EmployeeID,
-                CustomerID = ordersUpdate.CustomerID,
-                ModifyDate = ordersUpdate.ModifyDate,
-                CreationUser = ordersUpdate.CreationUser,
+                return BadRequest(result);
+            }
 
-
-            };
-
-            this.ordersRepository.Update(orders);
-
-            return Ok();
+            return Ok(result);
         }
+
+        [HttpPut("Updateorders")]
+        public IActionResult Put([FromBody] OrdersDtoUpdate ordersDtoUpdate)
+        {
+            var result = this.ordersServices.Update(ordersDtoUpdate);
+
+            if (!result.Success)
+            {
+                return BadRequest(result);
+            }
+
+            return Ok(result);
+        }
+
         // DELETE api/<OrdersController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)

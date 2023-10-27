@@ -68,7 +68,11 @@ namespace Northwind.API.Controllers
             {
                 CreationDate = ordersDetailsAdd.ChanageDate,
                 CreationUser = ordersDetailsAdd.ChangeUser,
-                ModifyDate = ordersDetailsAdd.ChangeModifyDate
+                ModifyDate = ordersDetailsAdd.ChangeModifyDate,
+                OrderDetailsID = ordersDetailsAdd.OrderDetailsID,
+                Quantity = ordersDetailsAdd.Quantity,
+                ProductID = ordersDetailsAdd.ProductID
+
 
 
             };

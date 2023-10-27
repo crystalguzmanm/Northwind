@@ -35,5 +35,25 @@ namespace Northwind.Infrastructure.Repositories
         {
             throw new System.NotImplementedException();
         }
+        public override void Save(OrdersDetails entity)
+        {
+            context.OrdersDetails.Add(entity);
+            context.SaveChanges();
+
+        }
+        public override void Update(OrdersDetails entity)
+        {
+            var ordersDetailsUpdate = base.GetEntity(entity.OrderDetailsID);
+            ordersDetailsUpdate.UserMod = entity.UserMod;
+            ordersDetailsUpdate.ModifyDate = entity.ModifyDate;
+            ordersDetailsUpdate.CreationDate = entity.CreationDate;
+            ordersDetailsUpdate.CreationUser = entity.CreationUser;
+            ordersDetailsUpdate.Discount = entity.Discount;
+
+            context.OrdersDetails.Update(ordersDetailsUpdate);
+            context.SaveChanges();
+
+        }
+
     }
 }

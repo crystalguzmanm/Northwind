@@ -10,7 +10,7 @@ namespace Northwind.Domain.Repository
 
         void Update(TEntity entity);
 
-        void Delete(TEntity entity);
+        void Remove(TEntity entity);
 
         List<TEntity> GetEntities();
 

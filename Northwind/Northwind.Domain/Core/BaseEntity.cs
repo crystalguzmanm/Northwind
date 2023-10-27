@@ -17,6 +17,8 @@ namespace Northwind.Domain.Core
         public DateTime? DeletedDate { get; set; }
 
         public bool Deleted {  get; set; }
+        
+
 
     }
     

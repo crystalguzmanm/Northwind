@@ -21,11 +21,6 @@ namespace Northwind.Infrastructure.Core
             this.entities = context.Set<TEntity>();
         }
 
-        public void Delete(TEntity entity)
-        {
-            throw new NotImplementedException();
-        }
-
         public virtual bool Exists(Expression<Func<TEntity, bool>> filter)
         {
             return this.entities.Any(filter);

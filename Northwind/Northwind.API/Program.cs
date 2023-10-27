@@ -5,6 +5,7 @@ using Northwind.Infrastructure.Repositories;
 using Northwind.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 using Northwind.Infrastructure.Interfaces;
+using Northwind.loc.Dependencies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,7 +21,11 @@ builder.Services.AddDbContext<NorthwindContext>(options => options.UseSqlServer(
 
 
 //Dependecia de los repositorio//
-builder.Services.AddTransient<IOrdersRepository, OrdersRepository>();
+
+//builder.Services.AddTransient<IOrdersRepository, OrdersRepository>(); Ya esta en el loc
+
+builder.Services.AddOrdersDependecy();
+
 builder.Services.AddTransient<IOrdersDetailsRepository, OrdersDetailsRepository>();
 
 builder.Services.AddControllers();
