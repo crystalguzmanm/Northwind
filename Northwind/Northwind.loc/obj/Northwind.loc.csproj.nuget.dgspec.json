@@ -245,6 +245,9 @@
               "C:\\ProyectoFinalA\\Northwind\\Northwind.Application\\Northwind.Application.csproj": {
                 "projectPath": "C:\\ProyectoFinalA\\Northwind\\Northwind.Application\\Northwind.Application.csproj"
               },
+              "C:\\ProyectoFinalA\\Northwind\\Northwind.Domain\\Northwind.Domain.csproj": {
+                "projectPath": "C:\\ProyectoFinalA\\Northwind\\Northwind.Domain\\Northwind.Domain.csproj"
+              },
               "C:\\ProyectoFinalA\\Northwind\\Northwind.Infrastructure\\Northwind.Infrastructure.csproj": {
                 "projectPath": "C:\\ProyectoFinalA\\Northwind\\Northwind.Infrastructure\\Northwind.Infrastructure.csproj"
               }

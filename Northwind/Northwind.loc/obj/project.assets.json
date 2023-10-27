@@ -7159,6 +7159,7 @@
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.1": [
       "Northwind.Application >= 1.0.0",
+      "Northwind.Domain >= 1.0.0",
       "Northwind.Infrastructure >= 1.0.0"
     ]
   },
@@ -7196,6 +7197,9 @@
           "projectReferences": {
             "C:\\ProyectoFinalA\\Northwind\\Northwind.Application\\Northwind.Application.csproj": {
               "projectPath": "C:\\ProyectoFinalA\\Northwind\\Northwind.Application\\Northwind.Application.csproj"
+            },
+            "C:\\ProyectoFinalA\\Northwind\\Northwind.Domain\\Northwind.Domain.csproj": {
+              "projectPath": "C:\\ProyectoFinalA\\Northwind\\Northwind.Domain\\Northwind.Domain.csproj"
             },
             "C:\\ProyectoFinalA\\Northwind\\Northwind.Infrastructure\\Northwind.Infrastructure.csproj": {
               "projectPath": "C:\\ProyectoFinalA\\Northwind\\Northwind.Infrastructure\\Northwind.Infrastructure.csproj"
