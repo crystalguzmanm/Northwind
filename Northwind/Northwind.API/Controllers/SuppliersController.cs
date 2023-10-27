@@ -5,6 +5,9 @@ using Northwind.API.Models.Modules.ShippersGetAllModel;
 using Northwind.API.Models.Modules.ShippersUpdateModel;
 using Northwind.API.Models.Modules.SuppliersAddModel;
 using Northwind.API.Models.Modules.SuppliersGetAllModel;
+using Northwind.Application.Contracts;
+using Northwind.Application.Dtos.Shippers;
+using Northwind.Application.Dtos.Suppliers;
 using Northwind.Domain.Entities;
 using Northwind.Domain.Repository;
 using Northwind.Infrastructure.Interfaces;
@@ -18,11 +21,11 @@ namespace Northwind.API.Controllers
     [ApiController]
     public class SuppliersController : ControllerBase
     {
-        private readonly ISuppliersRepository suppliersRepository;
+        private readonly ISuppliersService suppliersService;
 
-        public SuppliersController(ISuppliersRepository suppliersRepository)
+        public SuppliersController(ISuppliersService suppliersService)
         {
-            this.suppliersRepository = suppliersRepository;
+            this.suppliersService = suppliersService;
         }
 
        
@@ -42,16 +45,16 @@ namespace Northwind.API.Controllers
         [HttpGet("Getsuppliers")]
         public IActionResult Get()
         {
-            var suppliers = this.suppliersRepository.GetEntities().Select(suppliers => new SuppliersGetAllModelcs()
+            var result = this.suppliersService.GetAll();
+
+            if (!result.Success)
             {
-                CreationDate = suppliers.CreationDate,
-                ModifyDate = suppliers.ModifyDate,
-                ContactName = suppliers.ContactName,
-                CompanyName = suppliers.CompanyName
+                return BadRequest(result);
+            }
 
-            }).ToList();
 
-            return Ok(suppliers);
+            return Ok(result);
+
 
 
         }
@@ -60,54 +63,55 @@ namespace Northwind.API.Controllers
         [HttpGet("{id}")]
         public IActionResult Getsuppliers(int id)
         {
-            var suppliers = this.suppliersRepository.GetEntity(id);
-            return Ok(suppliers);
+            var result = this.suppliersService.GetById(id);
+            if (!result.Success)
+            {
+                return BadRequest(result);
+            }
+
+
+            return Ok(result);
         }
 
 
         [HttpPost("SaveSuppliers")]
-        public IActionResult Post([FromBody] SuppliersAddModel suppliersAdd)
+        public IActionResult Post([FromBody] SuppliersDtoAdd suppliersAdd)
         {
-            Suppliers suppliers = new Suppliers()
+            var result = this.suppliersService.Save(suppliersAdd);
+
+            if (!result.Success)
             {
-                CreationDate = suppliersAdd.ChanageDate,
-                CreationUser = suppliersAdd.ChangeUser,
-                ModifyDate = suppliersAdd.ChangeModifyDate,
-                ContactName = suppliersAdd.ContactName,
-                CompanyName = suppliersAdd.CompanyName
-             
+                return BadRequest(result);
+            }
 
-            };
+            return Ok(result);
 
-            this.suppliersRepository.Save(suppliers);
-
-            return Ok();
         }
 
         [HttpPut("Updatesuppliers")]
-        public IActionResult Put([FromBody] ShippersUpdateModel suppliersUpdate)
+        public IActionResult Put([FromBody] SuppliersDtoUpdate suppliersUpdate)
         {
-            Suppliers suppliers = new Suppliers()
+            var result = this.suppliersService.Update(suppliersUpdate);
+            
+            if (!result.Success)
             {
-                CreationDate = suppliersUpdate.CreationDate,
-                CompanyName = suppliersUpdate.CompanyName,
-                ModifyDate = suppliersUpdate.ModifyDate,
-                ContactName = suppliersUpdate.ContactName,
-                CreationUser = suppliersUpdate.ChangeUser,
-                SupplierID = suppliersUpdate.Id
+                return BadRequest(result);
+            }
 
-
-            };
-
-            this.suppliersRepository.Update(suppliers);
-
-            return Ok();
+            return Ok(result);
         }
 
-        // DELETE api/<SuppliersController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpPut("RemoveSuppliers")]
+        public IActionResult Remove([FromBody] SuppliersDtoRemove suppliersDtoRemove)
         {
+            var result = this.suppliersService.Remove(suppliersDtoRemove);
+
+            if (!result.Success)
+            {
+                return BadRequest(result);
+            }
+
+            return Ok(result);
         }
     }
 }

@@ -20,11 +20,7 @@ namespace Northwind.Infrastructure.Repositories
             this.context = context;
         }
        
-
-        public override List<Suppliers> GetEntities()
-        {
-            return base.GetEntities().Where(co => !co.Deleted).ToList();
-        }
+        
 
         List<Suppliers> ISuppliersRepository.GetSuppliersBySuppliersID(int SuppliersID)
         {
@@ -51,6 +47,24 @@ namespace Northwind.Infrastructure.Repositories
             context.SaveChanges();
         }
 
+        public override void Remove(Suppliers entity)
+        {
+            var suppliersToRemove =  base.GetEntity(entity.SupplierID);
+
+            suppliersToRemove.SupplierID = entity.SupplierID;
+            suppliersToRemove.Deleted= entity.Deleted;
+            suppliersToRemove.UserDeleted= entity.UserDeleted;
+            suppliersToRemove.DeletedDate = entity.DeletedDate;
+            
+            this.context.Suppliers.Update(suppliersToRemove);
+            this.context.SaveChanges();
+
+        }
+
+        public override List<Suppliers> GetEntities()
+        {
+            return this.context.Suppliers.Where(sh => !sh.Deleted).OrderByDescending(sh => sh.CreationDate).ToList();
+        }
 
     }
 }

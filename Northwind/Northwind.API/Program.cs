@@ -14,9 +14,8 @@ var builder = WebApplication.CreateBuilder(args);
 //Agregar dependencias del context //
 builder.Services.AddDbContext<NorthwindContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("NorthwindContext")));
 
-//builder.Services.AddTransient<IShippersRepository,ShippersRepository>();
 builder.Services.AddShippersDepency();
-builder.Services.AddTransient<ISuppliersRepository, SuppliersRepository>();
+builder.Services.AddSuppliersDependecies();
 
 
 builder.Services.AddControllers();
