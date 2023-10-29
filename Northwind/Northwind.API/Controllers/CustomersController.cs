@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Northwind.API.Models.Modules.Customers;
+using Northwind.Application.Contracts;
+using Northwind.Application.DTOs.Customers;
 using Northwind.Domain.Entities;
 using Northwind.Domain.Repository;
 using Northwind.Infrastructure.Interfaces;
@@ -16,10 +18,10 @@ namespace Northwind.API.Controllers
     [ApiController]
     public class CustomersController : ControllerBase
     {
-        private readonly ICustomersRepository CustomersRepository;
-        public CustomersController(ICustomersRepository CustomersRepository)
+        private readonly ICustomersService CustomersService;
+        public CustomersController(ICustomersService customersService)
         {
-            this.CustomersRepository = CustomersRepository;
+            this.CustomersService = CustomersService;
         }
 
 
@@ -27,7 +29,7 @@ namespace Northwind.API.Controllers
         [HttpGet("GetCustomersByCustomerID")]
         public IActionResult GetCustomersByCustomerID(int CustomerID)
         {
-            var Customers = this.CustomersRepository.GetCustomersByCustomerID(CustomerID);
+            var Customers = this.CustomersService.GetById(CustomerID);
             return Ok(Customers);
         }
 
@@ -35,56 +37,69 @@ namespace Northwind.API.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var Customers = this.CustomersRepository.GetEntities().Select(Customers => new GetCustomersModel()
+            var result = this.CustomersService.GetAll();
+
+            if (!result.Success)
             {
-                CompanyName = Customers.CompanyName,
-                City = Customers.City,
-                Phone = Customers.Phone,
-                Address = Customers.Address
+                return BadRequest(result);
+            }
 
-            }).ToList();
-
-            return Ok(Customers);
+            return Ok(result);
         }
 
         [HttpGet("GetCustomers")]
         public IActionResult GetCustomers(int id)
         {
-            var Customers = this.CustomersRepository.GetEntity(id);
-            return Ok(Customers);
+            var result = this.CustomersService.GetAll();
+
+            if (!result.Success)
+            {
+                return BadRequest(result);
+            }
+
+            return Ok(result);
         }
 
         // POST api/<CustomersController>
         [HttpPost("SaveCustomers")]
-        public IActionResult Post([FromBody] AddCustomersModel addCustomers)
+        public IActionResult Post([FromBody] CustomersDtoAdd addCustomers)
         {
-            Customers customers = new Customers()
-            {
-                CompanyName = addCustomers.CompanyName,
-                City = addCustomers.City,
-                Phone = addCustomers.Phone,
-                Address = addCustomers.Address
-            };
+            var result = this.CustomersService.Save(addCustomers);
 
-            this.CustomersRepository.Save(customers);
-            return Ok();
+            if (!result.Success)
+            {
+                return BadRequest(result);
+            }
+
+            return Ok(result);
         }
 
         // PUT api/<CustomersController>/5
         [HttpPut("UpdateCustomers")]
-        public IActionResult Put([FromBody] UpdateCustomersModelcs updateCustomers)
+        public IActionResult Put([FromBody] CustomersDtoUpdate updateCustomers)
         {
-            Customers customers = new Customers()
+            var result = this.CustomersService.Update(updateCustomers);
+
+            if (!result.Success)
             {
-                CompanyName = updateCustomers.CompanyName,
-                City = updateCustomers.City,
-                Phone = updateCustomers.Phone,
-                Address = updateCustomers.Address
-            };
+                return BadRequest(result);
+            }
 
-            this.CustomersRepository.Update(customers);
+            return Ok(result);
+        }
 
-            return Ok();
+        // PUT api/<CustomersController>/5
+        [HttpPut("RemoveCustomers")]
+        public IActionResult Remove([FromBody] CustomersDtoRemove RemoveCustomers)
+        {
+            var result = this.CustomersService.Remove(RemoveCustomers);
+
+            if (!result.Success)
+            {
+                return BadRequest(result);
+            }
+
+            return Ok(result);
         }
     }
 }

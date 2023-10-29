@@ -21,16 +21,6 @@ namespace Northwind.Infrastructure.Repositories
             this.context = context;
         }
 
-        public List<Customers> GetCustomersByCustomerID(string CustomerID)
-        {
-            return this.context.Customers.Where(cd => cd.CustomerID == CustomerID && cd.Deleted).ToList();
-        }
-
-        public override List<Customers> GetEntities()
-        {
-            return base.GetEntities().Where(ca => !ca.Deleted).ToList();
-        }
-
         public IEnumerable<Customers> GetCustomers()
         {
             throw new NotImplementedException();
@@ -38,7 +28,34 @@ namespace Northwind.Infrastructure.Repositories
 
         public List<Customers> GetCustomersByCustomerID(int CustomerID)
         {
-            throw new NotImplementedException();
+            return this.context.Customers.Where(cd => cd.CustomerID = CustomerID && cd.Deleted).ToList();
+        }
+
+        public override void Save(Customers entity)
+        {
+            context.Customers.Add(entity);
+            context.SaveChanges();
+
+        }
+
+        public override void Remove(Customers entity)
+        {
+            var CustomersToRemove = base.GetEntity(entity.CustomerID); //TODO problemas con el ID
+
+            CustomersToRemove.CustomerID = entity.CustomerID;
+            CustomersToRemove.Deleted = entity.Deleted;
+            CustomersToRemove.DeletedDate = entity.DeletedDate; 
+            CustomersToRemove.UserDeleted = entity.UserDeleted;
+
+            this.context.Customers.Update(CustomersToRemove);
+            this.context.SaveChanges();
+        }
+
+        public override List<Customers> GetEntities()
+        {
+            return this.context.Customers.Where(st => st.Deleted)
+                                               .OrderByDescending(st => st.CreationDate)
+                                               .ToList();
         }
     }
     

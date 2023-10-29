@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Northwind.Infrastructure.Context;
 using Northwind.Infrastructure.Interfaces;
 using Northwind.Infrastructure.Repositories;
-
+using Northwind.loc.Dependencies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,8 +21,9 @@ builder.Services.AddDbContext<NorthwindContext>(options => options.UseSqlServer(
     ));
 
 // Repository dependencies.
-builder.Services.AddTransient<ICustomersRepository,CustomersRepository>();
+//builder.Services.AddTransient<ICustomersRepository,CustomersRepository>();
 
+builder.Services.AddCustomersDependencies();
 
 // App services dependencies.
 

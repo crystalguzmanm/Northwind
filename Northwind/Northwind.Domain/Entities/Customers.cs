@@ -1,4 +1,5 @@
 ﻿using Northwind.Domain.Core;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace Northwind.Domain.Entities

@@ -1795,6 +1795,19 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "Northwind.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "Northwind.Infrastructure": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Northwind.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Northwind.Application.dll": {}
+        }
+      },
       "Northwind.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
@@ -1821,6 +1834,20 @@
         },
         "runtime": {
           "bin/placeholder/Northwind.Infrastructure.dll": {}
+        }
+      },
+      "Northwind.loc/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.32",
+          "Northwind.Application": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Northwind.loc.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Northwind.loc.dll": {}
         }
       }
     }
@@ -6367,6 +6394,11 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "Northwind.Application/1.0.0": {
+      "type": "project",
+      "path": "../Northwind.Application/Northwind.Application.csproj",
+      "msbuildProject": "../Northwind.Application/Northwind.Application.csproj"
+    },
     "Northwind.Domain/1.0.0": {
       "type": "project",
       "path": "../Northwind.Domain/Northwind.Domain.csproj",
@@ -6376,12 +6408,18 @@
       "type": "project",
       "path": "../Northwind.Infrastructure/Northwind.Infrastructure.csproj",
       "msbuildProject": "../Northwind.Infrastructure/Northwind.Infrastructure.csproj"
+    },
+    "Northwind.loc/1.0.0": {
+      "type": "project",
+      "path": "../Northwind.loc/Northwind.loc.csproj",
+      "msbuildProject": "../Northwind.loc/Northwind.loc.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "FluentAssertions >= 6.12.0",
-      "Northwind.Infrastructure >= 1.0.0",
+      "Northwind.Application >= 1.0.0",
+      "Northwind.loc >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.5.0"
     ]
   },
@@ -6412,8 +6450,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\PJRFinal\\Northwind\\Northwind.Infrastructure\\Northwind.Infrastructure.csproj": {
-              "projectPath": "C:\\PJRFinal\\Northwind\\Northwind.Infrastructure\\Northwind.Infrastructure.csproj"
+            "C:\\PJRFinal\\Northwind\\Northwind.Application\\Northwind.Application.csproj": {
+              "projectPath": "C:\\PJRFinal\\Northwind\\Northwind.Application\\Northwind.Application.csproj"
+            },
+            "C:\\PJRFinal\\Northwind\\Northwind.loc\\Northwind.loc.csproj": {
+              "projectPath": "C:\\PJRFinal\\Northwind\\Northwind.loc\\Northwind.loc.csproj"
             }
           }
         }

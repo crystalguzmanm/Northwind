@@ -7,3 +7,4 @@ C:\PJRFinal\Northwind\Northwind.loc\obj\Debug\netstandard2.1\Northwind.loc.Assem
 C:\PJRFinal\Northwind\Northwind.loc\obj\Debug\netstandard2.1\Northwind.loc.csproj.CoreCompileInputs.cache
 C:\PJRFinal\Northwind\Northwind.loc\obj\Debug\netstandard2.1\Northwind.loc.dll
 C:\PJRFinal\Northwind\Northwind.loc\obj\Debug\netstandard2.1\Northwind.loc.pdb
+C:\PJRFinal\Northwind\Northwind.loc\obj\Debug\netstandard2.1\Northwind.loc.csproj.AssemblyReference.cache

@@ -2,7 +2,7 @@
 
 namespace Northwind.API.Models.Modules.Customers
 {
-    public class UpdateCustomersModelcs : CustomersBaseModel
+    public class UpdateCustomersModel : CustomersBaseModel
     {
         public string CustomerID { get; set; }
     }
