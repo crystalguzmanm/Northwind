@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Northwind.Application.Contracts;
 using Northwind.Application.Core;
@@ -18,12 +19,13 @@ namespace Northwind.Application.Services
     {
         private readonly IShippersRepository shippersRepository;
         private readonly ILogger<ShippersService> logger;
- 
-        public ShippersService(IShippersRepository shippersRepository,ILogger<ShippersService>logger) 
+        private readonly IConfiguration configuration;
+
+        public ShippersService(IShippersRepository shippersRepository,ILogger<ShippersService>logger,IConfiguration configuration) 
         { 
           this.shippersRepository = shippersRepository; 
           this.logger = logger;   
-        
+          this.configuration = configuration;    
         }
 
      
@@ -123,10 +125,25 @@ namespace Northwind.Application.Services
 
         public ServicesResult Save(ShippersDtoAdd dtoAdd)
         {
+           
             ShippersResponse result = new ShippersResponse();
 
             try
-            {
+            {  //Validaciones //
+                if (string.IsNullOrEmpty(dtoAdd.CompanyName))
+                {
+                    result.Message = " El nombre de la empresa es requerido";
+                    result.Success = false;
+                    return result;
+                }
+                //Validaciones//
+
+                if  (dtoAdd.CompanyName.Length > 0)
+                {
+                    result.Message = " La longitud del  campo CompanyName debe ser de 50  caracteres";
+                    result.Success = false;
+                    return result;
+                }
                 Shippers shippers = new Shippers()
                 {
                     CreationDate = dtoAdd.ChangeDate,
