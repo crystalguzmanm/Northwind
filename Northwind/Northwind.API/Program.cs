@@ -18,15 +18,15 @@ builder.Services.AddControllers();
 
 //Agregar dependencias del context //
 builder.Services.AddDbContext<NorthwindContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("NorthwindContext")));
-
-
+builder.Services.AddOrdersDependecy();//T
+builder.Services.AddOrdersDetailsDependecy();
 //Dependecia de los repositorio//
 
 //builder.Services.AddTransient<IOrdersRepository, OrdersRepository>(); Ya esta en el loc
 
-builder.Services.AddOrdersDependecy();
 
-builder.Services.AddTransient<IOrdersDetailsRepository, OrdersDetailsRepository>();
+
+//builder.Services.AddTransient<IOrdersDetailsRepository, OrdersDetailsRepository>(); In the Loc
 
 builder.Services.AddControllers();
 

@@ -6,11 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Exceptions\" />
+    <ProjectReference Include="..\Northwind.Infrastructure\Northwind.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Northwind.Infrastructure\Northwind.Infrastructure.csproj" />
+    <Folder Include="Exceptions\" />
   </ItemGroup>
 
 </Project>

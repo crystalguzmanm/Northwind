@@ -1,5 +1,6 @@
 ﻿using Northwind.Domain.Entities;
 using Northwind.Domain.Repository;
+using Northwind.Infrastructure.Models;
 using System.Collections.Generic;
 
 namespace Northwind.Infrastructure.Interfaces
@@ -8,5 +9,11 @@ namespace Northwind.Infrastructure.Interfaces
     {
         IEnumerable<OrdersDetails> GetOrdersDetails();
         List<OrdersDetails> GetOrdersDetailsByOrderDetailID(int OrderDetailID);//Metood exlcusivo
+
+
+        List<OrdersDetailsProductsModel> GetOrdersDetailsByProductID(int productID);
+        List<OrdersDetailsProductsModel> GetOrdersDetailsProducts();
+        OrdersDetailsProductsModel GetOrderDetailProduct(int EmployeeID); //TODO El profe tiene Id aqui
+
     }
 }

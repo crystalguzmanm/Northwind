@@ -78,12 +78,11 @@ namespace Northwind.API.Controllers
             return Ok(result);
         }
 
-        // PUT api/<ShippersController>/5
 
-        [HttpPost("RemoveCourse")]
-        public IActionResult Remove([FromBody] OrdersDtoRemove ordersDtoRemove)
+        [HttpPut("Updateorders")]
+        public IActionResult Put([FromBody] OrdersDtoUpdate ordersDtoUpdate)
         {
-            var result = this.ordersServices.Remove(ordersDtoRemove);
+            var result = this.ordersServices.Update(ordersDtoUpdate);
 
             if (!result.Success)
             {
@@ -93,10 +92,12 @@ namespace Northwind.API.Controllers
             return Ok(result);
         }
 
-        [HttpPut("Updateorders")]
-        public IActionResult Put([FromBody] OrdersDtoUpdate ordersDtoUpdate)
+        // PUT api/<ShippersController>/5
+
+        [HttpPost("RemoveCourse")]
+        public IActionResult Remove([FromBody] OrdersDtoRemove ordersDtoRemove)
         {
-            var result = this.ordersServices.Update(ordersDtoUpdate);
+            var result = this.ordersServices.Remove(ordersDtoRemove);
 
             if (!result.Success)
             {

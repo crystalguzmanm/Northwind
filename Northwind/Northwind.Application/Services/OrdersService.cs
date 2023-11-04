@@ -1,8 +1,11 @@
 ﻿
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Northwind.Application.Contracts;
 using Northwind.Application.Core;
 using Northwind.Application.Dtos.Orders;
+
+using Northwind.Application.Response;
 using Northwind.Domain.Entities;
 using Northwind.Infrastructure.Interfaces;
 using System;
@@ -14,12 +17,15 @@ namespace Northwind.Application.Services
     {
         private readonly IOrdersRepository ordersRepository;
         private readonly ILogger<OrdersService> logger;
+        private readonly IConfiguration configuration;
 
         public OrdersService(IOrdersRepository ordersRepository, 
-                               ILogger<OrdersService> logger) 
+                               ILogger<OrdersService> logger,
+                               IConfiguration configuration) 
         {
             this.ordersRepository = ordersRepository;
             this.logger = logger;
+            this.configuration = configuration;
         }
         public ServicesResult GetAll()
         {
@@ -43,7 +49,7 @@ namespace Northwind.Application.Services
             catch (Exception ex) 
             {
                 result.Success = false;
-                result.Message = $"Ha ocurrido un error obteniendo las ordenes";
+                result.Message = this.configuration["MensajeOrderError: GetErrorMessage"];
                 this.logger.LogError(result.Message, ex.ToString());
             }
             return result;
@@ -75,7 +81,7 @@ namespace Northwind.Application.Services
             catch (Exception ex)
             {
                 result.Success = false;
-                result.Message = $"Ha ocurrido un error obteniendo la orden";
+                result.Message = this.configuration["MensajeOrderError: GetByIdErrorMessage"];
                 this.logger.LogError(result.Message, ex.ToString());
 
             }
@@ -116,14 +122,57 @@ namespace Northwind.Application.Services
 
         public ServicesResult Save(OrdersDtoAdd dtoAdd)
         {
-            ServicesResult result = new ServicesResult() ;
+            OrdersResponse result = new OrdersResponse() ;
 
             try
             {
+                //Validaciones. Solo se la he hecho al Save
+                //
+                //TODO
+                //ShipNate es null, no es Not null 
+                if (string.IsNullOrEmpty(dtoAdd.ShipName))
+                {
+                    result.Message = this.configuration["MensajeValidaciones: OrderShipNameRequerido"];
+                    result.Success = false;
+                    return result;
+
+                }
+
+                if (dtoAdd.ShipName.Length > 40) 
+                {
+                    result.Message = this.configuration["MensajeValidaciones: OrderShipCityRequerido"];
+                    result.Success = false;
+                    return result;
+
+                }
+                if (string.IsNullOrEmpty(dtoAdd.ShipCity))
+                {
+                    result.Message = this.configuration["MensajeValidaciones: OrderCiudadRequerido"];
+                    result.Success = false;
+                    return result;
+
+                }
+
+                if (dtoAdd.ShipCity.Length > 15)
+                {
+                    result.Message = this.configuration["MensajeValidaciones: OrderShipCityLongitud"];
+                    result.Success = false;
+                    return result;
+
+
+                }
+                if (dtoAdd.CreationUser <= 0) // Cambia la validación de string.IsNullOrEmpty a comparar con 0 para un campo int
+                {
+                    result.Message = this.configuration["MensajeValidaciones: OrderUsuarioValor"];
+                    result.Success = false;
+                    return result;
+
+                }
+
                 Orders orders = new Orders() 
                 {
                     CreationDate = dtoAdd.ChangeDate,
-                    CreationUser = dtoAdd.ChangeUser,
+                   CreationUser = dtoAdd.CreationUser,
                     ShipName = dtoAdd.ShipName,
                     ShipCity = dtoAdd.ShipCity,
                     ModifyDate = dtoAdd.ModifyDate
@@ -131,18 +180,23 @@ namespace Northwind.Application.Services
 
 
                 };
-                this.ordersRepository.Save(orders);
-                result.Message = "La Orden fue creada correctamente.";
-                  
-                result.OrderID = orders.OrderID;
-            }
-            catch (Exception ex)
-            {
 
-                result.Success = false;
-                result.Message = $"Ha ocurrido un error guardando la orden";
-                this.logger.LogError(result.Message, ex.ToString());
+                this.ordersRepository.Save(orders);
+
+                result.Message = this.configuration["MensajesOrdersSuccess:AddSuccessMessage"];
+
+                result.OrderID = orders.OrderID ;
             }
+           
+            catch(Exception ex) 
+            {
+                result.Success = false;
+                result.Message = this.configuration["ErrorOrders:AddErrorMessage"];
+
+                this.logger.LogError(result.Message, ex.ToString());
+            
+            }
+
             return result;
         }
 
@@ -151,27 +205,76 @@ namespace Northwind.Application.Services
             ServicesResult result= new ServicesResult() ;
             try
             {
+                //Validaciones. Solo se la he hecho al Save
+                //
+                //TODO
+                //ShipNate es null, no es Not null 
+                if (string.IsNullOrEmpty(dtoUpdate.ShipName))
+                {
+                    result.Message = this.configuration["MensajeValidaciones: OrderNombreRequerido"];
+                    result.Success = false;
+                    return result;
+
+                }
+
+                if (dtoUpdate.ShipName.Length > 40)
+                {
+                    result.Message = this.configuration["MensajeValidaciones: OrderShipNameLongitud"];
+                    result.Success = false;
+                    return result;
+
+                }
+                if (string.IsNullOrEmpty(dtoUpdate.ShipCity))
+                {
+                    result.Message = this.configuration["MensajeValidaciones: OrderShipCityRequerido"];
+                    result.Success = false;
+                    return result;
+
+                }
+                if (dtoUpdate.ShipCity.Length > 15)
+                {
+                    result.Message = this.configuration["MensajeValidaciones: OrderShipCityLongitud"];
+                    result.Success = false;
+                    return result;
+
+
+                }
+                if (!dtoUpdate.OrderDate.HasValue)
+                {
+                    result.Message = this.configuration["MensajeValidaciones: OrderShipNameRequerido"];
+                    result.Success = false;
+                    return result;
+
+                }
+
                 Orders orders = new Orders()
                 {
+                    OrderID = dtoUpdate.OrderID,
                     CreationDate = dtoUpdate.ChangeDate,
                     CreationUser = dtoUpdate.ChangeUser,
                     ShipName = dtoUpdate.ShipName,
                     ShipCity = dtoUpdate.ShipCity,
-                    ModifyDate = dtoUpdate.ModifyDate,
-                    OrderID = dtoUpdate.OrderId
-                   
-                };
+                    ModifyDate = dtoUpdate.ModifyDate
 
+
+
+                };
                 this.ordersRepository.Update(orders);
-                result.Message = "La Orden fue actualizada correctamente";
+
+                result.Message = this.configuration["MensajesOrdersSuccess:AddSuccessMessage"];
+
+               
             }
+           
             catch (Exception ex)
             {
-
                 result.Success = false;
-                result.Message = $"Ha ocurrido un error actualizando la orden";
+                result.Message = this.configuration["MensajeOrderError: UpdateErrorMessage"];
+
                 this.logger.LogError(result.Message, ex.ToString());
+
             }
+
             return result;
         }
     }

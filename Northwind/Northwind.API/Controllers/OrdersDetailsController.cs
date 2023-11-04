@@ -3,6 +3,9 @@
 using Northwind.API.Models.Modules.OrdersDetailsAddModel;
 using Northwind.API.Models.Modules.OrdersDetailsGetAllModel;
 using Northwind.API.Models.Modules.OrdersDetailsUpdateModel;
+using Northwind.Application.Contracts;
+using Northwind.Application.Dtos.Orders;
+using Northwind.Application.Dtos.OrdersDetails;
 using Northwind.Domain.Entities;
 using Northwind.Domain.Repository;
 using Northwind.Infrastructure.Interfaces;
@@ -17,37 +20,33 @@ namespace Northwind.API.Controllers
     [ApiController]
     public class OrdersDetailsController : ControllerBase
     {
-        private readonly IOrdersDetailsRepository ordersDetailsRepository;
+        private readonly IOrdersDetailsServices ordersDetailsServices;
 
-        public OrdersDetailsController(IOrdersDetailsRepository ordersDetailsRepository)
+
+        public OrdersDetailsController(IOrdersDetailsServices ordersDetailsServices)
         {
-            this.ordersDetailsRepository = ordersDetailsRepository;
+            this.ordersDetailsServices = ordersDetailsServices;
         }
-
-        [HttpGet("GetOrdersDetailsByOrderDetailID")]
-        public IActionResult GetOrdersDetailsByOrderDetailID(int ordersDetailsID)
+        //TODO
+        [HttpGet("GetOrdersDetailsByOrderID")]
+        public IActionResult GetOrdersDetailsByOrderID(int ordersDetailsID)
         {
-            var ordersDetails = this.ordersDetailsRepository.GetOrdersDetailsByOrderDetailID(ordersDetailsID);
+            var ordersDetails = this.ordersDetailsServices.GetOrdersDetailsByOrderDetailsID(ordersDetailsID);
             return Ok(ordersDetails);
         }
 
-        // GET: api/<ShippersController>
+        // GET: api/<OrdersDetailsController>
         [HttpGet]
         public IActionResult Get()
         {
-            var ordersDetails = this.ordersDetailsRepository.GetEntities().Select(ordersDetails => new OrdersDetailsGetAllModel()
+            var result = this.ordersDetailsServices.GetAll();
+
+            if (!result.Success)
             {
-                CreationDate = ordersDetails.CreationDate,
-                ModifyDate = ordersDetails.ModifyDate,
-                ProductID = ordersDetails.ProductID,
-                UnitPrice = ordersDetails.UnitPrice,
-                Quantity = ordersDetails.Quantity,
-                Discount = ordersDetails.Discount,
-                CreationUser = ordersDetails.CreationUser,
+                return BadRequest(result);
+            }
 
-            }).ToList();
-
-            return Ok(ordersDetails);
+            return Ok(result);
 
 
         }
@@ -56,59 +55,58 @@ namespace Northwind.API.Controllers
         [HttpGet("GetordersDetails")]
         public IActionResult GetOrdersDetails(int id)
         {
-            var ordersDetails = this.ordersDetailsRepository.GetEntity(id);
-            return Ok(ordersDetails);
-        }
+            var result = this.ordersDetailsServices.GetById(id);
 
+            if (!result.Success)
+            {
+                return BadRequest(result);
+            }
+
+            return Ok(result);
+        }
 
         [HttpPost("SaveOrdersDetails")]
-        public IActionResult Post([FromBody] OrdersDetailsAddModel ordersDetailsAdd)
+        public IActionResult Post([FromBody] OrdersDetailsDtoAdd ordersDetailsApp)
         {
-            OrdersDetails ordersDetails = new OrdersDetails()
+            var result = this.ordersDetailsServices.Save(ordersDetailsApp);
+
+            if (!result.Success)
             {
-                CreationDate = ordersDetailsAdd.ChanageDate,
-                CreationUser = ordersDetailsAdd.ChangeUser,
-                ModifyDate = ordersDetailsAdd.ChangeModifyDate,
-                OrderDetailsID = ordersDetailsAdd.OrderDetailsID,
-                Quantity = ordersDetailsAdd.Quantity,
-                ProductID = ordersDetailsAdd.ProductID
+                return BadRequest(result);
+            }
 
-
-
-            };
-
-            this.ordersDetailsRepository.Save(ordersDetails);
-
-            return Ok();
+            return Ok(result);
         }
-
 
         // PUT api/<ShippersController>/5
 
-        [HttpPost("UpdateCourse")]
-        public IActionResult Put([FromBody] OrdersDetailsUpdateModel ordersDetailsUpdate)
+        [HttpPost("RemoveOrdersDetails")]
+        public IActionResult Remove([FromBody] OrdersDetailsDtoRemove ordersDetailsDtoRemove)
         {
-            OrdersDetails ordersDetails = new OrdersDetails()
+            var result = this.ordersDetailsServices.Remove(ordersDetailsDtoRemove);
+
+            if (!result.Success)
             {
-                CreationDate = ordersDetailsUpdate.CreationDate,
-                ModifyDate = ordersDetailsUpdate.ModifyDate,
-                ProductID = ordersDetailsUpdate.ProductID,
-                UnitPrice = ordersDetailsUpdate.UnitPrice,
-                Quantity = ordersDetailsUpdate.Quantity,
-                Discount = ordersDetailsUpdate.Discount,
-                CreationUser = ordersDetailsUpdate.CreationUser,
+                return BadRequest(result);
+            }
 
-
-            };
-
-            this.ordersDetailsRepository.Update(ordersDetails);
-
-            return Ok();
+            return Ok(result);
         }
 
-        
+        [HttpPut("UpdateordersDetails")]
+        public IActionResult Put([FromBody] OrdersDetailsDtoUpdate ordersDetailsDtoUpdate)
+        {
+            var result = this.ordersDetailsServices.Update(ordersDetailsDtoUpdate);
 
-        // DELETE api/<OrdersDetailsController>/5
+            if (!result.Success)
+            {
+                return BadRequest(result);
+            }
+
+            return Ok(result);
+        }
+
+        // DELETE api/<OrdersController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
