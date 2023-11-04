@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-//using Microsoft.Azure.Amqp.Framing;
 using Northwind.API.Models.Modules.OrdersDetailsAddModel;
 using Northwind.API.Models.Modules.OrdersDetailsGetAllModel;
 using Northwind.API.Models.Modules.OrdersDetailsUpdateModel;

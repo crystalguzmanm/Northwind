@@ -21,7 +21,7 @@ namespace Northwind.Infrastructure.Repositories
         {
             this.context = context;
         }
-        public OrdersEmployeesModel GetOrderEmployee(int employeeID) //TODO Revisar ya que el int employee era Mayusc
+        public OrdersEmployeesModel GetOrderEmployee(int employeeID) 
         {
             return this.GetOrdersEmployees().SingleOrDefault(co => co.EmployeeID == employeeID);
         }
@@ -39,7 +39,7 @@ namespace Northwind.Infrastructure.Repositories
         public List<OrdersEmployeesModel> GetOrdersEmployees()
         {
 
-            var orders = (from co in this.GetEntities()
+            var orders = (from co in this.GetEntities() //TODO Agregar los Joins de las otras dos entidades 
                            join Emply in this.context.Employees on co.EmployeeID equals Emply.EmployeeID
                           where !co.Deleted
                            select new OrdersEmployeesModel()
@@ -170,9 +170,9 @@ namespace Northwind.Infrastructure.Repositories
 
 
             return orders;
-        }//A
+        }
 
-        public OrdersCustomersModel GetOrderCustomer(string customerID)//A
+        public OrdersCustomersModel GetOrderCustomer(string customerID)
         {
             return this.GetOrdersCustomers().SingleOrDefault(co => co.CustomerID == customerID);
         }

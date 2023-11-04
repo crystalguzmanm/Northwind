@@ -93,8 +93,7 @@ namespace Northwind.Application.Services
 
             return result;
         }
-        //Cuando hago el GetByOrdersId me da : : 'The method or operation is not implemented.'
-
+     
         public object GetOrdersDetailsByOrderDetailsID(int ordersDetailsID)//TODO 
         {
             throw new NotImplementedException();
@@ -132,11 +131,8 @@ namespace Northwind.Application.Services
 
             try
             {
-                //Validaciones. Solo se la he hecho al Save
-                //
-                //TODO
-                //ShipNate es null, no es Not null 
-                if (dtoAdd.CreationUser <= 0) // Cambia la validación de string.IsNullOrEmpty a comparar con 0 para un campo int
+     
+                if (dtoAdd.CreationUser <= 0) 
                 {
                     result.Message = this.configuration["MensajeValidaciones: OrderUsuarioValor"];
                     result.Success = false;
@@ -153,7 +149,7 @@ namespace Northwind.Application.Services
 
                 }
 
-                if (dtoAdd.Quantity <= 0) // Cambia la validación de string.IsNullOrEmpty a comparar con 0 para un campo int
+                if (dtoAdd.Quantity <= 0)
                 {
                     result.Message = this.configuration["MensajeValidaciones: OrderUsuarioValor"];
                     result.Success = false;
@@ -198,11 +194,8 @@ namespace Northwind.Application.Services
 
             try
             {
-                //Validaciones. Solo se la he hecho al Save
-                //
-                //TODO
-                //ShipNate es null, no es Not null 
-                if (dtoUpdate.CreationUser <= 0) // Cambia la validación de string.IsNullOrEmpty a comparar con 0 para un campo int
+               
+                if (dtoUpdate.CreationUser <= 0) 
                 {
                     result.Message = this.configuration["MensajeValidaciones: OrderNombreRequerido"];
                     result.Success = false;
@@ -219,7 +212,7 @@ namespace Northwind.Application.Services
 
                 }
 
-                if (dtoUpdate.Quantity <= 0) // Cambia la validación de string.IsNullOrEmpty a comparar con 0 para un campo int
+                if (dtoUpdate.Quantity <= 0) 
                 {
                     result.Message = this.configuration["MensajeValidaciones: OrderNombreRequerido"];
                     result.Success = false;

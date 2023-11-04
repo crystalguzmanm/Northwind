@@ -11,18 +11,17 @@ namespace Northwind.Infrastructure.Interfaces
         List<Orders> GetOrdersByOrderID(int OrderID);//Metood exlcusivo
 
 
-        List<OrdersEmployeesModel> GetOrdersByEmployeeID(int employeeID);
-        List<OrdersEmployeesModel> GetOrdersEmployees();
-        OrdersEmployeesModel GetOrderEmployee(int EmployeeID); //TODO El profe tiene Id aqui
+        List<OrdersEmployeesModel> GetOrdersByEmployeeID(int employeeID); //TODO Llama la ID de la entidad
+        List<OrdersEmployeesModel> GetOrdersEmployees(); //Este llama Todos los datos GetAll
+        OrdersEmployeesModel GetOrderEmployee(int EmployeeID); //Este es por ID general
 
-
-        List<OrdersShippersModel> GetOrdersByShipperID(int shipperID);
+        List<OrdersShippersModel> GetOrdersByShipperID(int shipperID);//TODO Dejar este
         List<OrdersShippersModel> GetOrdersShippers();
-        OrdersShippersModel GetOrderShipper(int ShipperID); //TODO El profe tiene Id aqui
+        OrdersShippersModel GetOrderShipper(int ShipperID); 
 
-        List<OrdersCustomersModel> GetOrdersByCustomerID(string customerID);
+        List<OrdersCustomersModel> GetOrdersByCustomerID(string customerID);//TODO Dejar este
         List<OrdersCustomersModel> GetOrdersCustomers();
-        OrdersCustomersModel GetOrderCustomer(string CustomerID); //TODO El profe tiene Id aqui
+        OrdersCustomersModel GetOrderCustomer(string CustomerID); 
 
 
 

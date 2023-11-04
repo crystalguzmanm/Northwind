@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Northwind.Application.Dtos.OrdersDetails
 {
-    public class OrdersDetailsDtoGetAll //TODO
+    public class OrdersDetailsDtoGetAll 
     {
         public int OrderDetailsID { get; set; }
         public int ProductID { get; set; }

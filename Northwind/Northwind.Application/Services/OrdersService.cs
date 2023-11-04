@@ -88,7 +88,7 @@ namespace Northwind.Application.Services
 
             return result;
         }
-        //Cuando hago el GetByOrdersId me da : : 'The method or operation is not implemented.'
+     
 
         public object GetOrdersByOrderID(int ordersID)//TODO 
         {
@@ -126,10 +126,7 @@ namespace Northwind.Application.Services
 
             try
             {
-                //Validaciones. Solo se la he hecho al Save
-                //
-                //TODO
-                //ShipNate es null, no es Not null 
+                 
                 if (string.IsNullOrEmpty(dtoAdd.ShipName))
                 {
                     result.Message = this.configuration["MensajeValidaciones: OrderShipNameRequerido"];
@@ -161,7 +158,7 @@ namespace Northwind.Application.Services
 
 
                 }
-                if (dtoAdd.CreationUser <= 0) // Cambia la validación de string.IsNullOrEmpty a comparar con 0 para un campo int
+                if (dtoAdd.CreationUser <= 0) 
                 {
                     result.Message = this.configuration["MensajeValidaciones: OrderUsuarioValor"];
                     result.Success = false;
@@ -205,10 +202,7 @@ namespace Northwind.Application.Services
             ServicesResult result= new ServicesResult() ;
             try
             {
-                //Validaciones. Solo se la he hecho al Save
-                //
-                //TODO
-                //ShipNate es null, no es Not null 
+               
                 if (string.IsNullOrEmpty(dtoUpdate.ShipName))
                 {
                     result.Message = this.configuration["MensajeValidaciones: OrderNombreRequerido"];
@@ -261,7 +255,7 @@ namespace Northwind.Application.Services
                 };
                 this.ordersRepository.Update(orders);
 
-                result.Message = this.configuration["MensajesOrdersSuccess:AddSuccessMessage"];
+                result.Message = this.configuration["MensajesOrdersSuccess:UpdateSuccessMessage"];
 
                
             }

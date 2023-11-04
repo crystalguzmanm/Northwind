@@ -13,7 +13,7 @@ namespace Northwind.Infrastructure.Interfaces
 
         List<OrdersDetailsProductsModel> GetOrdersDetailsByProductID(int productID);
         List<OrdersDetailsProductsModel> GetOrdersDetailsProducts();
-        OrdersDetailsProductsModel GetOrderDetailProduct(int EmployeeID); //TODO El profe tiene Id aqui
+        OrdersDetailsProductsModel GetOrderDetailProduct(int EmployeeID); 
 
     }
 }
