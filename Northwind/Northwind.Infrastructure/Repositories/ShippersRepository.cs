@@ -40,6 +40,7 @@ namespace Northwind.Infrastructure.Repositories
         public override void Update(Shippers entity)
         {
             var shippersUpdate = base.GetEntity(entity.ShipperID);
+
             shippersUpdate.CompanyName = entity.CompanyName;
             shippersUpdate.Phone=entity.Phone;
             shippersUpdate.CreationDate = entity.CreationDate;
@@ -59,7 +60,7 @@ namespace Northwind.Infrastructure.Repositories
             shippersToRemove.UserDeleted= entity.UserDeleted;
             shippersToRemove.DeletedDate = entity.DeletedDate;
             
-            this.context.Shippers.Update(shippersToRemove);
+            this.context.Shippers.Remove(shippersToRemove);
             this.context.SaveChanges();
 
         }

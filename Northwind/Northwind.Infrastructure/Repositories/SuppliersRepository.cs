@@ -56,7 +56,7 @@ namespace Northwind.Infrastructure.Repositories
             suppliersToRemove.UserDeleted= entity.UserDeleted;
             suppliersToRemove.DeletedDate = entity.DeletedDate;
             
-            this.context.Suppliers.Update(suppliersToRemove);
+            this.context.Suppliers.Remove(suppliersToRemove);
             this.context.SaveChanges();
 
         }

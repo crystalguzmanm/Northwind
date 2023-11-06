@@ -26,9 +26,53 @@ namespace Northwind.Application.Services
           this.shippersRepository = shippersRepository; 
           this.logger = logger;   
           this.configuration = configuration;    
+        } 
+        
+        
+        // validaciones bases para ser reutilizadas por los metodos //
+        private ServicesResult ValidateShippersCommon(ShippersDtoBase dto)
+        {
+            ServicesResult result = new ServicesResult();
+
+            // Validaciones de CompanyName
+            if (string.IsNullOrEmpty(dto.CompanyName))
+            {
+                result.Message = this.configuration["MensajeValidaciones:CompanyNameRequerido"];
+                result.Success = false;
+                return result;
+            }
+            if (dto.CompanyName.Length > 100) // Actualiza este valor con la longitud máxima permitida
+            {
+                result.Message = this.configuration["MensajeValidaciones:CompanyNameLongitud"];
+                result.Success = false;
+                return result;
+            }
+
+            // Validaciones de Phone
+            if (string.IsNullOrEmpty(dto.Phone))
+            {
+                result.Message = this.configuration["MensajeValidaciones:PhoneRequerido"];
+                result.Success = false;
+                return result;
+            }
+            if (dto.Phone.Length > 20) // Actualiza este valor con la longitud máxima permitida
+            {
+                result.Message = this.configuration["MensajeValidaciones:PhoneLongitud"];
+                result.Success = false;
+                return result;
+            }
+
+            // Validaciones de ShipperID
+            if (dto is ShippersDtoAdd && (dto as ShippersDtoAdd).ShipperID <= 0)
+            {
+                result.Message = this.configuration["MensajeValidaciones:ShipersIDRequerido"];
+                result.Success = false;
+                return result;
+            }
+
+            return result;
         }
 
-     
 
         public ServicesResult GetAll()
         {
@@ -47,6 +91,7 @@ namespace Northwind.Application.Services
 
                 });
 
+                result.Message = "Aqui estan todos los registros de la tabla shippers ";
                 result.Data = shippers;
 
             }
@@ -96,6 +141,14 @@ namespace Northwind.Application.Services
         public ServicesResult Remove(ShippersDtoRemove dtoRemove)
         {
             ServicesResult result = new ServicesResult();
+            // validaciones reutilizadas //
+            ServicesResult validation = ValidateShippersCommon(dtoRemove);
+            if (!validation.Success)
+            {
+                result.Message = validation.Message;
+                result.Success = false;
+                return result;
+            }
             try
             {
                 Shippers shippers = new Shippers()
@@ -108,7 +161,7 @@ namespace Northwind.Application.Services
                 };
                 this.shippersRepository.Remove(shippers);
 
-                result.Message = "El Shippers fue removido exitosamente";
+                result.Message = this.configuration["MensajesShippersSuccess:RemoveSuccessMessage"];
                 result.Data = shippers;
 
             }
@@ -116,7 +169,7 @@ namespace Northwind.Application.Services
             {
 
                 result.Success = false;
-                result.Message = $"Ocurrio  un error removiendo  los datos de la tabla Shippers ";
+                result.Message = this.configuration["MensajesShippersSuccess:RemoveErrorMessage"];
                 this.logger.LogError(result.Message, ex.ToString());
 
             }
@@ -125,25 +178,17 @@ namespace Northwind.Application.Services
 
         public ServicesResult Save(ShippersDtoAdd dtoAdd)
         {
-           
             ShippersResponse result = new ShippersResponse();
-
+            // validaciones reutilizadas //
+            ServicesResult validation = ValidateShippersCommon(dtoAdd);
+            if (!validation.Success)
+            {
+                result.Message = validation.Message;
+                result.Success = false;
+                return result;
+            }
             try
-            {  //Validaciones //
-                if (string.IsNullOrEmpty(dtoAdd.CompanyName))
-                {
-                    result.Message = " El nombre de la empresa es requerido";
-                    result.Success = false;
-                    return result;
-                }
-                //Validaciones//
-
-                if  (dtoAdd.CompanyName.Length > 0)
-                {
-                    result.Message = " La longitud del  campo CompanyName debe ser de 50  caracteres";
-                    result.Success = false;
-                    return result;
-                }
+            {  
                 Shippers shippers = new Shippers()
                 {
                     CreationDate = dtoAdd.ChangeDate,
@@ -155,8 +200,7 @@ namespace Northwind.Application.Services
                 };
 
                 this.shippersRepository.Save(shippers);
-
-                result.Message = "El Shippers fue creado exitosamente";
+                result.Message = this.configuration["MensajesShippersSuccess:AddSuccessMessage"];
                 result.ShippersId = shippers.ShipperID;
 
             }
@@ -164,7 +208,7 @@ namespace Northwind.Application.Services
             {
 
                 result.Success = false;
-                result.Message = $"Ocurrio  un error Guardando los datos de la tabla Shippers ";
+                result.Message = this.configuration["MensajeShippersSuccess:AddErrorMessage"];
                 this.logger.LogError(result.Message, ex.ToString());
 
             }
@@ -173,10 +217,19 @@ namespace Northwind.Application.Services
 
         public ServicesResult Update(ShippersDtoUpdate dtoUpdate)
         {
-            ServicesResult result = new ServicesResult();
-
-            try
+            ShippersResponse result = new ShippersResponse();
+            // validaciones reutilizadas //
+            ServicesResult validation = ValidateShippersCommon(dtoUpdate);
+            if (!validation.Success)
             {
+                result.Message = validation.Message;
+                result.Success = false;
+                return result;
+            }
+            try
+            { 
+
+
                 Shippers shippers = new Shippers()
                 {
                     CreationDate = dtoUpdate.ChangeDate,
@@ -185,22 +238,25 @@ namespace Northwind.Application.Services
                     Phone = dtoUpdate.Phone,
                     ModifyDate = dtoUpdate.ChangeDate,
                     UserMod = dtoUpdate.ChangeUser,
-                    ShipperID = dtoUpdate.ShippersID
-
+                    ShipperID = dtoUpdate.ShipperID
                 };
-               this.shippersRepository.Update(shippers);    
+               this.shippersRepository.Update(shippers);
+               result.Message = this.configuration["MensajeShippersSuccess:UpdateSuccessMessage"];
+               
+
             }
             catch (Exception ex)
             {
 
                 result.Success = false;
-                result.Message = $"Ocurrio  un error  actualizando  los datos de la tabla Shippers ";
+                result.Message = this.configuration["MensajeShippersSuccess:UpdateErrorMessage"];
                 this.logger.LogError(result.Message, ex.ToString());
 
             }
             return result;
         }
 
+       
     }
 
    

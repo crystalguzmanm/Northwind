@@ -12,8 +12,7 @@ namespace Northwind.Application.Core
 
      public string? Message { get; set; }   
 
-     public dynamic? Data { get; set; }  
-
-
+     public dynamic? Data { get; set; }
+       
     }
 }

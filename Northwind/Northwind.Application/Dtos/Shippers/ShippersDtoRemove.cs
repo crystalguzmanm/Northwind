@@ -4,9 +4,8 @@ using System.Text;
 
 namespace Northwind.Application.Dtos.Shippers
 {
-    public class ShippersDtoRemove : DtoBase 
+    public class ShippersDtoRemove : ShippersDtoBase
     {
-        public int ShipperID { get; set; }
         public bool Deleted { get; set; }
 
 

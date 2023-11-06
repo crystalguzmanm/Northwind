@@ -6,7 +6,7 @@ namespace Northwind.Application.Dtos.Shippers
 {
     public class ShippersDtoUpdate : ShippersDtoBase
     {
-        public int ShippersID { get; set; }
+ 
 
     }
 }

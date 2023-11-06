@@ -93,8 +93,7 @@ namespace Northwind.Application.Services
 
 
                 };
-               
-
+                this.suppliersRepository.Remove(suppliers);
                 result.Message = "El registro fue removido exitosamente";
                 result.Data = suppliers;
 
@@ -165,6 +164,7 @@ namespace Northwind.Application.Services
 
                 };
                 this.suppliersRepository.Update(suppliers);
+                result.Message = "Se actualizaron correctamente los registros";
             }
             catch (Exception ex)
             {
