@@ -7,6 +7,7 @@ namespace Northwind.Domain.Entities
     public class Customers : Person
     {
         [Key]
-        public string CustomerID { get; set; }
+        public int CustomerID { get; set; }
+        
     }
 }

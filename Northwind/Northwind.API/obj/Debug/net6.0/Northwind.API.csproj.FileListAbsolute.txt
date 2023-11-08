@@ -62,3 +62,7 @@ C:\PJRFinal\Northwind\Northwind.API\bin\Debug\net6.0\Northwind.Infrastructure.dl
 C:\PJRFinal\Northwind\Northwind.API\bin\Debug\net6.0\Northwind.Infrastructure.pdb
 C:\PJRFinal\Northwind\Northwind.API\bin\Debug\net6.0\Northwind.Domain.pdb
 C:\PJRFinal\Northwind\Northwind.API\bin\Debug\net6.0\FluentAssertions.dll
+C:\PJRFinal\Northwind\Northwind.API\bin\Debug\net6.0\Northwind.Application.dll
+C:\PJRFinal\Northwind\Northwind.API\bin\Debug\net6.0\Northwind.loc.dll
+C:\PJRFinal\Northwind\Northwind.API\bin\Debug\net6.0\Northwind.Application.pdb
+C:\PJRFinal\Northwind\Northwind.API\bin\Debug\net6.0\Northwind.loc.pdb

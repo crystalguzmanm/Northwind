@@ -31,6 +31,9 @@
               "C:\\PJRFinal\\Northwind\\Northwind.Application\\Northwind.Application.csproj": {
                 "projectPath": "C:\\PJRFinal\\Northwind\\Northwind.Application\\Northwind.Application.csproj"
               },
+              "C:\\PJRFinal\\Northwind\\Northwind.Infrastructure\\Northwind.Infrastructure.csproj": {
+                "projectPath": "C:\\PJRFinal\\Northwind\\Northwind.Infrastructure\\Northwind.Infrastructure.csproj"
+              },
               "C:\\PJRFinal\\Northwind\\Northwind.loc\\Northwind.loc.csproj": {
                 "projectPath": "C:\\PJRFinal\\Northwind\\Northwind.loc\\Northwind.loc.csproj"
               }

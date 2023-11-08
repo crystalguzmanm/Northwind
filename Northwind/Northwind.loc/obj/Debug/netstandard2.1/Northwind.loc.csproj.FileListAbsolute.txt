@@ -8,3 +8,10 @@ C:\PJRFinal\Northwind\Northwind.loc\obj\Debug\netstandard2.1\Northwind.loc.cspro
 C:\PJRFinal\Northwind\Northwind.loc\obj\Debug\netstandard2.1\Northwind.loc.dll
 C:\PJRFinal\Northwind\Northwind.loc\obj\Debug\netstandard2.1\Northwind.loc.pdb
 C:\PJRFinal\Northwind\Northwind.loc\obj\Debug\netstandard2.1\Northwind.loc.csproj.AssemblyReference.cache
+C:\PJRFinal\Northwind\Northwind.loc\bin\Debug\netstandard2.1\Northwind.Application.dll
+C:\PJRFinal\Northwind\Northwind.loc\bin\Debug\netstandard2.1\Northwind.Domain.dll
+C:\PJRFinal\Northwind\Northwind.loc\bin\Debug\netstandard2.1\Northwind.Infrastructure.dll
+C:\PJRFinal\Northwind\Northwind.loc\bin\Debug\netstandard2.1\Northwind.Application.pdb
+C:\PJRFinal\Northwind\Northwind.loc\bin\Debug\netstandard2.1\Northwind.Domain.pdb
+C:\PJRFinal\Northwind\Northwind.loc\bin\Debug\netstandard2.1\Northwind.Infrastructure.pdb
+C:\PJRFinal\Northwind\Northwind.loc\obj\Debug\netstandard2.1\Northwind.loc.csproj.CopyComplete

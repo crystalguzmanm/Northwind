@@ -18,26 +18,26 @@ namespace Northwind.API.Controllers
     [ApiController]
     public class CustomersController : ControllerBase
     {
-        private readonly ICustomersService CustomersService;
+        private readonly ICustomersService customersService;
         public CustomersController(ICustomersService customersService)
         {
-            this.CustomersService = CustomersService;
+            this.customersService = customersService;
         }
 
 
         // GET: api/<CustomersController>
-        [HttpGet("GetCustomersByCustomerID")]
-        public IActionResult GetCustomersByCustomerID(int CustomerID)
-        {
-            var Customers = this.CustomersService.GetById(CustomerID);
-            return Ok(Customers);
-        }
+        /* [HttpGet("GetCustomersByCustomerID")]
+        public IActionResult GetCustomersByCustomerID(int customerID)
+             {
+            var customers = this.customersService.GetById(customerID);
+            return Ok(customers);
+        }*/
 
         // GET api/<CustomersController>/5
         [HttpGet]
         public IActionResult Get()
         {
-            var result = this.CustomersService.GetAll();
+            var result = this.customersService.GetAll();
 
             if (!result.Success)
             {
@@ -48,9 +48,9 @@ namespace Northwind.API.Controllers
         }
 
         [HttpGet("GetCustomers")]
-        public IActionResult GetCustomers(int id)
+        public IActionResult GetCustomers(int CustomerID)
         {
-            var result = this.CustomersService.GetAll();
+            var result = this.customersService.GetById(CustomerID);
 
             if (!result.Success)
             {
@@ -64,7 +64,7 @@ namespace Northwind.API.Controllers
         [HttpPost("SaveCustomers")]
         public IActionResult Post([FromBody] CustomersDtoAdd addCustomers)
         {
-            var result = this.CustomersService.Save(addCustomers);
+            var result = this.customersService.Save(addCustomers);
 
             if (!result.Success)
             {
@@ -78,7 +78,7 @@ namespace Northwind.API.Controllers
         [HttpPut("UpdateCustomers")]
         public IActionResult Put([FromBody] CustomersDtoUpdate updateCustomers)
         {
-            var result = this.CustomersService.Update(updateCustomers);
+            var result = this.customersService.Update(updateCustomers);
 
             if (!result.Success)
             {
@@ -92,7 +92,7 @@ namespace Northwind.API.Controllers
         [HttpPut("RemoveCustomers")]
         public IActionResult Remove([FromBody] CustomersDtoRemove RemoveCustomers)
         {
-            var result = this.CustomersService.Remove(RemoveCustomers);
+            var result = this.customersService.Remove(RemoveCustomers);
 
             if (!result.Success)
             {

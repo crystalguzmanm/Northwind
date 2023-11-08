@@ -5,7 +5,7 @@ using System.Linq;
 using System;
 using System.Linq.Expressions;
 using System.Collections.Generic;
-
+using Northwind.Domain.Entities;
 
 namespace Northwind.Infrastructure.Core
 {
@@ -53,6 +53,11 @@ namespace Northwind.Infrastructure.Core
         public virtual void Update(TEntity entity)
         {
             this.entities.Update(entity);
+        }
+
+        internal Customers GetEntity(string customerID)
+        {
+            throw new NotImplementedException();
         }
     }
 }

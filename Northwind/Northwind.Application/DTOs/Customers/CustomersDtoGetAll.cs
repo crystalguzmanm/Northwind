@@ -1,5 +1,7 @@
 ﻿
 
+using System;
+
 namespace Northwind.Application.DTOs.Customers
 {
     public class CustomersDtoGetAll  
@@ -11,5 +13,9 @@ namespace Northwind.Application.DTOs.Customers
         public string? Phone { get; set; }
 
         public string? Address { get; set; }
+        public int CustomerID { get; set; }
+        public int CreationUser { get; set; }
+
+        public DateTime? ModifyDate { get; set; }
     }
 }

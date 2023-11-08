@@ -4,6 +4,7 @@ using Northwind.Infrastructure.Core;
 using  Northwind.Infrastructure.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Linq.Expressions;
 
@@ -13,7 +14,7 @@ namespace Northwind.Infrastructure.Repositories
 {
     public class CustomersRepository : BaseRepository<Customers>, ICustomersRepository
     {
-
+        
         private readonly NorthwindContext context;
 
         public CustomersRepository(NorthwindContext context) : base(context)
@@ -28,7 +29,7 @@ namespace Northwind.Infrastructure.Repositories
 
         public List<Customers> GetCustomersByCustomerID(int CustomerID)
         {
-            return this.context.Customers.Where(cd => cd.CustomerID = CustomerID && cd.Deleted).ToList();
+            return this.context.Customers.Where(cd => cd.CustomerID == CustomerID && cd.Deleted).ToList();
         }
 
         public override void Save(Customers entity)
@@ -53,9 +54,24 @@ namespace Northwind.Infrastructure.Repositories
 
         public override List<Customers> GetEntities()
         {
-            return this.context.Customers.Where(st => st.Deleted)
+            return this.context.Customers.Where(st => !st.Deleted)
                                                .OrderByDescending(st => st.CreationDate)
                                                .ToList();
+        }
+        public override void Update(Customers entity)
+        {
+            var customersUpdate = base.GetEntity(entity.CustomerID);
+            customersUpdate.CustomerID = entity.CustomerID;
+            customersUpdate.CreationUser = entity.CreationUser;
+            customersUpdate.ContactName = entity.ContactName;
+            customersUpdate.City = entity.City;
+            customersUpdate.CreationDate = entity.CreationDate;
+            customersUpdate.ModifyDate = entity.ModifyDate;
+            customersUpdate.UserMod = entity.UserMod;
+
+            context.Customers.Update(customersUpdate);
+            context.SaveChanges();
+
         }
     }
     
