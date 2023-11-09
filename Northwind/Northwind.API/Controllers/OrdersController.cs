@@ -94,7 +94,7 @@ namespace Northwind.API.Controllers
 
         // PUT api/<ShippersController>/5
 
-        [HttpPost("RemoveCourse")]
+        [HttpPost("RemoveCourse")] //TODO See again bc do not Remove the Item
         public IActionResult Remove([FromBody] OrdersDtoRemove ordersDtoRemove)
         {
             var result = this.ordersServices.Remove(ordersDtoRemove);

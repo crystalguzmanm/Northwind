@@ -108,7 +108,7 @@ namespace Northwind.Application.Services
                 {
                     OrderDetailsID = dtoRemove.OrderDetailsID,
                     Deleted = dtoRemove.Deleted,
-                    DeletedDate = dtoRemove.ChangeDate,
+                    DeletedDate = dtoRemove.DeletedDate,
                     UserDeleted = dtoRemove.ChangeUser
                     
                 };
@@ -160,7 +160,7 @@ namespace Northwind.Application.Services
 
                 OrdersDetails ordersDetails = new OrdersDetails()
                 {
-                    CreationDate = dtoAdd.ChangeDate,
+                    CreationDate = dtoAdd.CreationDate,
                     CreationUser = dtoAdd.CreationUser,
                     Discount = dtoAdd.Discount,
                     ModifyDate = dtoAdd.ModifyDate,

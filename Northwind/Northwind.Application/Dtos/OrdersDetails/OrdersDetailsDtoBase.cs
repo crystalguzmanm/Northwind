@@ -10,6 +10,6 @@ namespace Northwind.Application.Dtos.OrdersDetails
         public short Quantity { get; set; }
         public float Discount { get; set; }
         public DateTime? ModifyDate { get; set; }
-        public int CreationUser { get; set; }
+        //public int CreationUser { get; set; }
     }
 }

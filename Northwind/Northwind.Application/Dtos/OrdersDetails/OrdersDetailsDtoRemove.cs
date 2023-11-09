@@ -4,9 +4,10 @@ using System.Text;
 
 namespace Northwind.Application.Dtos.OrdersDetails
 {
-    public class OrdersDetailsDtoRemove : DtoBase
+    public class OrdersDetailsDtoRemove : OrdersDetailsDtoBase
     {
-        public int OrderDetailsID { get; set; }
+    
         public bool Deleted { get; set; }
+
     }
 }

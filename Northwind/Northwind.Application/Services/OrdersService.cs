@@ -27,61 +27,38 @@ namespace Northwind.Application.Services
             this.logger = logger;
             this.configuration = configuration;
         }
-        public ServicesResult GetAll()
+        public ServicesResult GetAll() //TODO GetAll
         {
             ServicesResult result = new ServicesResult();
             try
             {
-                var orders = this.ordersRepository.GetEntities()
-                                                .Select(orders => 
-                                                            new OrdersDtoGetAll()
-                                                            {
-                                                                    CustomerID = orders.CustomerID,
-                                                                    ModifyDate = orders.ModifyDate,
-                                                                    CreationUser = orders.CreationUser,
-                                                                    EmployeeID = orders.EmployeeID,
-                                                                    ShipName = orders.ShipName
-                                                                    
-                                                            });
-                result.Data = orders;
+                result.Data = this.ordersRepository.GetAllOrders();
+                
 
             }
             catch (Exception ex) 
             {
                 result.Success = false;
-                result.Message = this.configuration["MensajeOrderError: GetErrorMessage"];
+                result.Message = this.configuration["ErrorOrders: GetErrorMessage"];
                 this.logger.LogError(result.Message, ex.ToString());
             }
             return result;
         }
 
-        public ServicesResult GetById(int Id)
+        public ServicesResult GetById(int Id) //TODO Solution
         {
             ServicesResult result = new ServicesResult() ;  
 
             try
             {
-                var orders = this.ordersRepository.GetEntity(Id);
-
-                OrdersDtoGetAll ordersModel = new OrdersDtoGetAll()
-                {
-                    CustomerID = orders.CustomerID,
-                    ModifyDate = orders.ModifyDate,
-                    CreationUser = orders.CreationUser,
-                    EmployeeID = orders.EmployeeID,
-                    ShipName = orders.ShipName,
-                    OrderID = orders.OrderID
-
-
-                };
-                result.Data = ordersModel;
+                result.Data = this.ordersRepository.GetOrderEmployee(Id);
 
             }
 
             catch (Exception ex)
             {
                 result.Success = false;
-                result.Message = this.configuration["MensajeOrderError: GetByIdErrorMessage"];
+                result.Message = this.configuration["ErrorOrders: GetByIdErrorMessage"];
                 this.logger.LogError(result.Message, ex.ToString());
 
             }
@@ -90,21 +67,29 @@ namespace Northwind.Application.Services
         }
      
 
-        public object GetOrdersByOrderID(int ordersID)//TODO 
+        public object GetOrdersByOrderID(int ordersID)//TODO Implementar 
         {
             throw new NotImplementedException();
         }
 
         public ServicesResult Remove(OrdersDtoRemove dtoRemove)
         {
-            ServicesResult result = new ServicesResult() ;
+            ServicesResult result = new ServicesResult();
+            ServicesResult validation = OrdersValidaciones(dtoRemove);
+            if (!validation.Success) 
+            {
+                result.Message = validation.Message;
+                result.Success = false;
+                return result;
+            
+            }
             try
             {
                 Orders orders = new Orders()
                 {
-                    OrderID = dtoRemove.OrderID,
+                    OrderID = dtoRemove.OrderID, 
                     Deleted = dtoRemove.Deleted, 
-                    DeletedDate = dtoRemove.ChangeDate,
+                    DeletedDate = dtoRemove.DeletedDate,
                     UserDeleted = dtoRemove.ChangeUser
                 } ;
                 this.ordersRepository.Remove(orders);
@@ -123,52 +108,24 @@ namespace Northwind.Application.Services
         public ServicesResult Save(OrdersDtoAdd dtoAdd)
         {
             OrdersResponse result = new OrdersResponse() ;
+            
+            ServicesResult validation = OrdersValidaciones(dtoAdd);
+            if (!validation.Success)
+            {
+                result.Message = validation.Message;
+                result.Success = false;
+                return result;
 
+            }
+            
             try
             {
                  
-                if (string.IsNullOrEmpty(dtoAdd.ShipName))
-                {
-                    result.Message = this.configuration["MensajeValidaciones: OrderShipNameRequerido"];
-                    result.Success = false;
-                    return result;
-
-                }
-
-                if (dtoAdd.ShipName.Length > 40) 
-                {
-                    result.Message = this.configuration["MensajeValidaciones: OrderShipCityRequerido"];
-                    result.Success = false;
-                    return result;
-
-                }
-                if (string.IsNullOrEmpty(dtoAdd.ShipCity))
-                {
-                    result.Message = this.configuration["MensajeValidaciones: OrderCiudadRequerido"];
-                    result.Success = false;
-                    return result;
-
-                }
-
-                if (dtoAdd.ShipCity.Length > 15)
-                {
-                    result.Message = this.configuration["MensajeValidaciones: OrderShipCityLongitud"];
-                    result.Success = false;
-                    return result;
-
-
-                }
-                if (dtoAdd.CreationUser <= 0) 
-                {
-                    result.Message = this.configuration["MensajeValidaciones: OrderUsuarioValor"];
-                    result.Success = false;
-                    return result;
-
-                }
+               
 
                 Orders orders = new Orders() 
                 {
-                    CreationDate = dtoAdd.ChangeDate,
+                    CreationDate = dtoAdd.CreationDate,
                    CreationUser = dtoAdd.CreationUser,
                     ShipName = dtoAdd.ShipName,
                     ShipCity = dtoAdd.ShipCity,
@@ -200,51 +157,23 @@ namespace Northwind.Application.Services
         public ServicesResult Update(OrdersDtoUpdate dtoUpdate)
         {
             ServicesResult result= new ServicesResult() ;
+            ServicesResult validation = OrdersValidaciones(dtoUpdate);
+
+            if (!validation.Success)
+            {
+                result.Message = validation.Message;
+                result.Success = false;
+                return result;
+
+            }
+
             try
             {
-               
-                if (string.IsNullOrEmpty(dtoUpdate.ShipName))
-                {
-                    result.Message = this.configuration["MensajeValidaciones: OrderNombreRequerido"];
-                    result.Success = false;
-                    return result;
-
-                }
-
-                if (dtoUpdate.ShipName.Length > 40)
-                {
-                    result.Message = this.configuration["MensajeValidaciones: OrderShipNameLongitud"];
-                    result.Success = false;
-                    return result;
-
-                }
-                if (string.IsNullOrEmpty(dtoUpdate.ShipCity))
-                {
-                    result.Message = this.configuration["MensajeValidaciones: OrderShipCityRequerido"];
-                    result.Success = false;
-                    return result;
-
-                }
-                if (dtoUpdate.ShipCity.Length > 15)
-                {
-                    result.Message = this.configuration["MensajeValidaciones: OrderShipCityLongitud"];
-                    result.Success = false;
-                    return result;
-
-
-                }
-                if (!dtoUpdate.OrderDate.HasValue)
-                {
-                    result.Message = this.configuration["MensajeValidaciones: OrderShipNameRequerido"];
-                    result.Success = false;
-                    return result;
-
-                }
 
                 Orders orders = new Orders()
                 {
                     OrderID = dtoUpdate.OrderID,
-                    CreationDate = dtoUpdate.ChangeDate,
+                    CreationDate = dtoUpdate.CreationDate,
                     CreationUser = dtoUpdate.ChangeUser,
                     ShipName = dtoUpdate.ShipName,
                     ShipCity = dtoUpdate.ShipCity,
@@ -271,5 +200,62 @@ namespace Northwind.Application.Services
 
             return result;
         }
+
+
+        // validaciones bases para ser reutilizadas por los metodos //
+        private ServicesResult OrdersValidaciones(OrdersDtoBase dto) 
+        {
+            ServicesResult result = new ServicesResult();
+
+            // Validaciones de CompanyName
+                if (string.IsNullOrEmpty(dto.ShipName))
+                {
+                    result.Message = this.configuration["MensajeValidaciones: OrderNombreRequerido"];
+                    result.Success = false;
+                    return result;
+
+                }
+
+                if (dto.ShipName.Length > 40)
+                {
+                    result.Message = this.configuration["MensajeValidaciones: OrderShipNameLongitud"];
+                    result.Success = false;
+                    return result;
+
+                }
+                if (string.IsNullOrEmpty(dto.ShipCity))
+                {
+                    result.Message = this.configuration["MensajeValidaciones: OrderShipCityRequerido"];
+                    result.Success = false;
+                    return result;
+
+                }
+                if (dto.ShipCity.Length > 15)
+                {
+                    result.Message = this.configuration["MensajeValidaciones: OrderShipCityLongitud"];
+                    result.Success = false;
+                    return result;
+
+
+                }
+                if (!dto.OrderDate.HasValue)
+                {
+                    result.Message = this.configuration["MensajeValidaciones: OrderShipNameRequerido"];
+                    result.Success = false;
+                    return result;
+
+                }
+                if (dto.CreationUser <= 0)
+                {
+                    result.Message = this.configuration["MensajeValidaciones: OrderUsuarioValor"];
+                    result.Success = false;
+                    return result;
+
+                }
+
+            return result;
+        }
+
+     
     }
 }

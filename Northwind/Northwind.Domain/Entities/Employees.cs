@@ -12,7 +12,7 @@ namespace Northwind.Domain.Entities
         
         public int EmployeeID { get; set; }
 
-        public int LastName { get; set; }
+        public string LastName { get; set; }
 
         public string? FirstName { get; set; }
 
@@ -28,7 +28,7 @@ namespace Northwind.Domain.Entities
 
         public string? Extention { get; set; }
 
-        public byte? Photo { get; set; }
+       // public byte? Photo { get; set; }
 
         public string? Notes { get; set; }
 

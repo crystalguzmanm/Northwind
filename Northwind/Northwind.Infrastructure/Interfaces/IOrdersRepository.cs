@@ -12,16 +12,16 @@ namespace Northwind.Infrastructure.Interfaces
 
 
         List<OrdersEmployeesModel> GetOrdersByEmployeeID(int employeeID); //TODO Llama la ID de la entidad
-        List<OrdersEmployeesModel> GetOrdersEmployees(); //Este llama Todos los datos GetAll
-        OrdersEmployeesModel GetOrderEmployee(int EmployeeID); //Este es por ID general
+        List<OrdersEmployeesModel> GetAllOrders(); //Este llama Todos los datos GetAll
+        OrdersEmployeesModel GetOrderEmployee(int Id); //Este es por ID general
 
-        List<OrdersShippersModel> GetOrdersByShipperID(int shipperID);//TODO Dejar este
-        List<OrdersShippersModel> GetOrdersShippers();
-        OrdersShippersModel GetOrderShipper(int ShipperID); 
+        List<OrdersEmployeesModel> GetOrdersByShipperID(int shipperID);
+       // List<OrdersShippersModel> GetOrdersShippers();
+       // OrdersShippersModel GetOrderShipper(int ShipperID); 
 
-        List<OrdersCustomersModel> GetOrdersByCustomerID(string customerID);//TODO Dejar este
-        List<OrdersCustomersModel> GetOrdersCustomers();
-        OrdersCustomersModel GetOrderCustomer(string CustomerID); 
+        List<OrdersEmployeesModel> GetOrdersByCustomerID(string customerID);
+        //List<OrdersCustomersModel> GetOrdersCustomers();
+       // OrdersCustomersModel GetOrderCustomer(string CustomerID); 
 
 
 

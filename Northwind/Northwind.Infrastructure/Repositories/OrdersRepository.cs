@@ -21,9 +21,9 @@ namespace Northwind.Infrastructure.Repositories
         {
             this.context = context;
         }
-        public OrdersEmployeesModel GetOrderEmployee(int employeeID) 
+        public OrdersEmployeesModel GetOrderEmployee(int Id) 
         {
-            return this.GetOrdersEmployees().SingleOrDefault(co => co.EmployeeID == employeeID);
+            return this.GetAllOrders().SingleOrDefault(co => co.OrderID == Id);
         }
         public List<Orders> GetOrdersByEmployee(int employeeID)
         {
@@ -33,27 +33,42 @@ namespace Northwind.Infrastructure.Repositories
 
         public List<OrdersEmployeesModel> GetOrdersByEmployeeID(int employeeID)
         {
-            return this.GetOrdersEmployees().Where(cd => cd.EmployeeID == employeeID).ToList();
+            return this.GetAllOrders().Where(cd => cd.EmployeeID == employeeID).ToList();
         }
 
-        public List<OrdersEmployeesModel> GetOrdersEmployees()
+        public List<OrdersEmployeesModel> GetAllOrders()
         {
 
-            var orders = (from co in this.GetEntities() //TODO Agregar los Joins de las otras dos entidades 
+            var reception = (from co in this.GetEntities() 
                            join Emply in this.context.Employees on co.EmployeeID equals Emply.EmployeeID
                           where !co.Deleted
-                           select new OrdersEmployeesModel()
+                          join Ship in this.context.Shippers on co.ShipperID equals Ship.ShipperID
+                          where !co.Deleted
+                          join Cstm in this.context.Customers on co.CustomerID equals Cstm.CustomerID
+                          where !co.Deleted
+                          select new OrdersEmployeesModel()
                            {
                                OrderID = co.OrderID,
                                ShipName = co.ShipName,
                                ShipCity = co.ShipCity,
+
                                EmployeeID = Emply.EmployeeID,
                                LastName = Emply.LastName,
-                               FirstName = Emply.FirstName
-                           }).ToList();
+                               FirstName = Emply.FirstName,
+
+                              ShipperID = Ship.ShipperID,
+                              CompanyName = Ship.CompanyName,
+                              Phone = Ship.Phone,
+
+                              CustomerID = Cstm.CustomerID,
+                              //PhoneCstm = Cstm.Phone,
+                             // CompanyNameCstm = Cstm.CompanyName,
+                              Country = Cstm.Country,
+
+                          }).ToList();
 
 
-            return orders;
+            return reception;
         }
         /*public List<Orders> GetOrdersByDeparment(int orderID)
         {
@@ -110,76 +125,17 @@ namespace Northwind.Infrastructure.Repositories
             this.context.SaveChanges();
         }
 
-        public List<OrdersShippersModel> GetOrdersByShipperID(int shipperID)//A
+        public List<OrdersEmployeesModel> GetOrdersByShipperID(int shipperID)
         {
-            return this.GetOrdersShippers().Where(cd => cd.ShipperID == shipperID).ToList();
+            return this.GetAllOrders().Where(cd => cd.ShipperID == shipperID).ToList();
         }
 
-        public List<OrdersShippersModel> GetOrdersShippers()
+        public List<OrdersEmployeesModel> GetOrdersByCustomerID(string customerID) 
         {
-            var orders = (from co in this.GetEntities()
-                          join Shpr in this.context.Shippers on co.ShipperID equals Shpr.ShipperID
-                          where !co.Deleted
-                          select new OrdersShippersModel()
-                          {
-                              OrderID = co.OrderID,
-                              ShipName = co.ShipName,
-                              ShipCity = co.ShipCity,
-                              ShipperID = Shpr.ShipperID,
-                              CompanyName = Shpr.CompanyName,
-                              Phone = Shpr.Phone
-
-                          }).ToList();
-
-
-            return orders;
-        }//A
-
-        public OrdersShippersModel GetOrderShipper(int shipperID)//A
-        {
-            return this.GetOrdersShippers().SingleOrDefault(co => co.ShipperID == shipperID);
-        }
-        public List<Orders> GetOrdersByShipper(int shipperID)
-        {
-            return this.context.Orders.Where(cd => cd.ShipperID == shipperID
-                                              && !cd.Deleted).ToList();
+            return this.GetAllOrders().Where(cd => cd.CustomerID == customerID).ToList();
         }
 
+        
 
-        public List<OrdersCustomersModel> GetOrdersByCustomerID(string customerID) //TODO ID de customer Arreglado, Go reference
-        {
-            return this.GetOrdersCustomers().Where(cd => cd.CustomerID == customerID).ToList();
-        }
-
-        public List<OrdersCustomersModel> GetOrdersCustomers() 
-        {
-            var orders = (from co in this.GetEntities()
-                          join Cstm in this.context.Customers on co.CustomerID equals Cstm.CustomerID
-                          where !co.Deleted
-                          select new OrdersCustomersModel()
-                          {
-                              OrderID = co.OrderID,
-                              ShipName = co.ShipName,
-                              ShipCity = co.ShipCity,
-                              CustomerID = Cstm.CustomerID,
-                              Phone = Cstm.Phone,
-                              CompanyName = Cstm.CompanyName,
-                              Country = Cstm.Country
-
-                          }).ToList();
-
-
-            return orders;
-        }
-
-        public OrdersCustomersModel GetOrderCustomer(string customerID)
-        {
-            return this.GetOrdersCustomers().SingleOrDefault(co => co.CustomerID == customerID);
-        }
-        public List<Orders> GetOrdersByCustomer(string customerID)
-        {
-            return this.context.Orders.Where(cd => cd.CustomerID == customerID
-                                              && !cd.Deleted).ToList();
-        }
     }
 }
