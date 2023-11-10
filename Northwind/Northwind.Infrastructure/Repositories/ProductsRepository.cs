@@ -4,7 +4,7 @@ using Northwind.Infrastructure.Interfaces;
 using Northwind.Infrastructure.Core;
 using System.Collections.Generic;
 using System.Linq;
-
+using System;
 
 namespace Northwind.Infrastructure.Repositories
 {
@@ -17,6 +17,11 @@ namespace Northwind.Infrastructure.Repositories
             this.context = context;
         }
 
+        public IEnumerable<Products> GetProducts()
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Products> GetProductsByProductID(int ProductID)
         {
             return this.context.Products.Where(cd => cd.ProductID == ProductID && cd.Deleted).ToList();
@@ -25,11 +30,6 @@ namespace Northwind.Infrastructure.Repositories
         public override List<Products> GetEntities()
         {
             return this.context.Products.Where(ca => ca.Deleted).ToList();
-        }
-
-        public IEnumerable<Products> GetProducts()
-        {
-            throw new System.NotImplementedException();
         }
 
         public void Delete(int ProductID)

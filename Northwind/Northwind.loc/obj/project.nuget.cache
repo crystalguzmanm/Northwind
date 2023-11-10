@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "NIbIGrc990DOF0Rzs1I2BdntntVgqFTdUqkry72MM9S4gkCO0HGJ9wHL6Ud0I2NiOwCQp5Ipn2bKTftmdmBpGA==",
+  "dgSpecHash": "xkDhBg+xocrTT5TUVpDXjsYv7pyF7/ualRME45gTbfJYoSbUib0NzDZzNRgbGtm9BfwqO2iCXnr6Q1CYTSstjw==",
   "success": true,
   "projectFilePath": "C:\\ProyectoFinal-Grupo5\\Northwind\\Northwind\\Northwind.loc\\Northwind.loc.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\cryst\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.1.32\\microsoft.extensions.dependencyinjection.abstractions.3.1.32.nupkg.sha512"
+  ],
   "logs": []
 }
