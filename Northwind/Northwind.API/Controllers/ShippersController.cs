@@ -26,13 +26,6 @@ namespace Northwind.API.Controllers
         }
 
 
-        [HttpGet("GetShippersByshippersId")]
-        public IActionResult GetShippersByshippersId(int shippersId)
-        {
-            var shippers = this.shippersService.GetShippersByShippersID(shippersId);
-            return Ok(shippers);
-        }
-
         // GET: api/<ShippersController>
         [HttpGet]
         public IActionResult Get()
