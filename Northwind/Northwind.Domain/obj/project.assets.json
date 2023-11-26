@@ -964,11 +964,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\costa\\OneDrive\\Desktop\\Northwind\\Northwind\\Northwind.Domain\\Northwind.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\costa\\Downloads\\otra\\Northwind\\Northwind.Domain\\Northwind.Domain.csproj",
       "projectName": "Northwind.Domain",
-      "projectPath": "C:\\Users\\costa\\OneDrive\\Desktop\\Northwind\\Northwind\\Northwind.Domain\\Northwind.Domain.csproj",
+      "projectPath": "C:\\Users\\costa\\Downloads\\otra\\Northwind\\Northwind.Domain\\Northwind.Domain.csproj",
       "packagesPath": "C:\\Users\\costa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\costa\\OneDrive\\Desktop\\Northwind\\Northwind\\Northwind.Domain\\obj\\",
+      "outputPath": "C:\\Users\\costa\\Downloads\\otra\\Northwind\\Northwind.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yayadKSdJAsDorhMtLXL9j8NlBWhyw+UIv0/M00Dv8/6loXake85o//vtAaNjrrcvuX7wjXmuuIUYnQ5nYVQOQ==",
+  "dgSpecHash": "SV7dDt5aMlq3bC5bau8FepbmHzus+B2RmSwdZ8tZVp3XS7B2QpT1OgVQcwWGimpPI3z83VmXTYWfU5CduJ3Wcw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\costa\\OneDrive\\Desktop\\Northwind\\Northwind\\Northwind.API\\Northwind.API.csproj",
+  "projectFilePath": "C:\\Users\\costa\\Downloads\\otra\\Northwind\\Northwind.API\\Northwind.API.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore.http.abstractions\\2.1.1\\microsoft.aspnetcore.http.abstractions.2.1.1.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore.http.features\\2.1.1\\microsoft.aspnetcore.http.features.2.1.1.nupkg.sha512",

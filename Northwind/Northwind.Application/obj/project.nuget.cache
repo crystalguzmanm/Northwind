@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yr1idxreXYvuY+i4m3alKp9kBwDL2S1ycZR/ubKeaeVrkKvjKm6t10RyyZpSoD2keORTEqND2s+WwrPkF+EVKQ==",
+  "dgSpecHash": "uo2rZqoUzzW50X5qsbAgIsOp//wmtgE0aKVIF85F3gGT6dGFjOCByYGyZ3AMK189g/l5GCgJWYklmjwMpPOPmw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\costa\\OneDrive\\Desktop\\Northwind\\Northwind\\Northwind.Application\\Northwind.Application.csproj",
+  "projectFilePath": "C:\\Users\\costa\\Downloads\\otra\\Northwind\\Northwind.Application\\Northwind.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\costa\\.nuget\\packages\\microsoft.azure.amqp\\2.4.11\\microsoft.azure.amqp.2.4.11.nupkg.sha512",
     "C:\\Users\\costa\\.nuget\\packages\\microsoft.azure.servicebus\\5.2.0\\microsoft.azure.servicebus.5.2.0.nupkg.sha512",

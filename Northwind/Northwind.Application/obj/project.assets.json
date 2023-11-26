@@ -8083,11 +8083,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\costa\\OneDrive\\Desktop\\Northwind\\Northwind\\Northwind.Application\\Northwind.Application.csproj",
+      "projectUniqueName": "C:\\Users\\costa\\Downloads\\otra\\Northwind\\Northwind.Application\\Northwind.Application.csproj",
       "projectName": "Northwind.Application",
-      "projectPath": "C:\\Users\\costa\\OneDrive\\Desktop\\Northwind\\Northwind\\Northwind.Application\\Northwind.Application.csproj",
+      "projectPath": "C:\\Users\\costa\\Downloads\\otra\\Northwind\\Northwind.Application\\Northwind.Application.csproj",
       "packagesPath": "C:\\Users\\costa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\costa\\OneDrive\\Desktop\\Northwind\\Northwind\\Northwind.Application\\obj\\",
+      "outputPath": "C:\\Users\\costa\\Downloads\\otra\\Northwind\\Northwind.Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -8107,8 +8107,8 @@
         "netstandard2.1": {
           "targetAlias": "netstandard2.1",
           "projectReferences": {
-            "C:\\Users\\costa\\OneDrive\\Desktop\\Northwind\\Northwind\\Northwind.Infrastructure\\Northwind.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\costa\\OneDrive\\Desktop\\Northwind\\Northwind\\Northwind.Infrastructure\\Northwind.Infrastructure.csproj"
+            "C:\\Users\\costa\\Downloads\\otra\\Northwind\\Northwind.Infrastructure\\Northwind.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\costa\\Downloads\\otra\\Northwind\\Northwind.Infrastructure\\Northwind.Infrastructure.csproj"
             }
           }
         }
