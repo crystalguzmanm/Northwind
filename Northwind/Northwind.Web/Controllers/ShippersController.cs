@@ -4,11 +4,11 @@ using Northwind.Application.Contracts;
 
 namespace Northwind.Web.Controllers
 {
-    public class ShippersController1 : Controller
+    public class ShippersController : Controller
     {
         private readonly IShippersService shippersService;
 
-        public ShippersController1(IShippersService shippersService)
+        public ShippersController(IShippersService shippersService)
         {
             this.shippersService = shippersService;
         }

@@ -17,3 +17,13 @@ C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.Domain\obj\Debug\n
 C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.Domain\obj\Debug\netstandard2.1\Northwind.Domain.dll
 C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.Domain\obj\Debug\netstandard2.1\Northwind.Domain.pdb
 C:\Users\costa\OneDrive\Desktop\Northwind\Northwind\Northwind.Domain\obj\Debug\netstandard2.1\Northwind.Domain.csproj.AssemblyReference.cache
+C:\Users\costa\Downloads\otra\Northwind\Northwind.Domain\bin\Debug\netstandard2.1\Northwind.Domain.deps.json
+C:\Users\costa\Downloads\otra\Northwind\Northwind.Domain\bin\Debug\netstandard2.1\Northwind.Domain.dll
+C:\Users\costa\Downloads\otra\Northwind\Northwind.Domain\bin\Debug\netstandard2.1\Northwind.Domain.pdb
+C:\Users\costa\Downloads\otra\Northwind\Northwind.Domain\obj\Debug\netstandard2.1\Northwind.Domain.csproj.AssemblyReference.cache
+C:\Users\costa\Downloads\otra\Northwind\Northwind.Domain\obj\Debug\netstandard2.1\Northwind.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\costa\Downloads\otra\Northwind\Northwind.Domain\obj\Debug\netstandard2.1\Northwind.Domain.AssemblyInfoInputs.cache
+C:\Users\costa\Downloads\otra\Northwind\Northwind.Domain\obj\Debug\netstandard2.1\Northwind.Domain.AssemblyInfo.cs
+C:\Users\costa\Downloads\otra\Northwind\Northwind.Domain\obj\Debug\netstandard2.1\Northwind.Domain.csproj.CoreCompileInputs.cache
+C:\Users\costa\Downloads\otra\Northwind\Northwind.Domain\obj\Debug\netstandard2.1\Northwind.Domain.dll
+C:\Users\costa\Downloads\otra\Northwind\Northwind.Domain\obj\Debug\netstandard2.1\Northwind.Domain.pdb
