@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Northwind.Application.Contracts;
+using Northwind.Application.Core;
+using Northwind.Application.Dtos.Shippers;
+using Northwind.Application.Dtos.Suppliers;
 
 namespace Northwind.Web.Controllers
 {
@@ -30,7 +33,16 @@ namespace Northwind.Web.Controllers
         // GET: SuppliersController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var result = this.suppliersService.GetById(id);
+            if (!result.Success)
+            {
+                ViewBag.Message = result.Message;
+                return View();
+
+            }
+   
+
+            return View(result.Data);
         }
 
         // GET: SuppliersController/Create
@@ -42,14 +54,24 @@ namespace Northwind.Web.Controllers
         // POST: SuppliersController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(SuppliersDtoAdd suppliersDtoAdd)
         {
+
+            ServicesResult result = new ServicesResult();
             try
             {
+                result = this.suppliersService.Save(suppliersDtoAdd);
+                if (!result.Success)
+                {
+                    ViewBag.Message = result.Message;
+                    return View();
+
+                }
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
+                ViewBag.Message = result.Message;
                 return View();
             }
         }
@@ -57,20 +79,39 @@ namespace Northwind.Web.Controllers
         // GET: SuppliersController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var result = this.suppliersService.GetById(id);
+            if (!result.Success)
+            {
+                ViewBag.Message = result.Message;
+                return View();
+
+            }
+
+
+            return View(result.Data);
         }
 
         // POST: SuppliersController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(SuppliersDtoUpdate suppliersDtoUpdate)
         {
+
+            ServicesResult result = new ServicesResult();
             try
             {
+                result = this.suppliersService.Update(suppliersDtoUpdate);
+                if (!result.Success)
+                {
+                    ViewBag.Message = result.Message;
+                    return View();
+
+                }
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
+                ViewBag.Message = result.Message;
                 return View();
             }
         }
