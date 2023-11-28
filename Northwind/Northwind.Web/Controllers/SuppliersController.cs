@@ -1,16 +1,18 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Northwind.Application.Contracts;
 using Northwind.Application.Core;
 using Northwind.Application.Dtos.Shippers;
 using Northwind.Application.Dtos.Suppliers;
+using Northwind.Web.Models.Response;
 
 namespace Northwind.Web.Controllers
 {
     public class SuppliersController : Controller
     {
         private readonly ISuppliersService suppliersService;
-
+        HttpClientHandler clientHandler = new HttpClientHandler();
         public SuppliersController(ISuppliersService suppliersService)
         {
             this.suppliersService = suppliersService;
@@ -19,30 +21,68 @@ namespace Northwind.Web.Controllers
         // GET: SuppliersController
         public ActionResult Index()
         {
-            var result = this.suppliersService.GetAll();
-            if (!result.Success)
+            SuppliersListResponse suppliersList = new SuppliersListResponse();
+
+            using (var client = new HttpClient(this.clientHandler))
             {
-                ViewBag.Message = result.Message;
-                return View();
+                using (var response = client.GetAsync("http://localhost:5069/api/Suppliers/Getsuppliers").Result)
+                {
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string apiResponde = response.Content.ReadAsStringAsync().Result;
+
+                        suppliersList = JsonConvert.DeserializeObject<SuppliersListResponse>(apiResponde);
+
+                        if (!suppliersList.success)
+                        {
+                            ViewBag.Message = suppliersList.message;
+                            return View();
+                        }
+                    }
+                    else
+                    {
+                        suppliersList.message = "Error conectandose al api.";
+                        suppliersList.success = false;
+                        ViewBag.Message = suppliersList.message;
+                        return View();
+                    }
+
+                }
 
             }
-            return View(result.Data);
 
+            return View(suppliersList.data);
         }
 
         // GET: SuppliersController/Details/5
         public ActionResult Details(int id)
         {
-            var result = this.suppliersService.GetById(id);
-            if (!result.Success)
+
+            SuppliersDetailReponse suppliersDetailReponse = new SuppliersDetailReponse();
+
+            using (var client = new HttpClient(this.clientHandler))
             {
-                ViewBag.Message = result.Message;
-                return View();
+                var url = $"http://localhost:5069/api/Suppliers/={id}";
+                {
+                    using (var response = client.GetAsync(url).Result)
+                    {
+                        if (response.IsSuccessStatusCode)
+                        {
+                            string apiResponse = response.Content.ReadAsStringAsync().Result;
 
+                            suppliersDetailReponse = JsonConvert.DeserializeObject<SuppliersDetailReponse>(apiResponse);
+
+                            if (!suppliersDetailReponse.success)
+                            {
+                                ViewBag.Message = suppliersDetailReponse.message;
+                            }
+                        }
+
+                    }
+
+                }
+                return View(suppliersDetailReponse.data);
             }
-   
-
-            return View(result.Data);
         }
 
         // GET: SuppliersController/Create
@@ -56,85 +96,131 @@ namespace Northwind.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(SuppliersDtoAdd suppliersDtoAdd)
         {
+            BaseReponse baseResponse = new BaseReponse();
 
-            ServicesResult result = new ServicesResult();
             try
             {
-                result = this.suppliersService.Save(suppliersDtoAdd);
-                if (!result.Success)
-                {
-                    ViewBag.Message = result.Message;
-                    return View();
 
+                using (var client = new HttpClient(this.clientHandler))
+                {
+
+                    var url = $"http://localhost:5069/api/Suppliers/SaveSuppliers";
+
+                    suppliersDtoAdd.ChangeDate = DateTime.Now;
+                    suppliersDtoAdd.ChangeUser = 1;
+
+                    StringContent content = new StringContent(JsonConvert.SerializeObject(suppliersDtoAdd), System.Text.Encoding.UTF8, "application/json");
+
+                    using (var response = client.PostAsync(url, content).Result)
+                    {
+                        if (response.IsSuccessStatusCode)
+                        {
+                            string apiResponse = response.Content.ReadAsStringAsync().Result;
+
+                            baseResponse = JsonConvert.DeserializeObject<BaseReponse>(apiResponse);
+
+                            if (!baseResponse.success)
+                            {
+                                ViewBag.Message = baseResponse.message;
+                                return View();
+                            }
+
+                        }
+                        else
+                        {
+                            baseResponse.message = "Error conectandose al api.";
+                            baseResponse.success = false;
+                            ViewBag.Message = baseResponse.message;
+                            return View();
+                        }
+                    }
                 }
+
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                ViewBag.Message = result.Message;
+                ViewBag.Message = baseResponse.message;
                 return View();
             }
         }
 
-        // GET: SuppliersController/Edit/5
+        // GET: ShipepersController1/Edit/5
         public ActionResult Edit(int id)
         {
-            var result = this.suppliersService.GetById(id);
-            if (!result.Success)
+            ShippersDetailResponse shippersDetailResponse = new ShippersDetailResponse();
+
+            using (var client = new HttpClient(this.clientHandler))
             {
-                ViewBag.Message = result.Message;
-                return View();
+                var url = $"http://localhost:5069/api/Shippers/Getshippers?Id={id}";
+                {
+                    using (var response = client.GetAsync(url).Result)
+                    {
+                        if (response.IsSuccessStatusCode)
+                        {
+                            string apiResponse = response.Content.ReadAsStringAsync().Result;
 
+                            shippersDetailResponse = JsonConvert.DeserializeObject<ShippersDetailResponse>(apiResponse);
+                        }
+
+                    }
+
+                }
+                return View(shippersDetailResponse.data);
             }
-
-
-            return View(result.Data);
         }
 
-        // POST: SuppliersController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(SuppliersDtoUpdate suppliersDtoUpdate)
         {
-
-            ServicesResult result = new ServicesResult();
+            BaseReponse baseReponse = new BaseReponse();
             try
             {
-                result = this.suppliersService.Update(suppliersDtoUpdate);
-                if (!result.Success)
+
+
+
+                using (var client = new HttpClient(this.clientHandler))
                 {
-                    ViewBag.Message = result.Message;
-                    return View();
+                    var url = $"http://localhost:5069/api/Suppliers/Updatesuppliers";
+                     suppliersDtoUpdate.ChangeDate = DateTime.Now;
+                    suppliersDtoUpdate.ChangeUser = 1;
+                    StringContent content = new StringContent(JsonConvert.SerializeObject(suppliersDtoUpdate), System.Text.Encoding.UTF8, "/application/json");
+
+                    using (var response = client.PostAsync(url, content).Result)
+                    {
+                        if (response.IsSuccessStatusCode)
+                        {
+                            string apiResponse = response.Content.ReadAsStringAsync().Result;
+
+                            baseReponse = JsonConvert.DeserializeObject<BaseReponse>(apiResponse);
+                            if (!baseReponse.success)
+                            {
+                                ViewBag.message = baseReponse.message;
+                                return View();
+                            }
+
+                        }
+                        else
+                        {
+                            ViewBag.Message = baseReponse.message;
+                            return View();
+                        }
+
+                    }
+
 
                 }
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                ViewBag.Message = result.Message;
+                ViewBag.Message = baseReponse.message;
                 return View();
             }
+
         }
 
-        // GET: SuppliersController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: SuppliersController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
     }
-}
+
+    }
