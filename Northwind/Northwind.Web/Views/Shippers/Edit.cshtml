@@ -1,4 +1,4 @@
-﻿@model Northwind.Domain.Entities.Shippers
+﻿@model Northwind.Web.Models.Response.ShippersViewResult
 
 @{
     ViewData["Title"] = "Edit";
@@ -14,54 +14,33 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label class="control-label">Codigo</label>
-                <input asp-for="ShipperID" class="form-control"readonly />
-                <span asp-validation-for="ShipperID" class="text-danger"></span>
+                <input asp-for="id" class="form-control"readonly />
+                <span asp-validation-for="id" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label class="control-label">CompanyName</label>
-                <input asp-for="CompanyName" class="form-control" />
-                <span asp-validation-for="CompanyName" class="text-danger"></span>
+                <input asp-for="companyName" class="form-control" />
+                <span asp-validation-for="companyName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label  class="control-label">Phone</label>
-                <input asp-for="Phone" class="form-control" />
-                <span asp-validation-for="Phone" class="text-danger"></span>
+                <input asp-for="phone" class="form-control" />
+                <span asp-validation-for="phone" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label  class="control-label">CreationDate</label>
-                <input asp-for="CreationDate" class="form-control" />
-                <span asp-validation-for="CreationDate" class="text-danger"></span>
+                <input asp-for="creationDate" class="form-control" />
+                <span asp-validation-for="creationDate" class="text-danger"></span>
             </div>
+           
             <div class="form-group">
-                <label  class="control-label">CreationUser</label>
-                <input asp-for="CreationUser" class="form-control" />
-                <span asp-validation-for="CreationUser" class="text-danger"></span>
+                <label asp-for="modifyDate" class="control-label"></label>
+                <input asp-for="modifyDate" class="form-control" />
+                <span asp-validation-for="modifyDate" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="ModifyDate" class="control-label"></label>
-                <input asp-for="ModifyDate" class="form-control" />
-                <span asp-validation-for="ModifyDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UserMod" class="control-label"></label>
-                <input asp-for="UserMod" class="form-control" />
-                <span asp-validation-for="UserMod" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UserDeleted" class="control-label"></label>
-                <input asp-for="UserDeleted" class="form-control" />
-                <span asp-validation-for="UserDeleted" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DeletedDate" class="control-label"></label>
-                <input asp-for="DeletedDate" class="form-control" />
-                <span asp-validation-for="DeletedDate" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Deleted" /> @Html.DisplayNameFor(model => model.Deleted)
-                </label>
-            </div>
+            
+            
+            
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>

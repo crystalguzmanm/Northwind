@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Northwind.Application.Dtos.Shippers.ShippersDtoGetAll>
+﻿@model IEnumerable<Northwind.Web.Models.Response.ShippersViewResult>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,22 +13,22 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Id)
+                @Html.DisplayNameFor(model => model.contactName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CompanyName)
+                @Html.DisplayNameFor(model => model.companyName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Phone)
+                @Html.DisplayNameFor(model => model.phone)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CreationDate)
+                @Html.DisplayNameFor(model => model.creationDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ModifyDate)
+                @Html.DisplayNameFor(model => model.modifyDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ContactName)
+                @Html.DisplayNameFor(model => model.contactName)
             </th>
             <th></th>
         </tr>
@@ -37,26 +37,26 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Id)
+                @Html.DisplayFor(modelItem => item.id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CompanyName)
+                @Html.DisplayFor(modelItem => item.companyName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Phone)
+                    @Html.DisplayFor(modelItem => item.phone)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CreationDate)
+                @Html.DisplayFor(modelItem => item.creationDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ModifyDate)
+                @Html.DisplayFor(modelItem => item.modifyDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ContactName)
+                @Html.DisplayFor(modelItem => item.contactName)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new {  id=item.Id }) |
-                @Html.ActionLink("Details", "Details", new {  id=item.Id }) |
+                @Html.ActionLink("Edit", "Edit", new {  id=item.id}) |
+                @Html.ActionLink("Details", "Details", new {  id=item.id }) |
               
             </td>
         </tr>
