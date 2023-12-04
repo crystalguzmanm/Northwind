@@ -12,26 +12,38 @@ namespace Northwind.Web.Controllers
     public class SuppliersController : Controller
     {
         private readonly ISuppliersService suppliersService;
-        HttpClientHandler clientHandler = new HttpClientHandler();
+        private readonly HttpClientHandler clientHandler;
+        private readonly string baseApiUrl;
+
         public SuppliersController(ISuppliersService suppliersService)
         {
             this.suppliersService = suppliersService;
+            // objeto  clientHandler base  para reutilizar en los  endpoints de la capa de presentacion //
+            this.clientHandler = new HttpClientHandler();
+            //Url  base para reutilizar en los  endpoints de la capa de presentacion //
+            this.baseApiUrl = "http://localhost:5069/api/Suppliers";
         }
 
-        // GET: SuppliersController
+        private HttpClient CreateHttpClient()
+        {
+            return new HttpClient(this.clientHandler);
+        }
+
+
+        // GET: ShipepersController1
         public ActionResult Index()
         {
             SuppliersListResponse suppliersList = new SuppliersListResponse();
-
-            using (var client = new HttpClient(this.clientHandler))
-            {
-                using (var response = client.GetAsync("http://localhost:5069/api/Suppliers/Getsuppliers").Result)
+            //reutilizacion de la url base para el endpoints Index //
+            using (var client = CreateHttpClient())
+            {   //reutilizacion de la clientHandler base para el  endpoints Index //
+                using (var response = client.GetAsync($"{baseApiUrl}").Result)
                 {
                     if (response.IsSuccessStatusCode)
                     {
                         string apiResponde = response.Content.ReadAsStringAsync().Result;
 
-                        suppliersList = JsonConvert.DeserializeObject<SuppliersListResponse>(apiResponde);
+                        suppliersList = JsonConvert.DeserializeObject<SuppliersListResponse >(apiResponde);
 
                         if (!suppliersList.success)
                         {
@@ -54,15 +66,15 @@ namespace Northwind.Web.Controllers
             return View(suppliersList.data);
         }
 
-        // GET: SuppliersController/Details/5
+        // GET: ShipepersController1/Details/5
         public ActionResult Details(int id)
         {
 
-            SuppliersDetailReponse suppliersDetailReponse = new SuppliersDetailReponse();
-
-            using (var client = new HttpClient(this.clientHandler))
-            {
-                var url = $"http://localhost:5069/api/Suppliers/={id}";
+            SuppliersDetailResponse suppliersDetailResponse = new SuppliersDetailResponse();
+            //reutilizacion de la clientHandler base para  el endpoints Details //
+            using (var client = CreateHttpClient())
+            {      // reutilizacion de la url base para el endpoints Details   //
+                var url = $"{baseApiUrl}/GetShippers";
                 {
                     using (var response = client.GetAsync(url).Result)
                     {
@@ -70,28 +82,23 @@ namespace Northwind.Web.Controllers
                         {
                             string apiResponse = response.Content.ReadAsStringAsync().Result;
 
-                            suppliersDetailReponse = JsonConvert.DeserializeObject<SuppliersDetailReponse>(apiResponse);
+                            suppliersDetailResponse = JsonConvert.DeserializeObject<ShippersDetailResponse>(apiResponse);
 
-                            if (!suppliersDetailReponse.success)
+                            if (!suppliersDetailResponse.success)
                             {
-                                ViewBag.Message = suppliersDetailReponse.message;
+                                ViewBag.Message = suppliersDetailResponse.message;
                             }
                         }
 
                     }
 
+
                 }
-                return View(suppliersDetailReponse.data);
+                return View(suppliersDetailResponse.data);
             }
         }
 
-        // GET: SuppliersController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: SuppliersController/Create
+        // POST: ShipepersController1/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(SuppliersDtoAdd suppliersDtoAdd)
@@ -99,12 +106,11 @@ namespace Northwind.Web.Controllers
             BaseReponse baseResponse = new BaseReponse();
 
             try
-            {
-
-                using (var client = new HttpClient(this.clientHandler))
+            {    //reutilizacion de la clientHandler base para el  endpoints Create //
+                using (var client = CreateHttpClient())
                 {
-
-                    var url = $"http://localhost:5069/api/Suppliers/SaveSuppliers";
+                    // Reutilización de la url base para el endpoint Create
+                    var url = $"{baseApiUrl}/SaveShippers";
 
                     suppliersDtoAdd.ChangeDate = DateTime.Now;
                     suppliersDtoAdd.ChangeUser = 1;
@@ -124,11 +130,10 @@ namespace Northwind.Web.Controllers
                                 ViewBag.Message = baseResponse.message;
                                 return View();
                             }
-
                         }
                         else
                         {
-                            baseResponse.message = "Error conectandose al api.";
+                            baseResponse.message = "Error conectándose al api.";
                             baseResponse.success = false;
                             ViewBag.Message = baseResponse.message;
                             return View();
@@ -145,14 +150,15 @@ namespace Northwind.Web.Controllers
             }
         }
 
+
         // GET: ShipepersController1/Edit/5
         public ActionResult Edit(int id)
         {
-            ShippersDetailResponse shippersDetailResponse = new ShippersDetailResponse();
-
-            using (var client = new HttpClient(this.clientHandler))
-            {
-                var url = $"http://localhost:5069/api/Shippers/Getshippers?Id={id}";
+            SuppliersDetailResponse suppliersDetailResponse = new SuppliersDetailResponse();
+            //reutilizacion de la clientHandler base para  el endpoints Edit //
+            using (var client = CreateHttpClient())
+            { // reutilizacion de la url base el endpoints Edit  //
+                var url = $"{baseApiUrl}/GetSuppliers?id={id}";
                 {
                     using (var response = client.GetAsync(url).Result)
                     {
@@ -160,16 +166,17 @@ namespace Northwind.Web.Controllers
                         {
                             string apiResponse = response.Content.ReadAsStringAsync().Result;
 
-                            shippersDetailResponse = JsonConvert.DeserializeObject<ShippersDetailResponse>(apiResponse);
+                            suppliersDetailResponse = JsonConvert.DeserializeObject<SuppliersDtoUpdate>(apiResponse);
                         }
 
                     }
 
                 }
-                return View(shippersDetailResponse.data);
+                return View(suppliersDetailResponse.data);
             }
         }
 
+        // POST: ShipepersController1/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(SuppliersDtoUpdate suppliersDtoUpdate)
@@ -179,12 +186,13 @@ namespace Northwind.Web.Controllers
             {
 
 
-
-                using (var client = new HttpClient(this.clientHandler))
-                {
-                    var url = $"http://localhost:5069/api/Suppliers/Updatesuppliers";
-                     suppliersDtoUpdate.ChangeDate = DateTime.Now;
+                //reutilizacion de la clientHandler base para el endpoints Edit //
+                using (var client = CreateHttpClient())
+                {   // reutilizacion de la url base el endpoints Edit //
+                    var url = $"{baseApiUrl}/UpdateSuppliers";
+                    suppliersDtoUpdate.ChangeDate = DateTime.Now;
                     suppliersDtoUpdate.ChangeUser = 1;
+
                     StringContent content = new StringContent(JsonConvert.SerializeObject(suppliersDtoUpdate), System.Text.Encoding.UTF8, "/application/json");
 
                     using (var response = client.PostAsync(url, content).Result)
@@ -220,7 +228,6 @@ namespace Northwind.Web.Controllers
             }
 
         }
-
     }
 
     }

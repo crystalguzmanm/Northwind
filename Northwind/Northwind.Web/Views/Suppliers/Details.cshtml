@@ -1,5 +1,4 @@
-﻿@model Northwind.Domain.Entities.Suppliers
-
+﻿@model Northwind.Web.Models.Response.SuppliersViewResult
 @{
     ViewData["Title"] = "Details";
 }
@@ -10,117 +9,68 @@
     <h4>Suppliers</h4>
     <hr />
     <dl class="row">
+        
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SupplierID)
+            @Html.DisplayNameFor(model => model.companyName)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.SupplierID)
+            @Html.DisplayFor(model => model.companyName)
+        </dd>
+        
+       
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.phone)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.phone)
+        </dd>
+       
+        
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.creationDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.creationDate)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CompanyName)
+            @Html.DisplayNameFor(model => model.creationUser)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CompanyName)
+            @Html.DisplayFor(model => model.creationUser)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ContactName)
+            @Html.DisplayNameFor(model => model.modifyDate)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ContactName)
+            @Html.DisplayFor(model => model.modifyDate)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ContactTitle)
+            @Html.DisplayNameFor(model => model.userMod)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ContactTitle)
+            @Html.DisplayFor(model => model.userMod)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Phone)
+            @Html.DisplayNameFor(model => model.userDeleted)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Phone)
+            @Html.DisplayFor(model => model.userDeleted)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Fax)
+            @Html.DisplayNameFor(model => model.deletedDate)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Fax)
+            @Html.DisplayFor(model => model.deletedDate)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.City)
+            @Html.DisplayNameFor(model => model.deleted)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.City)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Region)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Region)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PostalCode)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PostalCode)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Country)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Country)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CreationDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CreationDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CreationUser)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CreationUser)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ModifyDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ModifyDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UserMod)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UserMod)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UserDeleted)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UserDeleted)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DeletedDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DeletedDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Deleted)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Deleted)
+            @Html.DisplayFor(model => model.deleted)
         </dd>
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Edit", "Edit", new {  id = Model.SupplierID }) |
+    @Html.ActionLink("Edit", "Edit", new {  id = Model.id }) |
     <a asp-action="Index">Back to List</a>
 </div>

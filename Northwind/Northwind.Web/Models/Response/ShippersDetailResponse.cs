@@ -2,11 +2,9 @@
 
 namespace Northwind.Web.Models.Response
 {
-    public class ShippersDetailResponse
+    public class ShippersDetailResponse : BaseReponse
     {
-        public bool success { get; set; }
-        public object message { get; set; }
-        public Data data { get; set; }
+      // reutilizando la clase base Repomse //
     }
      
 }

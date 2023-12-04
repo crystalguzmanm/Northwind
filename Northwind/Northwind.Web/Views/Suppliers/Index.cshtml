@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Northwind.Web.Models.Response.ShippersViewResult>
+﻿@model IEnumerable<Northwind.Web.Models.Response.SuppliersViewResult>
 
 @{
     ViewData["Title"] = "Index";
@@ -25,7 +25,7 @@
                 @Html.DisplayNameFor(model => model.modifyDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.contactName)
+                @Html.DisplayNameFor(model => model.companyName)
             </th>
             
             <th></th>
@@ -35,7 +35,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.id)
+                    @Html.DisplayFor(modelItem => item.id)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.companyName)
@@ -46,9 +46,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.modifyDate)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.contactName)
-            </td>
+          
             
             <td>
                     @Html.ActionLink("Edit", "Edit", new {  id=item.id}) |

@@ -11,21 +11,32 @@ namespace Northwind.Web.Controllers
     public class ShippersController : Controller
     {
         private readonly IShippersService shippersService;
+        private readonly HttpClientHandler clientHandler;
+        private readonly string baseApiUrl;
 
-        HttpClientHandler clientHandler = new HttpClientHandler();
         public ShippersController(IShippersService shippersService)
         {
             this.shippersService = shippersService;
+            // objeto  clientHandler base  para reutilizar en los  endpoints de la capa de presentacion //
+            this.clientHandler = new HttpClientHandler();
+            //Url  base para reutilizar en los  endpoints de la capa de presentacion //
+            this.baseApiUrl = "http://localhost:5069/api/Shippers";
         }
+
+        private HttpClient CreateHttpClient()
+        {
+            return new HttpClient(this.clientHandler);
+        }
+
 
         // GET: ShipepersController1
         public ActionResult Index()
         {  
-            ShippersListResponse shippersList = new ShippersListResponse();     
-
-            using ( var client = new HttpClient(this.clientHandler))
-            { 
-                using(var response =  client.GetAsync("http://localhost:5069/api/Shippers").Result )
+            ShippersListResponse shippersList = new ShippersListResponse();
+            //reutilizacion de la url base para el endpoints Index //
+            using (var client = CreateHttpClient())
+            {   //reutilizacion de la clientHandler base para el  endpoints Index //
+                using (var response = client.GetAsync($"{baseApiUrl}").Result)
                 { 
                     if (response.IsSuccessStatusCode)
                     {
@@ -57,12 +68,13 @@ namespace Northwind.Web.Controllers
         // GET: ShipepersController1/Details/5
         public ActionResult Details(int id)
         {
-
+             
             ShippersDetailResponse shippersDetailResponse = new ShippersDetailResponse();
-
+            //reutilizacion de la clientHandler base para  el endpoints Details //
             using (var client = new HttpClient(this.clientHandler))
             {
-                var url = $"http://localhost:5069/api/Shippers/Getshippers?Id={id}";
+                {      // reutilizacion de la url base para el endpoints Details   //
+                var url = $"{baseApiUrl}/GetShippers";
                 {
                     using (var response = client.GetAsync(url).Result)
                     { if(response.IsSuccessStatusCode)
@@ -77,32 +89,26 @@ namespace Northwind.Web.Controllers
                         }
 
                     }
+               
 
                 }
                 return View(shippersDetailResponse.data);
             }
         }
 
-        // GET: ShipepersController1/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
         // POST: ShipepersController1/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(ShippersDtoAdd shippersDtoAdd)
-        {
+
+            public ActionResult Create(ShippersDtoAdd shippersDtoAdd)
+            {
             BaseReponse baseResponse = new BaseReponse();
 
             try
-            {
-
-                using (var client = new HttpClient(this.clientHandler))
+            {    //reutilizacion de la clientHandler base para el  endpoints Create //
+                using (var client = CreateHttpClient())
                 {
-
-                    var url = $"http://localhost:5069/api/Shippers/SaveShippers";
+                    // Reutilización de la url base para el endpoint Create
+                    var url = $"{baseApiUrl}/SaveShippers";
 
                     shippersDtoAdd.ChangeDate = DateTime.Now;
                     shippersDtoAdd.ChangeUser = 1;
@@ -122,11 +128,10 @@ namespace Northwind.Web.Controllers
                                 ViewBag.Message = baseResponse.message;
                                 return View();
                             }
-
                         }
                         else
                         {
-                            baseResponse.message = "Error conectandose al api.";
+                            baseResponse.message = "Error conectándose al api.";
                             baseResponse.success = false;
                             ViewBag.Message = baseResponse.message;
                             return View();
@@ -143,14 +148,15 @@ namespace Northwind.Web.Controllers
             }
         }
 
+
         // GET: ShipepersController1/Edit/5
         public ActionResult Edit(int id)
         {
             ShippersDetailResponse shippersDetailResponse = new ShippersDetailResponse();
-
-            using (var client = new HttpClient(this.clientHandler))
-            {
-                var url = $"http://localhost:5069/api/Shippers/Getshippers?Id={id}";
+            //reutilizacion de la clientHandler base para  el endpoints Edit //
+            using (var client = CreateHttpClient())
+            { // reutilizacion de la url base el endpoints Edit  //
+                var url = $"{baseApiUrl}/GetShippers?id={id}";
                 {
                     using (var response = client.GetAsync(url).Result)
                     {
@@ -177,13 +183,14 @@ namespace Northwind.Web.Controllers
             try
             {
 
-               
 
-                using (var client = new HttpClient(this.clientHandler))
-                {
-                    var url = $"http://localhost:5069/api/Shippers/Updateshippers";
+                //reutilizacion de la clientHandler base para el endpoints Edit //
+                using (var client = CreateHttpClient())
+                {   // reutilizacion de la url base el endpoints Edit //
+                    var url = $"{baseApiUrl}/UpdateShippers";
                     shippersDtoUpdate.ChangeDate = DateTime.Now;
                     shippersDtoUpdate.ChangeUser = 1;
+
                      StringContent content = new StringContent(JsonConvert.SerializeObject(shippersDtoUpdate),System.Text.Encoding.UTF8,"/application/json");
                         
                         using (var response = client.PostAsync(url,content).Result)
