@@ -4,6 +4,254 @@
     "C:\\ProyectoFinalGit\\Northwind\\Northwind.Web\\Northwind.Web.csproj": {}
   },
   "projects": {
+    "C:\\ProyectoFinalGit\\Northwind\\Northwind.Application\\Northwind.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\ProyectoFinalGit\\Northwind\\Northwind.Application\\Northwind.Application.csproj",
+        "projectName": "Northwind.Application",
+        "projectPath": "C:\\ProyectoFinalGit\\Northwind\\Northwind.Application\\Northwind.Application.csproj",
+        "packagesPath": "C:\\Users\\steil\\.nuget\\packages\\",
+        "outputPath": "C:\\ProyectoFinalGit\\Northwind\\Northwind.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\steil\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {
+              "C:\\ProyectoFinalGit\\Northwind\\Northwind.Infrastructure\\Northwind.Infrastructure.csproj": {
+                "projectPath": "C:\\ProyectoFinalGit\\Northwind\\Northwind.Infrastructure\\Northwind.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\ProyectoFinalGit\\Northwind\\Northwind.Domain\\Northwind.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\ProyectoFinalGit\\Northwind\\Northwind.Domain\\Northwind.Domain.csproj",
+        "projectName": "Northwind.Domain",
+        "projectPath": "C:\\ProyectoFinalGit\\Northwind\\Northwind.Domain\\Northwind.Domain.csproj",
+        "packagesPath": "C:\\Users\\steil\\.nuget\\packages\\",
+        "outputPath": "C:\\ProyectoFinalGit\\Northwind\\Northwind.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\steil\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.32, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\ProyectoFinalGit\\Northwind\\Northwind.Infrastructure\\Northwind.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\ProyectoFinalGit\\Northwind\\Northwind.Infrastructure\\Northwind.Infrastructure.csproj",
+        "projectName": "Northwind.Infrastructure",
+        "projectPath": "C:\\ProyectoFinalGit\\Northwind\\Northwind.Infrastructure\\Northwind.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\steil\\.nuget\\packages\\",
+        "outputPath": "C:\\ProyectoFinalGit\\Northwind\\Northwind.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\steil\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {
+              "C:\\ProyectoFinalGit\\Northwind\\Northwind.Domain\\Northwind.Domain.csproj": {
+                "projectPath": "C:\\ProyectoFinalGit\\Northwind\\Northwind.Domain\\Northwind.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.32, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.32, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\ProyectoFinalGit\\Northwind\\Northwind.loc\\Northwind.loc.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\ProyectoFinalGit\\Northwind\\Northwind.loc\\Northwind.loc.csproj",
+        "projectName": "Northwind.loc",
+        "projectPath": "C:\\ProyectoFinalGit\\Northwind\\Northwind.loc\\Northwind.loc.csproj",
+        "packagesPath": "C:\\Users\\steil\\.nuget\\packages\\",
+        "outputPath": "C:\\ProyectoFinalGit\\Northwind\\Northwind.loc\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\steil\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {
+              "C:\\ProyectoFinalGit\\Northwind\\Northwind.Application\\Northwind.Application.csproj": {
+                "projectPath": "C:\\ProyectoFinalGit\\Northwind\\Northwind.Application\\Northwind.Application.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\ProyectoFinalGit\\Northwind\\Northwind.Web\\Northwind.Web.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -27,7 +275,14 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\ProyectoFinalGit\\Northwind\\Northwind.Application\\Northwind.Application.csproj": {
+                "projectPath": "C:\\ProyectoFinalGit\\Northwind\\Northwind.Application\\Northwind.Application.csproj"
+              },
+              "C:\\ProyectoFinalGit\\Northwind\\Northwind.loc\\Northwind.loc.csproj": {
+                "projectPath": "C:\\ProyectoFinalGit\\Northwind\\Northwind.loc\\Northwind.loc.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -39,6 +294,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.16, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -58,7 +319,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

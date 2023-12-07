@@ -164,8 +164,8 @@ namespace Northwind.Application.Services
                     CreationUser = dtoAdd.CreationUser,
                     Discount = dtoAdd.Discount,
                     ModifyDate = dtoAdd.ModifyDate,
-                    Quantity = dtoAdd.Quantity
-
+                    Quantity = dtoAdd.Quantity,
+                    OrderDetailsID = dtoAdd.OrderDetailsID
 
 
                 };

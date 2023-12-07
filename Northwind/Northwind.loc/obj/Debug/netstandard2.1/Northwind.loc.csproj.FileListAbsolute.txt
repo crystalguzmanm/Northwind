@@ -15,3 +15,4 @@ C:\ProyectoFinalGit\Northwind\Northwind.loc\obj\Debug\netstandard2.1\Northwind.l
 C:\ProyectoFinalGit\Northwind\Northwind.loc\obj\Debug\netstandard2.1\Northwind.loc.csproj.CopyComplete
 C:\ProyectoFinalGit\Northwind\Northwind.loc\obj\Debug\netstandard2.1\Northwind.loc.dll
 C:\ProyectoFinalGit\Northwind\Northwind.loc\obj\Debug\netstandard2.1\Northwind.loc.pdb
+C:\ProyectoFinalGit\Northwind\Northwind.loc\obj\Debug\netstandard2.1\Northwind.loc.sourcelink.json

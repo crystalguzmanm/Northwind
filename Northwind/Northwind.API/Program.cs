@@ -6,27 +6,17 @@ using Northwind.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 using Northwind.Infrastructure.Interfaces;
 using Northwind.loc.Dependencies;
+using Northwind.Application.Contracts;
+using Northwind.Application.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
-
-builder.Services.AddControllers();
-
-
-
-//Agregar dependencias del context //
+// Context //
 builder.Services.AddDbContext<NorthwindContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("NorthwindContext")));
-builder.Services.AddOrdersDependecy();//T
+builder.Services.AddOrdersDependecy();
 builder.Services.AddOrdersDetailsDependecy();
-//Dependecia de los repositorio//
-
-//builder.Services.AddTransient<IOrdersRepository, OrdersRepository>(); Ya esta en el loc
 
 
-
-//builder.Services.AddTransient<IOrdersDetailsRepository, OrdersDetailsRepository>(); In the Loc
 
 builder.Services.AddControllers();
 

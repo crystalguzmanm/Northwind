@@ -20,3 +20,4 @@ C:\ProyectoFinalGit\Northwind\Northwind.Infrastructure\bin\Debug\netstandard2.1\
 C:\ProyectoFinalGit\Northwind\Northwind.Infrastructure\bin\Debug\netstandard2.1\Northwind.Domain.dll
 C:\ProyectoFinalGit\Northwind\Northwind.Infrastructure\bin\Debug\netstandard2.1\Northwind.Domain.pdb
 C:\ProyectoFinalGit\Northwind\Northwind.Infrastructure\obj\Debug\netstandard2.1\Northwind.Infrastructure.csproj.CopyComplete
+C:\ProyectoFinalGit\Northwind\Northwind.Infrastructure\obj\Debug\netstandard2.1\Northwind.Infrastructure.sourcelink.json
