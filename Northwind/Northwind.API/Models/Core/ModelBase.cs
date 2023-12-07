@@ -6,5 +6,6 @@
         public DateTime ChangeDate { get; set; }
 
         public DateTime? ChangeModifyDate { get; set; }
+
     }
 }

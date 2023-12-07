@@ -9,4 +9,9 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.32" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Northwind.Application\Northwind.Application.csproj" />
+    <ProjectReference Include="..\Northwind.Infrastructure\Northwind.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

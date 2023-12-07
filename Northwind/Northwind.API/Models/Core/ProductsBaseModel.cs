@@ -7,5 +7,6 @@
         public DateTime? ModifyDate { get; set; }
         public int? SupplierID { get; set; }
         public int? CategoryID { get; set; }
+
     }
 }

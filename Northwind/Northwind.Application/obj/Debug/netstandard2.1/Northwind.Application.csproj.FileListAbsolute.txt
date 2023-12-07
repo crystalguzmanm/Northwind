@@ -16,3 +16,9 @@ C:\Users\LeonelHolguin\source\repos\Northwind\Northwind.Application\obj\Debug\ne
 C:\Users\LeonelHolguin\source\repos\Northwind\Northwind.Application\obj\Debug\netstandard2.1\Northwind.Application.csproj.CoreCompileInputs.cache
 C:\Users\LeonelHolguin\source\repos\Northwind\Northwind.Application\obj\Debug\netstandard2.1\Northwind.Application.dll
 C:\Users\LeonelHolguin\source\repos\Northwind\Northwind.Application\obj\Debug\netstandard2.1\Northwind.Application.pdb
+C:\ProyectoFinal-Grupo5\Northwind\Northwind\Northwind.Application\obj\Debug\netstandard2.1\Northwind.Application.csproj.AssemblyReference.cache
+C:\ProyectoFinal-Grupo5\Northwind\Northwind\Northwind.Application\bin\Debug\netstandard2.1\Northwind.Domain.dll
+C:\ProyectoFinal-Grupo5\Northwind\Northwind\Northwind.Application\bin\Debug\netstandard2.1\Northwind.Infrastructure.dll
+C:\ProyectoFinal-Grupo5\Northwind\Northwind\Northwind.Application\bin\Debug\netstandard2.1\Northwind.Domain.pdb
+C:\ProyectoFinal-Grupo5\Northwind\Northwind\Northwind.Application\bin\Debug\netstandard2.1\Northwind.Infrastructure.pdb
+C:\ProyectoFinal-Grupo5\Northwind\Northwind\Northwind.Application\obj\Debug\netstandard2.1\Northwind.Application.csproj.CopyComplete

@@ -1,0 +1,50 @@
+﻿@model Northwind.Web.Models.Response.ProductsViewResult
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Products</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ProductID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ProductName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ProductName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.QuantityPerUnit)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.QuantityPerUnit)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UnitPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UnitPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.UnitsInStock)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UnitsInStock)
+        </dd>
+        </dl>
+
+
+</div>
+<div>
+     @Html.ActionLink("Edit", "Edit", new { ProductID = Model.ProductID})
+    <a asp-action="Index">Back to List</a>
+</div>

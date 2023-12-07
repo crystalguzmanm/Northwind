@@ -36,6 +36,7 @@ namespace Northwind.API.Controllers
         {
             var products = this.productsRepository.GetEntities().Select(products => new ProductsGetAllModel()
             {
+                ProductID = products.ProductID,
                 ProductName = products.ProductName,
                 QuantityPerUnit = products.QuantityPerUnit,
                 UnitPrice = products.UnitPrice,
@@ -65,12 +66,15 @@ namespace Northwind.API.Controllers
         {
             Products products = new Products()
             {
-                CreationDate = productsAdd.ChangeDate,
-                CreationUser = productsAdd.ChangeUser,
+                CreationDate = productsAdd.CreationDate,
+                CreationUser = productsAdd.CreationUser,
                 ModifyDate = productsAdd.ChangeModifyDate,
-                
+                ProductName = productsAdd.ProductName,
+                QuantityPerUnit = productsAdd.QuantityPerUnit,
+                UnitPrice = productsAdd.UnitPrice,
+                UnitsInStock = productsAdd.UnitsInStock
 
-            };
+    };
 
             this.productsRepository.Save(products);
 
@@ -81,17 +85,13 @@ namespace Northwind.API.Controllers
         [HttpPut("UpdateProducts")]
         public IActionResult Put([FromBody] ProductsUpdateModel productsUpdate)
         {
-            Products products = new Products()
-            {
-                SupplierID = productsUpdate.SupplierID,
-                CategoryID = productsUpdate.CategoryID,
-                ModifyDate = productsUpdate.ModifyDate,
-                CreationUser = productsUpdate.CreationUser,
-                
-
-            };
-
-            this.productsRepository.Update(products);
+            var product = this.productsRepository.GetEntity(productsUpdate.ProductID);
+            product.ProductName = productsUpdate.ProductName;
+            product.UnitPrice = productsUpdate.UnitPrice;
+            product.QuantityPerUnit = productsUpdate.QuantityPerUnit;
+            product.UnitsInStock = productsUpdate.UnitsInStock;
+            
+            this.productsRepository.Update(product);
 
             return Ok();
         }

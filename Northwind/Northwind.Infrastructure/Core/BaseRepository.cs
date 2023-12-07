@@ -43,17 +43,20 @@ namespace Northwind.Infrastructure.Core
             public virtual void Remove(TEntity entity)
             {
                 this.entities.Remove(entity);
-            }
+                this.context.SaveChanges();
+        }
 
             public virtual void Save(TEntity entity)
             {
                 this.entities.Add(entity);
-            }
+                this.context.SaveChanges();
+        }
 
 
             public virtual void Update(TEntity entity)
             {
                 this.entities.Update(entity);
+                this.context.SaveChanges();
             }
         }
 

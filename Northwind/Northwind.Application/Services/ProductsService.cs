@@ -30,7 +30,7 @@ namespace Northwind.Application.Services
             ServicesResult result = new ServicesResult();
             try
             {
-                result.Data = this.productsRepository.GetAllProducts();
+                result.Data = this.productsRepository.GetEntities();
 
 
             }
@@ -49,7 +49,7 @@ namespace Northwind.Application.Services
 
             try
             {
-                result.Data = this.productsRepository.GetProductsSupplier(Id);
+                result.Data = this.productsRepository.GetProductsBySupplierID(Id);
 
             }
 
@@ -123,9 +123,11 @@ namespace Northwind.Application.Services
 
                 Products products = new Products()
                 {
-                    CreationDate = dtoAdd.CreationDate,
-                    CreationUser = dtoAdd.CreationUser,
-                    ModifyDate = dtoAdd.ModifyDate
+                    ProductID = dtoAdd.ProductID,
+                    ProductName = dtoAdd.ProductName,
+                    QuantityPerUnit = dtoAdd.QuantityPerUnit,
+                    UnitPrice = dtoAdd.UnitPrice,
+                    UnitsInStock = dtoAdd.UnitsInStock
 
 
 
@@ -169,8 +171,10 @@ namespace Northwind.Application.Services
                 Products products = new Products()
                 {
                     ProductID = dtoUpdate.ProductID,
-                    CreationDate = dtoUpdate.CreationDate,
-                    ModifyDate = dtoUpdate.ModifyDate
+                    ProductName = dtoUpdate.ProductName,
+                    QuantityPerUnit = dtoUpdate.QuantityPerUnit,
+                    UnitPrice = dtoUpdate.UnitPrice,
+                    UnitsInStock = dtoUpdate.UnitsInStock
 
 
 
