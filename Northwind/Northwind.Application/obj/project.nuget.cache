@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "nlFJQFb/4JU9dTUEqz9eerqMqYvcDzp8rmUm/919NjgdXAJeGJzeeLTnAlLDvt8FDm0PUimdTE5zQNt6R8WinQ==",
+  "dgSpecHash": "gZAo5m92t+NWHUJDcdF1fGjltZjZSUe3bVM49L8P4Q8k/hV65bnPdvFCqxnXgoyWPKR+KTNB/godU00VGvSgIA==",
   "success": true,
   "projectFilePath": "C:\\PJRFinal\\Northwind\\Northwind.Application\\Northwind.Application.csproj",
   "expectedPackageFiles": [
@@ -58,7 +58,7 @@
     "C:\\Users\\ASUS\\.nuget\\packages\\system.collections.nongeneric\\4.3.0\\system.collections.nongeneric.4.3.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\system.collections.specialized\\4.3.0\\system.collections.specialized.4.3.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\system.componentmodel\\4.3.0\\system.componentmodel.4.3.0.nupkg.sha512",
-    "C:\\Users\\ASUS\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512",
+    "C:\\Users\\ASUS\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\system.componentmodel.primitives\\4.3.0\\system.componentmodel.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\system.componentmodel.typeconverter\\4.3.0\\system.componentmodel.typeconverter.4.3.0.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\system.configuration.configurationmanager\\4.5.0\\system.configuration.configurationmanager.4.5.0.nupkg.sha512",

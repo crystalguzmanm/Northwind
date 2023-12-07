@@ -6,9 +6,7 @@ namespace Northwind.Application.DTOs.Customers
 {
     public abstract class CustomersDtoBase : DtoBase
     {
-        private string? companyName;
-        private string? contactName;
-        private string? phone;
+        
         private readonly IConfiguration configuration;
 
         public CustomersDtoBase(IConfiguration configuration)
